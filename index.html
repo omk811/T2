@@ -251,17 +251,15 @@ body{font-family:'Tajawal',sans-serif;background:#eef2f7;min-height:100vh;direct
     </div>
     <div id="tieQArea" style="display:none">
       <div class="sentence-box" id="tieSentence"></div>
-      <p style="font-size:.88rem;color:#555;margin-bottom:8px;font-weight:600">📝 أعرب الجملة كاملةً على السبورة:</p>
-      <table class="ir-table">
-        <thead><tr><th>الكلمة</th><th>الإعراب</th></tr></thead>
-        <tbody id="tieTBody"></tbody>
-      </table>
+      <p style="font-size:.88rem;color:#e74c3c;margin-bottom:12px;font-weight:700;text-align:center">
+        🖊️ اكتب إعراب الجملة كاملاً على السبورة، ثم اضغط عرض الإجابة للتصحيح
+      </p>
       <div class="ct">
         <button class="tie-ans-btn" id="tieAnsBtn" onclick="showTieAns()">👁 عرض الإجابة النموذجية</button>
       </div>
       <div id="tieAnsArea" style="display:none;margin-top:12px"></div>
-      <div class="ct" style="margin-top:14px" id="tieJudgeDiv" style="display:none">
-        <p style="font-size:.9rem;color:#1a3a5c;font-weight:700;margin-bottom:10px">🎓 هل أجابت المجموعة بشكل صحيح؟</p>
+      <div class="ct" style="margin-top:14px;display:none" id="tieJudgeDiv">
+        <p style="font-size:.9rem;color:#1a3a5c;font-weight:700;margin-bottom:10px">🎓 هل أعربت المجموعة بشكل صحيح؟</p>
         <button class="bp" style="margin-left:8px" onclick="tieJudge(true)">✅ نعم، أعربت صحيحاً</button>
         <button class="bs" onclick="tieJudge(false)">❌ لا، سحب مجموعة أخرى</button>
       </div>
@@ -828,29 +826,28 @@ function showTieGroup(g){
   res.style.display='block';
   res.style.background=C[g-1];
   res.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1]+' 📝 ستُعرب الجملة';
-  // show question
   setTimeout(function(){
     document.getElementById('tieSpinArea').style.display='none';
     document.getElementById('tieQArea').style.display='block';
     document.getElementById('tieSentence').textContent=curTieQ.sentence;
-    var tbody=document.getElementById('tieTBody');
-    tbody.innerHTML='';
+    // بناء جدول الإعراب مخفياً داخل tieAnsArea فقط
+    var rows='<table class="ir-table"><thead><tr><th>الكلمة</th><th>الإعراب</th></tr></thead><tbody>';
     for(var ri=0;ri<curTieQ.rows.length;ri++){
-      var tr=document.createElement('tr');
-      tr.innerHTML='<td style="font-weight:700;font-size:.95rem">'+curTieQ.rows[ri][0]+'</td>'+
-        '<td style="direction:rtl;text-align:right">'+curTieQ.rows[ri][1]+'</td>';
-      tbody.appendChild(tr);
+      rows+='<tr><td style="font-weight:700;font-size:.95rem">'+curTieQ.rows[ri][0]+'</td>'+
+        '<td style="direction:rtl;text-align:right">'+curTieQ.rows[ri][1]+'</td></tr>';
     }
+    rows+='</tbody></table>';
+    document.getElementById('tieAnsArea').innerHTML=rows;
+    document.getElementById('tieAnsArea').style.display='none';  // مخفي حتى الضغط
     document.getElementById('tieAnsBtn').style.display='inline-block';
-    document.getElementById('tieAnsArea').style.display='none';
-    document.getElementById('tieJudgeDiv').style.display='block';
+    document.getElementById('tieJudgeDiv').style.display='none';  // مخفي حتى عرض الإجابة
   },1200);
 }
 
 function showTieAns(){
-  var area=document.getElementById('tieAnsArea');
-  area.style.display='block';
+  document.getElementById('tieAnsArea').style.display='block';
   document.getElementById('tieAnsBtn').style.display='none';
+  document.getElementById('tieJudgeDiv').style.display='block';  // يظهر بعد الإجابة
 }
 
 function tieJudge(correct){
