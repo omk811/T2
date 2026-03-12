@@ -7,164 +7,211 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Tajawal', sans-serif; background: #f0f4f8; min-height: 100vh; direction: rtl; }
+body { font-family: 'Tajawal', sans-serif; background: #eef2f7; min-height: 100vh; direction: rtl; }
 
-.header {
-  background: linear-gradient(135deg, #1a3a5c 0%, #2471a3 60%, #1abc9c 100%);
-  color: white; padding: 28px 20px 20px; text-align: center;
+/* ── HEADER ── */
+.hdr {
+  background: linear-gradient(135deg,#1a3a5c,#2471a3 55%,#1abc9c);
+  color: white; padding: 22px 20px 16px; text-align: center;
 }
-.header h1 { font-family: 'Cairo', sans-serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 4px; }
-.header p  { font-size: 0.95rem; opacity: 0.88; }
-.badge-row { display: flex; justify-content: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-.badge { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
+.hdr h1 { font-family:'Cairo',sans-serif; font-size:1.7rem; font-weight:900; margin-bottom:3px; }
+.hdr p  { font-size:.9rem; opacity:.88; }
+.badges { display:flex; justify-content:center; gap:7px; margin-top:9px; flex-wrap:wrap; }
+.bdg { background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); padding:3px 11px; border-radius:20px; font-size:.78rem; }
 
-.screen { display: none; padding: 20px 16px; max-width: 860px; margin: 0 auto; }
-.screen.active { display: block; }
+/* ── SCREENS ── */
+.scr { display:none; padding:18px 14px; max-width:880px; margin:0 auto; }
+.scr.on { display:block; }
 
-.rule-box { background: #fffbf0; border: 2px solid #e8a020; border-radius: 16px; padding: 18px; margin-bottom: 20px; }
-.rule-box h3 { color: #1a3a5c; font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; }
-.rule-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
-.rule-item { background: #1a3a5c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.88rem; }
-.rule-item span { display: block; font-size: 1.05rem; font-weight: 800; color: #e8a020; margin-bottom: 2px; }
-.rule-note { background: #e8f4fd; border-radius: 10px; padding: 12px 14px; font-size: 0.88rem; line-height: 1.8; }
+/* ── RULE BOX ── */
+.rbox { background:#fffbf0; border:2px solid #e8a020; border-radius:14px; padding:16px; margin-bottom:18px; }
+.rbox h3 { color:#1a3a5c; font-size:1rem; font-weight:800; margin-bottom:10px; }
+.rgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:12px; }
+.ri { background:#1a3a5c; color:white; padding:9px; border-radius:9px; text-align:center; font-size:.86rem; }
+.ri span { display:block; font-size:1rem; font-weight:800; color:#e8a020; margin-bottom:2px; }
+.rnote { background:#e8f4fd; border-radius:9px; padding:11px 13px; font-size:.85rem; line-height:1.8; }
+.tbl { width:100%; border-collapse:collapse; margin-top:11px; font-size:.84rem; }
+.tbl th { background:#1a3a5c; color:#e8a020; padding:7px 9px; text-align:center; border:1px solid #1a3a5c; }
+.tbl td { padding:7px 9px; text-align:center; border:1px solid #dde3ec; background:#fff; }
+.tbl tr:nth-child(even) td { background:#f5f8ff; }
 
-.tbl { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.86rem; }
-.tbl th { background: #1a3a5c; color: #e8a020; padding: 8px 10px; text-align: center; border: 1px solid #1a3a5c; }
-.tbl td { padding: 8px 10px; text-align: center; border: 1px solid #dde3ec; background: #fff; }
-.tbl tr:nth-child(even) td { background: #f5f8ff; }
+/* ── SETUP ── */
+.sbox { background:white; border-radius:14px; padding:18px; box-shadow:0 3px 18px rgba(0,0,0,.08); margin-bottom:18px; }
+.sbox h3 { color:#1a3a5c; font-weight:800; margin-bottom:12px; font-size:1rem; }
+.rl { display:flex; align-items:center; gap:9px; margin-bottom:14px; flex-wrap:wrap; }
+.rl label { font-weight:700; color:#1a3a5c; }
+.ni { width:76px; border:2px solid #1a3a5c; border-radius:7px; padding:6px 9px; font-family:'Tajawal',sans-serif; font-size:.95rem; font-weight:700; text-align:center; }
+.lgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:9px; }
+.lcard { display:flex; flex-direction:column; align-items:center; gap:5px; }
+.llbl { font-size:.78rem; font-weight:700; padding:3px 11px; border-radius:20px; color:white; }
+.linp { border:2px solid #d0d7e3; border-radius:7px; padding:7px 9px; font-family:'Tajawal',sans-serif; font-size:.88rem; text-align:center; width:100%; direction:rtl; }
+.linp:focus { outline:none; border-color:#e8a020; }
 
-.setup-box { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
-.setup-box h3 { color: #1a3a5c; font-weight: 800; margin-bottom: 14px; font-size: 1.05rem; }
-.row-lbl { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
-.row-lbl label { font-weight: 700; color: #1a3a5c; }
-.num-inp { width: 80px; border: 2px solid #1a3a5c; border-radius: 8px; padding: 7px 10px; font-family: 'Tajawal',sans-serif; font-size: 1rem; font-weight: 700; text-align: center; }
-.leaders-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 10px; }
-.leader-card { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.leader-lbl { font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; color: white; }
-.leader-inp { border: 2px solid #d0d7e3; border-radius: 8px; padding: 8px 10px; font-family: 'Tajawal',sans-serif; font-size: 0.9rem; text-align: center; width: 100%; direction: rtl; }
-.leader-inp:focus { outline: none; border-color: #e8a020; }
+/* ── BUTTONS ── */
+.bp { display:inline-block; padding:12px 32px; border:none; border-radius:11px; font-family:'Cairo',sans-serif; font-size:.95rem; font-weight:700; cursor:pointer; background:linear-gradient(135deg,#1a3a5c,#2471a3); color:white; box-shadow:0 4px 14px rgba(26,58,92,.28); transition:transform .18s; }
+.bp:hover { transform:translateY(-2px); }
+.bs { display:inline-block; padding:9px 22px; border:none; border-radius:9px; font-family:'Cairo',sans-serif; font-size:.88rem; font-weight:700; cursor:pointer; background:#e8ecf0; color:#555; margin-top:7px; }
+.bg { background:linear-gradient(135deg,#27ae60,#1abc9c); color:white; display:inline-block; padding:11px 28px; border:none; border-radius:11px; font-family:'Cairo',sans-serif; font-size:.9rem; font-weight:700; cursor:pointer; }
+.ct { text-align:center; margin-top:16px; }
 
-.btn-primary { display: inline-block; padding: 13px 36px; border: none; border-radius: 12px; font-family: 'Cairo',sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; background: linear-gradient(135deg,#1a3a5c,#2471a3); color: white; box-shadow: 0 4px 16px rgba(26,58,92,0.3); transition: transform 0.2s; }
-.btn-primary:hover { transform: translateY(-2px); }
-.btn-secondary { display: inline-block; padding: 10px 24px; border: none; border-radius: 10px; font-family: 'Cairo',sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; background: #ecf0f1; color: #555; margin-top: 8px; }
-.btn-green { background: linear-gradient(135deg,#27ae60,#1abc9c); color: white; display: inline-block; padding: 12px 30px; border: none; border-radius: 12px; font-family: 'Cairo',sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
-.center { text-align: center; margin-top: 18px; }
+/* ── GROUPS DISPLAY ── */
+.ggrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:12px; margin-bottom:20px; }
+.gc { border-radius:12px; padding:14px; box-shadow:0 3px 14px rgba(0,0,0,.09); }
+.gc h4 { font-size:.95rem; font-weight:900; margin-bottom:6px; }
+.gc .ln { font-size:.88rem; font-weight:600; }
 
-.groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 14px; margin-bottom: 22px; }
-.gcard { border-radius: 14px; padding: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-.gcard h4 { font-size: 1rem; font-weight: 900; margin-bottom: 8px; }
-.gcard .lname { font-size: 0.9rem; font-weight: 600; }
+/* ── SCOREBOARD (always visible on s3) ── */
+.scoreboard {
+  background:white; border-radius:14px; padding:14px 16px;
+  box-shadow:0 4px 20px rgba(0,0,0,.1); margin-bottom:18px;
+  position:sticky; top:0; z-index:100;
+}
+.scoreboard h3 { color:#1a3a5c; font-size:.95rem; font-weight:800; margin-bottom:10px; text-align:center; }
+.sb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); gap:8px; }
+.sb-card {
+  border-radius:10px; padding:8px 6px; text-align:center;
+  border:2px solid transparent; transition:all .3s;
+}
+.sb-card.active-grp { border-color:#e8a020; box-shadow:0 0 0 3px rgba(232,160,32,.2); transform:scale(1.05); }
+.sb-icon { font-size:1.4rem; line-height:1; }
+.sb-name { font-size:.72rem; font-weight:700; margin:2px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sb-score { font-size:1.5rem; font-weight:900; line-height:1; }
+.sb-pts { font-size:.68rem; color:#888; }
 
-@keyframes popIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes slideIn { from{transform:translateX(16px);opacity:0;} to{transform:translateX(0);opacity:1;} }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.picker-area { text-align: center; padding: 10px 0 20px; }
+/* ── PICKER ── */
+.picker { text-align:center; padding:8px 0 18px; }
+.spin-wrap { position:relative; display:inline-block; margin-bottom:16px; }
 .spin-btn {
-  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
-  width: 190px; height: 190px; border-radius: 50%;
-  background: linear-gradient(135deg, #1a3a5c, #2471a3);
-  box-shadow: 0 8px 40px rgba(26,58,92,0.4);
-  cursor: pointer; border: none; color: white; margin-bottom: 18px;
-  transition: transform 0.2s;
+  display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+  width:180px; height:180px; border-radius:50%;
+  background:linear-gradient(135deg,#1a3a5c,#2471a3);
+  box-shadow:0 8px 36px rgba(26,58,92,.38);
+  cursor:pointer; border:none; color:white;
+  transition:transform .2s;
 }
-.spin-btn:hover:not(:disabled) { transform: scale(1.04); }
-.spin-btn:disabled { opacity: 0.7; cursor: not-allowed; }
-.spin-icon { font-size: 3rem; line-height: 1; display: block; }
-.spin-label { font-size: 0.88rem; font-weight: 700; margin-top: 6px; opacity: 0.9; font-family: 'Tajawal',sans-serif; }
+.spin-btn:hover:not(:disabled) { transform:scale(1.05); }
+.spin-btn:disabled { opacity:.65; cursor:not-allowed; }
+.spi { font-size:2.8rem; display:block; line-height:1; }
+.spl { font-size:.84rem; font-weight:700; margin-top:5px; font-family:'Tajawal',sans-serif; opacity:.9; }
+.spin-ring {
+  position:absolute; inset:-8px; border-radius:50%;
+  border:4px solid rgba(232,160,32,.0);
+  transition:border-color .2s;
+}
+.spinning .spin-ring { border-color:#e8a020; animation:spinRing .6s linear infinite; }
+@keyframes spinRing { to { transform:rotate(360deg); } }
 
-.result-banner { display: none; margin-bottom: 16px; }
-.result-card { display: inline-block; padding: 14px 36px; border-radius: 18px; color: white; font-size: 1.2rem; font-weight: 900; box-shadow: 0 6px 24px rgba(0,0,0,0.18); animation: popIn 0.35s ease; }
+.res-banner { display:none; margin-bottom:14px; }
+.res-card { display:inline-block; padding:12px 32px; border-radius:16px; color:white; font-size:1.15rem; font-weight:900; box-shadow:0 5px 20px rgba(0,0,0,.16); }
+@keyframes popIn { from{transform:scale(.82);opacity:0;} to{transform:scale(1);opacity:1;} }
 
-.pills-label { font-size: 0.85rem; color: #666; font-weight: 600; margin-bottom: 8px; }
-.pills-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 16px; }
-.pill { padding: 5px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 700; color: white; }
-.pill.done { background: #ecf0f1 !important; color: #aaa !important; text-decoration: line-through; }
+.pills-lbl { font-size:.82rem; color:#666; font-weight:600; margin-bottom:7px; }
+.pills { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin-bottom:14px; }
+.pill { padding:4px 13px; border-radius:20px; font-size:.8rem; font-weight:700; color:white; }
+.pill.done { background:#e8ecf0 !important; color:#aaa !important; text-decoration:line-through; }
+.alldone { display:none; background:linear-gradient(135deg,#27ae60,#1abc9c); color:white; border-radius:13px; padding:16px; font-size:1rem; font-weight:800; margin-bottom:14px; text-align:center; }
 
-.all-done { display: none; background: linear-gradient(135deg,#27ae60,#1abc9c); color: white; border-radius: 14px; padding: 18px; font-size: 1.05rem; font-weight: 800; margin-bottom: 16px; text-align: center; }
+/* ── QUESTION CARD ── */
+.qa { display:none; }
+.qhdr { border-radius:12px; padding:14px 16px; margin-bottom:14px; display:flex; align-items:center; gap:12px; color:white; }
+.qhdr .qi { font-size:2rem; line-height:1; }
+.qhdr h3 { font-size:1.05rem; font-weight:900; }
+.qhdr p  { font-size:.83rem; opacity:.9; }
 
-.q-area { display: none; }
-.q-header { border-radius: 14px; padding: 16px 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 14px; color: white; }
-.q-header .qh-icon { font-size: 2.2rem; line-height: 1; }
-.q-header h3 { font-size: 1.1rem; font-weight: 900; }
-.q-header p  { font-size: 0.85rem; opacity: 0.9; }
+.qcard { background:white; border-radius:12px; padding:17px; margin-bottom:13px; box-shadow:0 3px 13px rgba(0,0,0,.07); border-right:5px solid; animation:popIn .3s ease; }
+.qtop { display:flex; align-items:flex-start; gap:8px; margin-bottom:11px; }
+.qn { display:inline-flex; align-items:center; justify-content:center; min-width:24px; height:24px; border-radius:50%; color:white; font-size:.78rem; font-weight:700; flex-shrink:0; margin-top:3px; }
+.qt { font-size:.95rem; font-weight:600; color:#1a3a5c; line-height:1.7; }
+.hl { background:#fef9c3; padding:1px 5px; border-radius:4px; font-weight:700; color:#92400e; }
 
-.score-card { background: white; border-radius: 12px; padding: 14px; box-shadow: 0 3px 12px rgba(0,0,0,0.07); text-align: center; margin-bottom: 14px; }
-.score-num { font-size: 2.6rem; font-weight: 900; color: #1a3a5c; line-height: 1; }
-.score-lbl { color: #888; font-size: 0.85rem; margin-top: 2px; }
-.prog-bar { background: #ecf0f1; border-radius: 20px; height: 12px; overflow: hidden; margin: 10px 0 0; }
-.prog-fill { height: 100%; border-radius: 20px; background: linear-gradient(90deg,#16a085,#e8a020); transition: width 0.5s ease; }
+.opts { display:flex; flex-direction:column; gap:6px; }
+.ob { background:#f5f7fa; border:2px solid #dde3ec; border-radius:8px; padding:8px 13px; text-align:right; font-family:'Tajawal',sans-serif; font-size:.9rem; cursor:pointer; display:flex; align-items:center; gap:7px; transition:all .16s; width:100%; }
+.ob:hover:not([disabled]) { border-color:#e8a020; background:#fffbf0; }
+.ob.ok  { background:#d5f5e3 !important; border-color:#27ae60 !important; color:#1e6b3a; }
+.ob.no  { background:#fde8e8 !important; border-color:#c0392b !important; color:#922b21; }
+.ol { min-width:24px; height:24px; border-radius:50%; background:#1a3a5c; color:white; font-size:.76rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.fb { margin-top:8px; padding:7px 11px; border-radius:7px; font-weight:700; font-size:.86rem; display:none; }
+.fb.ok  { display:block; background:#d5f5e3; color:#1e6b3a; }
+.fb.no  { display:block; background:#fde8e8; color:#922b21; }
 
-.qcard { background: white; border-radius: 12px; padding: 18px; margin-bottom: 14px; box-shadow: 0 3px 14px rgba(0,0,0,0.07); border-right: 5px solid; animation: slideIn 0.3s ease; }
-.qcard-top { display: flex; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
-.qcard-num { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 50%; color: white; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-.qcard-text { font-size: 0.97rem; font-weight: 600; color: #1a3a5c; line-height: 1.7; }
-.hl { background: #fef9c3; padding: 1px 5px; border-radius: 4px; font-weight: 700; color: #92400e; }
+.ans-area { background:#f8faff; border:1.5px dashed #c5cfe8; border-radius:9px; padding:13px; }
+.tgb { background:none; border:1.5px solid currentColor; border-radius:6px; padding:4px 11px; font-family:'Tajawal',sans-serif; font-size:.81rem; font-weight:600; cursor:pointer; }
+.abody { display:none; margin-top:9px; }
+.abody.on { display:block; }
+.abrow { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:7px; }
+.ab { padding:3px 11px; border-radius:6px; font-size:.81rem; font-weight:700; }
+.abh { background:#1a3a5c; color:white; }
+.abi { background:#27ae60; color:white; }
+.abk { background:#c0392b; color:white; }
+.abir { background:#f0f4f8; border:1px solid #d0d7e3; padding:8px 11px; border-radius:8px; font-size:.82rem; line-height:1.7; }
 
-.options { display: flex; flex-direction: column; gap: 7px; }
-.opt-btn { background: #f5f7fa; border: 2px solid #dde3ec; border-radius: 9px; padding: 9px 14px; text-align: right; font-family: 'Tajawal',sans-serif; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.18s; width: 100%; }
-.opt-btn:hover:not([disabled]) { border-color: #e8a020; background: #fffbf0; }
-.opt-btn.correct { background: #d5f5e3 !important; border-color: #27ae60 !important; color: #1e6b3a; }
-.opt-btn.wrong   { background: #fde8e8 !important; border-color: #c0392b !important; color: #922b21; }
-.opt-letter { min-width: 26px; height: 26px; border-radius: 50%; background: #1a3a5c; color: white; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.fb { margin-top: 8px; padding: 8px 12px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; display: none; }
-.fb.ok  { display: block; background: #d5f5e3; color: #1e6b3a; }
-.fb.err { display: block; background: #fde8e8; color: #922b21; }
+.fillrow { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:9px; font-size:.92rem; line-height:2; }
+.fi { border:2px solid #b0bcd0; border-radius:6px; padding:4px 9px; font-family:'Tajawal',sans-serif; font-size:.9rem; width:105px; text-align:center; direction:rtl; }
+.fi:focus { outline:none; border-color:#e8a020; }
+.fi.ok { border-color:#27ae60 !important; background:#d5f5e3; }
+.fi.no { border-color:#c0392b !important; background:#fde8e8; }
+.ckb { background:#1a3a5c; color:white; border:none; border-radius:6px; padding:6px 14px; font-family:'Tajawal',sans-serif; font-size:.86rem; cursor:pointer; }
 
-.ans-area { background: #f8faff; border: 1.5px dashed #c5cfe8; border-radius: 10px; padding: 14px; }
-.toggle-btn { background: none; border: 1.5px solid currentColor; border-radius: 7px; padding: 5px 12px; font-family: 'Tajawal',sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; margin-bottom: 0; }
-.ans-body { display: none; margin-top: 10px; }
-.ans-body.show { display: block; }
-.badges-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 8px; }
-.a-badge { padding: 4px 12px; border-radius: 7px; font-size: 0.83rem; font-weight: 700; }
-.ab-h { background: #1a3a5c; color: white; }
-.ab-i { background: #27ae60; color: white; }
-.ab-k { background: #c0392b; color: white; }
-.ab-ir { background: #f0f4f8; border: 1px solid #d0d7e3; padding: 9px 12px; border-radius: 9px; font-size: 0.84rem; line-height: 1.7; }
+/* ── TIEBREAKER ── */
+.tie-overlay {
+  position:fixed; inset:0; background:rgba(26,58,92,.88); z-index:200;
+  display:none; align-items:center; justify-content:center; padding:20px;
+}
+.tie-overlay.on { display:flex; }
+.tie-box { background:white; border-radius:18px; padding:24px; max-width:520px; width:100%; box-shadow:0 12px 40px rgba(0,0,0,.3); animation:popIn .35s ease; }
+.tie-box h2 { color:#1a3a5c; font-size:1.2rem; font-weight:900; margin-bottom:6px; text-align:center; }
+.tie-box .sub { color:#666; font-size:.88rem; text-align:center; margin-bottom:16px; }
 
-.fill-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; font-size: 0.95rem; line-height: 2; }
-.fill-inp { border: 2px solid #b0bcd0; border-radius: 7px; padding: 5px 10px; font-family: 'Tajawal',sans-serif; font-size: 0.92rem; width: 110px; text-align: center; direction: rtl; }
-.fill-inp:focus { outline: none; border-color: #e8a020; }
-.fill-inp.correct { border-color: #27ae60 !important; background: #d5f5e3; }
-.fill-inp.wrong   { border-color: #c0392b !important; background: #fde8e8; }
-.check-btn { background: #1a3a5c; color: white; border: none; border-radius: 7px; padding: 7px 16px; font-family: 'Tajawal',sans-serif; font-size: 0.88rem; cursor: pointer; }
+/* ── WINNER OVERLAY ── */
+.win-overlay {
+  position:fixed; inset:0; background:rgba(26,58,92,.92); z-index:300;
+  display:none; align-items:center; justify-content:center; padding:20px;
+  flex-direction:column; text-align:center;
+}
+.win-overlay.on { display:flex; }
+.win-box { color:white; }
+.win-icon { font-size:5rem; animation:bounce 1s ease infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+.win-title { font-size:1.6rem; font-weight:900; margin:12px 0 6px; font-family:'Cairo',sans-serif; }
+.win-name  { font-size:1.2rem; font-weight:700; opacity:.9; }
+.confetti  { font-size:2.5rem; letter-spacing:8px; margin-top:10px; }
 
-@media(max-width:560px) {
-  .rule-grid { grid-template-columns: repeat(2,1fr); }
-  .groups-grid { grid-template-columns: 1fr 1fr; }
-  .header h1 { font-size: 1.3rem; }
+@media(max-width:540px){
+  .rgrid { grid-template-columns:repeat(2,1fr); }
+  .ggrid { grid-template-columns:1fr 1fr; }
+  .sb-grid { grid-template-columns:repeat(auto-fill,minmax(80px,1fr)); }
+  .hdr h1 { font-size:1.3rem; }
 }
 </style>
 </head>
 <body>
 
-<div class="header">
+<!-- HEADER -->
+<div class="hdr">
   <h1>🎯 نشاط إعراب إنّ وأخواتها</h1>
   <p>الصف الخامس الأساسي – مادة لغتي الجميلة</p>
-  <div class="badge-row">
-    <span class="badge">📚 المحور الخامس: رياضتي وصحتي</span>
-    <span class="badge">👥 تعلّم تعاوني</span>
-    <span class="badge">👑 رؤساء المجموعات</span>
+  <div class="badges">
+    <span class="bdg">📚 المحور الخامس: رياضتي وصحتي</span>
+    <span class="bdg">👥 تعلّم تعاوني</span>
+    <span class="bdg">🏆 لوحة النقاط الحية</span>
   </div>
 </div>
 
 <!-- ══ SCREEN 1: SETUP ══ -->
-<div id="s1" class="screen active">
-  <div class="rule-box">
+<div id="s1" class="scr on">
+  <div class="rbox">
     <h3>📖 تذكير سريع: إنّ وأخواتها</h3>
-    <div class="rule-grid">
-      <div class="rule-item"><span>إنَّ</span>للتوكيد</div>
-      <div class="rule-item"><span>أنَّ</span>للتوكيد</div>
-      <div class="rule-item"><span>كأنَّ</span>للتشبيه</div>
-      <div class="rule-item"><span>لكنَّ</span>للاستدراك</div>
-      <div class="rule-item"><span>ليتَ</span>للتمني</div>
-      <div class="rule-item"><span>لعلَّ</span>للترجي</div>
+    <div class="rgrid">
+      <div class="ri"><span>إنَّ</span>للتوكيد</div>
+      <div class="ri"><span>أنَّ</span>للتوكيد</div>
+      <div class="ri"><span>كأنَّ</span>للتشبيه</div>
+      <div class="ri"><span>لكنَّ</span>للاستدراك</div>
+      <div class="ri"><span>ليتَ</span>للتمني</div>
+      <div class="ri"><span>لعلَّ</span>للترجي</div>
     </div>
     <table class="tbl">
       <thead>
-        <tr>
-          <th>الحرف الناسخ</th><th>الاسم (منصوب)</th><th>الخبر (مرفوع)</th><th>مثال</th>
-        </tr>
+        <tr><th>الحرف الناسخ</th><th>الاسم (منصوب)</th><th>الخبر (مرفوع)</th><th>مثال</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -187,392 +234,606 @@ body { font-family: 'Tajawal', sans-serif; background: #f0f4f8; min-height: 100v
         </tr>
       </tbody>
     </table>
-    <div class="rule-note" style="margin-top:12px">
+    <div class="rnote" style="margin-top:11px">
       <b>📌 قاعدة الإعراب:</b><br>
       • <b>اسم إنَّ:</b> منصوب، وعلامة نصبه الفتحة الظاهرة على آخره<br>
       • <b>خبر إنَّ:</b> مرفوع، وعلامة رفعه الضمة الظاهرة على آخره
     </div>
   </div>
 
-  <div class="setup-box">
+  <div class="sbox">
     <h3>⚙️ إعداد النشاط</h3>
-    <div class="row-lbl">
+    <div class="rl">
       <label>عدد المجموعات:</label>
-      <input type="number" class="num-inp" id="numGrp" value="7" min="3" max="7" onchange="buildLeaders()">
+      <input type="number" class="ni" id="numGrp" value="7" min="2" max="7" onchange="buildLeaders()">
     </div>
-    <p style="color:#666;font-size:0.85rem;margin-bottom:10px">👑 أدخل اسم رئيس كل مجموعة:</p>
-    <div class="leaders-grid" id="leadersGrid"></div>
+    <p style="color:#666;font-size:.83rem;margin-bottom:9px">👑 أدخل اسم رئيس كل مجموعة:</p>
+    <div class="lgrid" id="lgrid"></div>
   </div>
-
-  <div class="center">
-    <button class="btn-primary" onclick="goToGroups()">▶ ابدأ النشاط</button>
+  <div class="ct">
+    <button class="bp" onclick="goGroups()">▶ ابدأ النشاط</button>
   </div>
 </div>
 
 <!-- ══ SCREEN 2: GROUPS ══ -->
-<div id="s2" class="screen">
-  <h2 style="color:#1a3a5c;font-size:1.2rem;font-weight:900;margin-bottom:16px;text-align:center">🎊 المجموعات ورؤساؤها</h2>
-  <div class="groups-grid" id="groupsGrid"></div>
-  <div class="center">
-    <button class="btn-primary" onclick="goToPicker()">🎲 ابدأ السحب العشوائي</button><br>
-    <button class="btn-secondary" onclick="showScreen('s1')">↩️ تعديل الأسماء</button>
+<div id="s2" class="scr">
+  <h2 style="color:#1a3a5c;font-size:1.15rem;font-weight:900;margin-bottom:14px;text-align:center">🎊 المجموعات ورؤساؤها</h2>
+  <div class="ggrid" id="ggrid"></div>
+  <div class="ct">
+    <button class="bp" onclick="goPicker()">🎲 ابدأ السحب العشوائي</button><br>
+    <button class="bs" onclick="go('s1')">↩️ تعديل الأسماء</button>
   </div>
 </div>
 
-<!-- ══ SCREEN 3: PICKER + QUESTIONS ══ -->
-<div id="s3" class="screen">
-  <div class="picker-area">
-    <button class="spin-btn" id="spinBtn" onclick="pickGroup()">
-      <span class="spin-icon" id="spinIcon">🎲</span>
-      <span class="spin-label">اضغط للسحب</span>
-    </button>
+<!-- ══ SCREEN 3: PICKER + QUESTION ══ -->
+<div id="s3" class="scr">
 
-    <div class="result-banner" id="resultBanner">
-      <div class="result-card" id="resultCard"></div>
-    </div>
-
-    <div class="pills-label">المجموعات المتبقية:</div>
-    <div class="pills-row" id="pillsRow"></div>
-    <div class="all-done" id="allDone">🎉 انتهت جميع المجموعات! أحسنتم جميعاً!</div>
+  <!-- LIVE SCOREBOARD -->
+  <div class="scoreboard">
+    <h3>🏆 لوحة النقاط</h3>
+    <div class="sb-grid" id="sbGrid"></div>
   </div>
 
-  <div class="q-area" id="qArea">
+  <!-- PICKER -->
+  <div class="picker" id="pickerDiv">
+    <div class="spin-wrap" id="spinWrap">
+      <button class="spin-btn" id="spinBtn" onclick="pickGroup()">
+        <span class="spi" id="spi">🎲</span>
+        <span class="spl">اضغط للسحب</span>
+      </button>
+      <div class="spin-ring" id="spinRing"></div>
+    </div>
+
+    <div class="res-banner" id="resBanner">
+      <div class="res-card" id="resCard" style="animation:popIn .35s ease"></div>
+    </div>
+
+    <div class="pills-lbl">المجموعات المتبقية:</div>
+    <div class="pills" id="pillsDiv"></div>
+    <div class="alldone" id="allDone">🎉 انتهت جميع المجموعات!</div>
+
+    <!-- Finish button (shows when all done) -->
+    <div id="finishDiv" style="display:none;margin-top:10px">
+      <button class="bp" onclick="checkTie()">🏁 إنهاء وعرض الفائز</button>
+    </div>
+  </div>
+
+  <!-- QUESTION AREA -->
+  <div class="qa" id="qaDiv">
     <div id="qContent"></div>
-    <div class="center" style="margin-bottom:20px">
-      <button class="btn-green" onclick="backToPicker()">🎲 اختر المجموعة التالية</button><br>
-      <button class="btn-secondary" onclick="showScreen('s2')">↩️ العودة للمجموعات</button>
+    <div class="ct" style="margin-bottom:18px">
+      <button class="bg" id="nextBtn" onclick="nextPick()" style="display:none">🎲 اختر المجموعة التالية</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ TIEBREAKER OVERLAY ══ -->
+<div class="tie-overlay" id="tieOverlay">
+  <div class="tie-box">
+    <h2>⚡ سؤال كسر التعادل!</h2>
+    <div class="sub" id="tieSub"></div>
+    <div id="tieContent"></div>
+  </div>
+</div>
+
+<!-- ══ WINNER OVERLAY ══ -->
+<div class="win-overlay" id="winOverlay">
+  <div class="win-box">
+    <div class="win-icon" id="winIcon"></div>
+    <div class="win-title">🏆 الفائز</div>
+    <div class="win-name" id="winName"></div>
+    <div class="confetti">🎊🎉🥳🎊🎉</div>
+    <div style="margin-top:20px">
+      <button class="bp" onclick="resetAll()">🔄 جولة جديدة</button>
     </div>
   </div>
 </div>
 
 <script>
-var COLORS = ['#f39c12','#27ae60','#2980b9','#c0392b','#8e44ad','#16a085','#e67e22'];
-var ICONS  = ['🌟','🚀','💡','🏆','🎯','🌿','⚡'];
-var GNAMES = ['نجوم الفصاحة','فرسان البيان','أبطال اللغة','عقول النحو','رواد العربية','أسرار البلاغة','أمراء الكلمة'];
-var GCARDS = ['#fff3cd','#d5f5e3','#d6eaf8','#f9ebea','#e8daef','#d1f2eb','#fde8d8'];
+// ════════════════════════════════════
+// CONSTANTS
+// ════════════════════════════════════
+var C   = ['#f39c12','#27ae60','#2980b9','#c0392b','#8e44ad','#16a085','#e67e22'];
+var IC  = ['🌟','🚀','💡','🏆','🎯','🌿','⚡'];
+var GN  = ['نجوم الفصاحة','فرسان البيان','أبطال اللغة','عقول النحو','رواد العربية','أسرار البلاغة','أمراء الكلمة'];
+var BG  = ['#fff3cd','#d5f5e3','#d6eaf8','#f9ebea','#e8daef','#d1f2eb','#fde8d8'];
 
-var QS = {
+// ════════════════════════════════════
+// QUESTIONS BANK — 28 questions (4 per group)
+// ════════════════════════════════════
+var BANK = {
   1:[
     {t:'mcq',q:'أيّ الجمل التالية تحتوي على إنَّ وأخواتها؟',
-     opts:['كانَ الطالبُ مجتهداً','إنَّ الرياضةَ مفيدةٌ','يكونُ الجوُّ حاراً','صارَ الولدُ كبيراً'],ans:1,
-     ex:'الجملة الثانية تبدأ بـ "إنَّ" وهي من الحروف الناسخة.'},
+     o:['كانَ الطالبُ مجتهداً','إنَّ الرياضةَ مفيدةٌ','يكونُ الجوُّ حاراً','صارَ الولدُ كبيراً'],a:1,
+     x:'الجملة الثانية تبدأ بـ "إنَّ" وهي من الحروف الناسخة.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الرياضةَ</span> مفيدةٌ',
-     h:'إنَّ',i:'الرياضةَ',k:'مفيدةٌ',ir:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: ليتَ الوطنَ ___ دائماً. (سالمٌ / سالماً)',
-     s:['ليتَ الوطنَ ',' دائماً.'],b:['سالمٌ'],hint:'خبر ليتَ مرفوع'},
+     h:'إنَّ',i:'الرياضةَ',k:'مفيدةٌ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: ليتَ الوطنَ ___ دائماً.',
+     s:['ليتَ الوطنَ ',' دائماً.'],b:'سالمٌ',h:'خبر ليتَ مرفوع'},
     {t:'mcq',q:'ما وظيفة الكلمة الملوّنة في: إنَّ <span class="hl">الصبرَ</span> جميلٌ؟',
-     opts:['مبتدأ مرفوع','خبر إنَّ مرفوع','اسم إنَّ منصوب','مفعول به'],ans:2,
-     ex:'الكلمة التي تلي إنَّ مباشرةً هي اسمها وتكون منصوبة.'}
+     o:['مبتدأ مرفوع','خبر إنَّ مرفوع','اسم إنَّ منصوب','مفعول به'],a:2,
+     x:'الكلمة التي تلي إنَّ مباشرةً هي اسمها وتكون منصوبة.'}
   ],
   2:[
     {t:'mcq',q:'ما حرف الناسخ الذي يفيد التشبيه؟',
-     opts:['إنَّ','ليتَ','كأنَّ','لكنَّ'],ans:2,
-     ex:'"كأنَّ" تفيد التشبيه، مثل: كأنَّ القمرَ لؤلؤةٌ.'},
+     o:['إنَّ','ليتَ','كأنَّ','لكنَّ'],a:2,
+     x:'"كأنَّ" تفيد التشبيه، مثل: كأنَّ القمرَ لؤلؤةٌ.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">الفوزَ</span> قريبٌ',
-     h:'لعلَّ',i:'الفوزَ',k:'قريبٌ',ir:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: أنَّ ___ نور. (العلمُ / العلمَ)',
-     s:['أنَّ ',' نور.'],b:['العلمَ'],hint:'اسم أنَّ منصوب'},
+     h:'لعلَّ',i:'الفوزَ',k:'قريبٌ',r:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: أنَّ ___ نور.',
+     s:['أنَّ ',' نور.'],b:'العلمَ',h:'اسم أنَّ منصوب'},
     {t:'mcq',q:'حرف ناسخ يفيد الاستدراك؟',
-     opts:['إنَّ','لكنَّ','ليتَ','لعلَّ'],ans:1,
-     ex:'"لكنَّ" تفيد الاستدراك.'}
+     o:['إنَّ','لكنَّ','ليتَ','لعلَّ'],a:1,
+     x:'"لكنَّ" تفيد الاستدراك.'}
   ],
   3:[
     {t:'mcq',q:'ما إعراب خبر إنَّ في: إنَّ الجوَّ حارٌّ؟',
-     opts:['منصوب','مجرور','مرفوع','مبني'],ans:2,
-     ex:'خبر إنَّ وأخواتها دائماً مرفوع.'},
+     o:['منصوب','مجرور','مرفوع','مبني'],a:2,
+     x:'خبر إنَّ وأخواتها دائماً مرفوع.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: كأنَّ <span class="hl">السماءَ</span> بساطٌ',
-     h:'كأنَّ',i:'السماءَ',k:'بساطٌ',ir:'اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: إنَّ الأمانةَ ___ (خُلُقٌ / خُلُقاً)',
-     s:['إنَّ الأمانةَ ','.'],b:['خُلُقٌ'],hint:'خبر إنَّ مرفوع'},
+     h:'كأنَّ',i:'السماءَ',k:'بساطٌ',r:'اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: إنَّ الأمانةَ ___.',
+     s:['إنَّ الأمانةَ ','.'],b:'خُلُقٌ',h:'خبر إنَّ مرفوع'},
     {t:'mcq',q:'في جملة: ليتَ الشبابَ يعودُ — ما اسم ليتَ؟',
-     opts:['يعودُ','الشبابَ','ليتَ','يعود'],ans:1,
-     ex:'"الشبابَ" اسم ليتَ لأنه جاء بعدها مباشرةً وهو منصوب.'}
+     o:['يعودُ','الشبابَ','ليتَ','يعود'],a:1,
+     x:'"الشبابَ" اسم ليتَ لأنه جاء بعدها مباشرةً وهو منصوب.'}
   ],
   4:[
     {t:'mcq',q:'أيّ الكلمات تُعرب خبر إنَّ في: إنَّ العلمَ نافعٌ؟',
-     opts:['نافعٌ','العلمَ','إنَّ','نافعاً'],ans:0,
-     ex:'"نافعٌ" هو خبر إنَّ لأنه مرفوع.'},
+     o:['نافعٌ','العلمَ','إنَّ','نافعاً'],a:0,
+     x:'"نافعٌ" هو خبر إنَّ لأنه مرفوع.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: لكنَّ <span class="hl">اللاعبَ</span> ماهرٌ',
-     h:'لكنَّ',i:'اللاعبَ',k:'ماهرٌ',ir:'اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: لعلَّ ___ يأتي غداً. (الطبيبُ / الطبيبَ)',
-     s:['لعلَّ ',' يأتي غداً.'],b:['الطبيبَ'],hint:'اسم لعلَّ منصوب'},
+     h:'لكنَّ',i:'اللاعبَ',k:'ماهرٌ',r:'اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: لعلَّ ___ يأتي غداً.',
+     s:['لعلَّ ',' يأتي غداً.'],b:'الطبيبَ',h:'اسم لعلَّ منصوب'},
     {t:'mcq',q:'ما معنى حرف "ليتَ"؟',
-     opts:['التوكيد','التشبيه','التمني','الترجي'],ans:2,
-     ex:'"ليتَ" حرف ناسخ يفيد التمني.'}
+     o:['التوكيد','التشبيه','التمني','الترجي'],a:2,
+     x:'"ليتَ" حرف ناسخ يفيد التمني.'}
   ],
   5:[
     {t:'mcq',q:'صوّب الخطأ في: "ليتَ الجوُّ باردٌ"',
-     opts:['الجملة صحيحة','الصواب: ليتَ الجوَّ باردٌ','الصواب: ليتَ الجوَّ بارداً','لا خطأ'],ans:1,
-     ex:'اسم ليتَ منصوب، والصواب "الجوَّ" بالفتحة.'},
+     o:['الجملة صحيحة','الصواب: ليتَ الجوَّ باردٌ','الصواب: ليتَ الجوَّ بارداً','لا خطأ'],a:1,
+     x:'اسم ليتَ منصوب، والصواب "الجوَّ" بالفتحة.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الصدقَ</span> منجاةٌ',
-     h:'إنَّ',i:'الصدقَ',k:'منجاةٌ',ir:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: كأنَّ النجومَ ___ (لؤلؤٌ / لؤلؤاً)',
-     s:['كأنَّ النجومَ ','.'],b:['لؤلؤٌ'],hint:'خبر كأنَّ مرفوع'},
+     h:'إنَّ',i:'الصدقَ',k:'منجاةٌ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: كأنَّ النجومَ ___.',
+     s:['كأنَّ النجومَ ','.'],b:'لؤلؤٌ',h:'خبر كأنَّ مرفوع'},
     {t:'mcq',q:'ما الفرق بين إنَّ وأخواتها وكان وأخواتها؟',
-     opts:['كلاهما أفعال','إنَّ أحرف وكان أفعال ناسخة','كلاهما أحرف','لا فرق'],ans:1,
-     ex:'إنَّ وأخواتها حروف ناسخة، وكان وأخواتها أفعال ناسخة.'}
+     o:['كلاهما أفعال','إنَّ أحرف وكان أفعال ناسخة','كلاهما أحرف','لا فرق'],a:1,
+     x:'إنَّ وأخواتها حروف ناسخة، وكان وأخواتها أفعال ناسخة.'}
   ],
   6:[
-    {t:'mcq',q:'أدخل "أنَّ" على: (الفائزُ سعيدٌ) — ما الشكل الصحيح؟',
-     opts:['أنَّ الفائزُ سعيدٌ','أنَّ الفائزَ سعيدٌ','أنَّ الفائزاً سعيداً','أنَّ الفائزِ سعيدٍ'],ans:1,
-     ex:'أنَّ تنصب المبتدأ فيصبح "الفائزَ" اسم أنَّ منصوباً.'},
+    {t:'mcq',q:'أدخل "أنَّ" على: (الفائزُ سعيدٌ) — ما الصواب؟',
+     o:['أنَّ الفائزُ سعيدٌ','أنَّ الفائزَ سعيدٌ','أنَّ الفائزاً سعيداً','أنَّ الفائزِ سعيدٍ'],a:1,
+     x:'أنَّ تنصب المبتدأ فيصبح "الفائزَ" اسم أنَّ منصوباً.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">المطرَ</span> قادمٌ',
-     h:'لعلَّ',i:'المطرَ',k:'قادمٌ',ir:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: إنَّ العاملَ ___ (مُكرَّمٌ / مُكرَّماً)',
-     s:['إنَّ العاملَ ','.'],b:['مُكرَّمٌ'],hint:'خبر إنَّ مرفوع'},
+     h:'لعلَّ',i:'المطرَ',k:'قادمٌ',r:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: إنَّ العاملَ ___.',
+     s:['إنَّ العاملَ ','.'],b:'مُكرَّمٌ',h:'خبر إنَّ مرفوع'},
     {t:'mcq',q:'ما معنى "لعلَّ"؟',
-     opts:['التوكيد','التمني','التشبيه','الترجي والتوقع'],ans:3,
-     ex:'"لعلَّ" تفيد الترجي والتوقع.'}
+     o:['التوكيد','التمني','التشبيه','الترجي والتوقع'],a:3,
+     x:'"لعلَّ" تفيد الترجي والتوقع.'}
   ],
   7:[
     {t:'mcq',q:'كم عدد أحرف إنَّ وأخواتها؟',
-     opts:['4','5','6','7'],ans:2,
-     ex:'إنَّ وأخواتها ستة: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ.'},
+     o:['4','5','6','7'],a:2,
+     x:'إنَّ وأخواتها ستة: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الوطنَ</span> غالٍ',
-     h:'إنَّ',i:'الوطنَ',k:'غالٍ',ir:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: لكنَّ الطالبَ ___ (مريضٌ / مريضاً)',
-     s:['لكنَّ الطالبَ ','.'],b:['مريضٌ'],hint:'خبر لكنَّ مرفوع'},
+     h:'إنَّ',i:'الوطنَ',k:'غالٍ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: لكنَّ الطالبَ ___.',
+     s:['لكنَّ الطالبَ ','.'],b:'مريضٌ',h:'خبر لكنَّ مرفوع'},
     {t:'mcq',q:'أيّ الجمل فيها خطأ نحوي؟',
-     opts:['إنَّ الحقَّ منتصرٌ','كأنَّ البحرَ مرآةٌ','ليتَ الفرحُ دائمٌ','لعلَّ النجاحَ قريبٌ'],ans:2,
-     ex:'الخطأ في "ليتَ الفرحُ" — الصواب "ليتَ الفرحَ" لأن اسم ليتَ منصوب.'}
+     o:['إنَّ الحقَّ منتصرٌ','كأنَّ البحرَ مرآةٌ','ليتَ الفرحُ دائمٌ','لعلَّ النجاحَ قريبٌ'],a:2,
+     x:'الخطأ في "ليتَ الفرحُ" — الصواب "الفرحَ" لأن اسم ليتَ منصوب.'}
   ]
 };
 
-var numG = 7;
-var leaders = [];
-var remaining = [];
-var scores = {};
-var spinning = false;
+// أسئلة القدرات لكسر التعادل
+var TIE_QS = [
+  {t:'mcq',q:'ما الحرف الناسخ الذي يفيد التوكيد فقط؟',
+   o:['كأنَّ','ليتَ','إنَّ','لعلَّ'],a:2,
+   x:'"إنَّ" و"أنَّ" يفيدان التوكيد، لكن إنَّ هو الأشهر في هذا المعنى.'},
+  {t:'fill',q:'أكمل: إنَّ ___ عادلٌ.',
+   s:['إنَّ ',' عادلٌ.'],b:'القاضيَ',h:'اسم إنَّ منصوب'},
+  {t:'mcq',q:'في جملة: كأنَّ الوردةَ لؤلؤةٌ — ما خبر كأنَّ؟',
+   o:['كأنَّ','الوردةَ','لؤلؤةٌ','لا خبر'],a:2,
+   x:'"لؤلؤةٌ" خبر كأنَّ مرفوع وعلامة رفعه الضمة.'},
+  {t:'mcq',q:'أيّ الكلمات التالية اسم إنَّ في الجملة: إنَّ التفوقَ ثمرةُ الجهدِ؟',
+   o:['ثمرةُ','التفوقَ','الجهدِ','إنَّ'],a:1,
+   x:'"التفوقَ" اسم إنَّ لأنه جاء بعدها مباشرةً وهو منصوب.'},
+  {t:'fill',q:'أكمل: لعلَّ الغائبَ ___.',
+   s:['لعلَّ الغائبَ ','.'],b:'حاضرٌ',h:'خبر لعلَّ مرفوع'}
+];
 
-function buildLeaders() {
-  numG = parseInt(document.getElementById('numGrp').value) || 7;
-  if (numG > 7) { numG = 7; document.getElementById('numGrp').value = 7; }
-  if (numG < 3) { numG = 3; document.getElementById('numGrp').value = 3; }
-  var grid = document.getElementById('leadersGrid');
-  grid.innerHTML = '';
-  for (var i = 1; i <= numG; i++) {
-    var div = document.createElement('div');
-    div.className = 'leader-card';
-    div.innerHTML =
-      '<span class="leader-lbl" style="background:' + COLORS[i-1] + '">' + ICONS[i-1] + ' مجموعة ' + i + '</span>' +
-      '<input type="text" class="leader-inp" id="ldr' + i + '" placeholder="اسم الرئيس" dir="rtl">';
-    grid.appendChild(div);
+// ════════════════════════════════════
+// STATE
+// ════════════════════════════════════
+var numG=7, leaders=[], remaining=[], scores={};
+var qIdx={}, spinning=false, curGroup=null;
+var tieGroups=[], tieIdx=0, tieAnswered=false;
+
+// ════════════════════════════════════
+// SETUP
+// ════════════════════════════════════
+function buildLeaders(){
+  numG=parseInt(document.getElementById('numGrp').value)||7;
+  if(numG>7){numG=7;document.getElementById('numGrp').value=7;}
+  if(numG<2){numG=2;document.getElementById('numGrp').value=2;}
+  var g=document.getElementById('lgrid'); g.innerHTML='';
+  for(var i=1;i<=numG;i++){
+    var d=document.createElement('div'); d.className='lcard';
+    d.innerHTML='<span class="llbl" style="background:'+C[i-1]+'">'+IC[i-1]+' مجموعة '+i+'</span>'+
+      '<input type="text" class="linp" id="l'+i+'" placeholder="اسم الرئيس" dir="rtl">';
+    g.appendChild(d);
   }
 }
 buildLeaders();
 
-function showScreen(id) {
-  var ids = ['s1','s2','s3'];
-  for (var k = 0; k < ids.length; k++) {
-    var el = document.getElementById(ids[k]);
-    if (ids[k] === id) {
-      el.style.display = 'block';
-      el.className = 'screen active';
-    } else {
-      el.style.display = 'none';
-      el.className = 'screen';
-    }
+// ════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════
+function go(id){
+  ['s1','s2','s3'].forEach(function(s){
+    var el=document.getElementById(s);
+    el.className= s===id ? 'scr on' : 'scr';
+  });
+}
+
+// ════════════════════════════════════
+// GO GROUPS
+// ════════════════════════════════════
+function goGroups(){
+  numG=parseInt(document.getElementById('numGrp').value)||7;
+  leaders=[];
+  for(var i=1;i<=numG;i++){
+    var el=document.getElementById('l'+i);
+    leaders.push(el&&el.value.trim()?el.value.trim():'رئيس '+i);
+  }
+  var gr=document.getElementById('ggrid'); gr.innerHTML='';
+  for(var g=1;g<=numG;g++){
+    var d=document.createElement('div'); d.className='gc';
+    d.style.background=BG[g-1]; d.style.border='2px solid '+C[g-1];
+    d.innerHTML='<h4 style="color:'+C[g-1]+'">'+IC[g-1]+' '+GN[g-1]+'</h4><div class="ln">👑 '+leaders[g-1]+'</div>';
+    gr.appendChild(d);
+  }
+  go('s2');
+}
+
+// ════════════════════════════════════
+// GO PICKER
+// ════════════════════════════════════
+function goPicker(){
+  remaining=[]; scores={}; qIdx={};
+  for(var g=1;g<=numG;g++){remaining.push(g);scores[g]=0;qIdx[g]=0;}
+  document.getElementById('resBanner').style.display='none';
+  document.getElementById('allDone').style.display='none';
+  document.getElementById('finishDiv').style.display='none';
+  document.getElementById('qaDiv').style.display='none';
+  document.getElementById('nextBtn').style.display='none';
+  document.getElementById('spi').textContent='🎲';
+  document.getElementById('spinBtn').disabled=false;
+  renderSB(); renderPills();
+  go('s3');
+}
+
+// ════════════════════════════════════
+// SCOREBOARD
+// ════════════════════════════════════
+function renderSB(active){
+  var g=document.getElementById('sbGrid'); g.innerHTML='';
+  for(var i=1;i<=numG;i++){
+    var d=document.createElement('div');
+    d.className='sb-card'+(active===i?' active-grp':'');
+    d.style.background=BG[i-1]; d.style.border='2px solid '+(active===i?'#e8a020':C[i-1]);
+    d.id='sbc'+i;
+    d.innerHTML='<div class="sb-icon">'+IC[i-1]+'</div>'+
+      '<div class="sb-name">'+leaders[i-1]+'</div>'+
+      '<div class="sb-score" style="color:'+C[i-1]+'">'+scores[i]+'</div>'+
+      '<div class="sb-pts">نقطة</div>';
+    g.appendChild(d);
   }
 }
 
-function goToGroups() {
-  numG = parseInt(document.getElementById('numGrp').value) || 7;
-  leaders = [];
-  for (var i = 1; i <= numG; i++) {
-    var inp = document.getElementById('ldr' + i);
-    leaders.push(inp && inp.value.trim() ? inp.value.trim() : 'رئيس ' + i);
-  }
-  var grid = document.getElementById('groupsGrid');
-  grid.innerHTML = '';
-  for (var g = 1; g <= numG; g++) {
-    var div = document.createElement('div');
-    div.className = 'gcard';
-    div.style.background = GCARDS[g-1];
-    div.style.border = '2px solid ' + COLORS[g-1];
-    div.innerHTML =
-      '<h4 style="color:' + COLORS[g-1] + '">' + ICONS[g-1] + ' ' + GNAMES[g-1] + '</h4>' +
-      '<div class="lname">👑 ' + leaders[g-1] + '</div>';
-    grid.appendChild(div);
-  }
-  showScreen('s2');
+function flashScore(g){
+  var el=document.getElementById('sbc'+g);
+  if(!el)return;
+  el.style.transition='transform .1s';
+  el.style.transform='scale(1.15)';
+  setTimeout(function(){el.style.transform='scale(1.05)';},150);
 }
 
-function goToPicker() {
-  remaining = [];
-  scores = {};
-  for (var g = 1; g <= numG; g++) { remaining.push(g); scores[g] = 0; }
-  document.getElementById('resultBanner').style.display = 'none';
-  document.getElementById('allDone').style.display = 'none';
-  document.getElementById('qArea').style.display = 'none';
-  document.getElementById('spinIcon').textContent = '🎲';
-  document.getElementById('spinBtn').disabled = false;
-  renderPills();
-  showScreen('s3');
-}
-
-function renderPills() {
-  var row = document.getElementById('pillsRow');
-  row.innerHTML = '';
-  for (var g = 1; g <= numG; g++) {
-    var span = document.createElement('span');
-    var done = remaining.indexOf(g) === -1;
-    span.className = done ? 'pill done' : 'pill';
-    if (!done) span.style.background = COLORS[g-1];
-    span.textContent = (done ? '✅ ' : ICONS[g-1] + ' ') + leaders[g-1];
-    row.appendChild(span);
+// ════════════════════════════════════
+// PILLS
+// ════════════════════════════════════
+function renderPills(){
+  var p=document.getElementById('pillsDiv'); p.innerHTML='';
+  for(var g=1;g<=numG;g++){
+    var s=document.createElement('span');
+    var done=remaining.indexOf(g)===-1;
+    s.className=done?'pill done':'pill';
+    if(!done)s.style.background=C[g-1];
+    s.textContent=(done?'✅ ':IC[g-1]+' ')+leaders[g-1];
+    p.appendChild(s);
   }
-  if (remaining.length === 0) {
-    document.getElementById('allDone').style.display = 'block';
-    document.getElementById('spinBtn').disabled = true;
-    document.getElementById('spinIcon').textContent = '🏁';
+  if(remaining.length===0){
+    document.getElementById('allDone').style.display='block';
+    document.getElementById('finishDiv').style.display='block';
+    document.getElementById('spinBtn').disabled=true;
+    document.getElementById('spi').textContent='🏁';
   }
 }
 
-function pickGroup() {
-  if (spinning || remaining.length === 0) return;
-  spinning = true;
-  var btn = document.getElementById('spinBtn');
-  var icon = document.getElementById('spinIcon');
-  btn.disabled = true;
-  document.getElementById('resultBanner').style.display = 'none';
-  document.getElementById('qArea').style.display = 'none';
+// ════════════════════════════════════
+// PICK GROUP
+// ════════════════════════════════════
+function pickGroup(){
+  if(spinning||remaining.length===0)return;
+  spinning=true;
+  var btn=document.getElementById('spinBtn');
+  var icon=document.getElementById('spi');
+  var wrap=document.getElementById('spinWrap');
+  btn.disabled=true;
+  wrap.classList.add('spinning');
+  document.getElementById('resBanner').style.display='none';
+  document.getElementById('qaDiv').style.display='none';
+  document.getElementById('nextBtn').style.display='none';
 
-  var ticks = 0;
-  var total = 16 + Math.floor(Math.random() * 10);
-  var ri = 0;
-
-  var timer = setInterval(function() {
+  var ticks=0, total=18+Math.floor(Math.random()*10), ri=0;
+  var timer=setInterval(function(){
     ticks++;
-    icon.textContent = ICONS[remaining[ri % remaining.length] - 1];
+    icon.textContent=IC[remaining[ri%remaining.length]-1];
     ri++;
-    if (ticks >= total) {
+    if(ticks>=total){
       clearInterval(timer);
-      var idx = Math.floor(Math.random() * remaining.length);
-      var picked = remaining[idx];
-      remaining.splice(idx, 1);
-      setTimeout(function() {
-        spinning = false;
-        btn.disabled = false;
+      var idx=Math.floor(Math.random()*remaining.length);
+      var picked=remaining[idx];
+      remaining.splice(idx,1);
+      setTimeout(function(){
+        wrap.classList.remove('spinning');
+        spinning=false;
+        btn.disabled=false;
         showPicked(picked);
-      }, 300);
+      },300);
     }
-  }, 100);
+  },100);
 }
 
-function showPicked(g) {
-  document.getElementById('spinIcon').textContent = ICONS[g-1];
-  var rc = document.getElementById('resultCard');
-  rc.style.background = 'linear-gradient(135deg,' + COLORS[g-1] + ',' + COLORS[g-1] + 'aa)';
-  rc.textContent = ICONS[g-1] + ' ' + GNAMES[g-1] + ' — ' + leaders[g-1];
-  document.getElementById('resultBanner').style.display = 'block';
+// ════════════════════════════════════
+// SHOW PICKED GROUP
+// ════════════════════════════════════
+function showPicked(g){
+  curGroup=g;
+  document.getElementById('spi').textContent=IC[g-1];
+  var rc=document.getElementById('resCard');
+  rc.style.background='linear-gradient(135deg,'+C[g-1]+','+C[g-1]+'99)';
+  rc.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1];
+  document.getElementById('resBanner').style.display='block';
   renderPills();
-  buildQSection(g);
-  setTimeout(function() {
-    document.getElementById('qArea').scrollIntoView({behavior:'smooth', block:'start'});
-  }, 250);
+  renderSB(g);
+  buildQ(g);
+  setTimeout(function(){
+    document.getElementById('qaDiv').scrollIntoView({behavior:'smooth',block:'start'});
+  },250);
 }
 
-function buildQSection(g) {
-  var color = COLORS[g-1];
-  var qs = QS[g] || QS[1];
-  var L = ['أ','ب','ج','د'];
-  var html = '';
+// ════════════════════════════════════
+// BUILD SINGLE QUESTION
+// ════════════════════════════════════
+function buildQ(g){
+  var qs=BANK[g]||BANK[1];
+  var qi=qIdx[g]||0;
+  // if all 4 done, reuse shuffled
+  if(qi>=qs.length){qIdx[g]=0;qi=0;}
+  var q=qs[qi];
+  var col=C[g-1];
+  var L=['أ','ب','ج','د'];
+  var html='';
 
-  html += '<div class="q-header" style="background:linear-gradient(135deg,' + color + ',' + color + 'aa)">' +
-    '<div class="qh-icon">' + ICONS[g-1] + '</div>' +
-    '<div><h3>' + GNAMES[g-1] + '</h3><p>👑 الرئيس: ' + leaders[g-1] + '</p></div></div>';
+  // header
+  html+='<div class="qhdr" style="background:linear-gradient(135deg,'+col+','+col+'99)">'+
+    '<div class="qi">'+IC[g-1]+'</div>'+
+    '<div><h3>'+GN[g-1]+'</h3><p>👑 '+leaders[g-1]+'  •  السؤال '+(qi+1)+' من '+qs.length+'</p></div></div>';
 
-  html += '<div class="score-card"><div class="score-num" id="sc' + g + '">0</div>' +
-    '<div class="score-lbl">نقاط المجموعة من 4</div>' +
-    '<div class="prog-bar"><div class="prog-fill" id="pf' + g + '" style="width:0%"></div></div></div>';
+  // question card
+  html+='<div class="qcard" style="border-right-color:'+col+'">'+
+    '<div class="qtop"><span class="qn" style="background:'+col+'">'+(qi+1)+'</span>'+
+    '<div class="qt">'+q.q+'</div></div>';
 
-  for (var qi = 0; qi < qs.length; qi++) {
-    var q = qs[qi];
-    html += '<div class="qcard" style="border-right-color:' + color + '">';
-    html += '<div class="qcard-top"><span class="qcard-num" style="background:' + color + '">' + (qi+1) +
-            '</span><div class="qcard-text">' + q.q + '</div></div>';
-
-    if (q.t === 'mcq') {
-      html += '<div class="options" id="O' + g + '_' + qi + '">';
-      for (var oi = 0; oi < q.opts.length; oi++) {
-        html += '<button class="opt-btn" onclick="chkMCQ(' + g + ',' + qi + ',' + oi + ',' + q.ans + ')">' +
-                '<span class="opt-letter">' + L[oi] + '</span>' + q.opts[oi] + '</button>';
-      }
-      html += '</div><div class="fb" id="F' + g + '_' + qi + '"></div>';
+  if(q.t==='mcq'){
+    html+='<div class="opts" id="OO">';
+    for(var oi=0;oi<q.o.length;oi++){
+      html+='<button class="ob" onclick="chkMCQ('+oi+','+q.a+','+g+')">'+
+        '<span class="ol">'+L[oi]+'</span>'+q.o[oi]+'</button>';
     }
-    else if (q.t === 'iraab') {
-      html += '<div class="ans-area"><button class="toggle-btn" style="color:' + color +
-              '" onclick="toggleAns(\'A' + g + '_' + qi + '\',this)">👁 اعرض الإجابة</button>' +
-              '<div class="ans-body" id="A' + g + '_' + qi + '">' +
-              '<div class="badges-row">' +
-              '<span class="a-badge ab-h">الحرف: ' + q.h + '</span>' +
-              '<span class="a-badge ab-i">الاسم: ' + q.i + '</span>' +
-              '<span class="a-badge ab-k">الخبر: ' + q.k + '</span></div>' +
-              '<div class="ab-ir">📝 ' + q.ir + '</div></div></div>';
-    }
-    else if (q.t === 'fill') {
-      html += '<div class="fill-row">';
-      for (var pi = 0; pi < q.s.length; pi++) {
-        html += '<span>' + q.s[pi] + '</span>';
-        if (pi < q.s.length - 1)
-          html += '<input class="fill-inp" type="text" id="I' + g + '_' + qi + '" placeholder="..." dir="rtl">';
-      }
-      html += '</div><button class="check-btn" onclick="chkFill(' + g + ',' + qi + ')">✅ تحقق</button>' +
-              '<div class="fb" id="FF' + g + '_' + qi + '"></div>';
-    }
-    html += '</div>';
+    html+='</div><div class="fb" id="FB"></div>';
   }
+  else if(q.t==='iraab'){
+    html+='<div class="ans-area"><button class="tgb" style="color:'+col+'" onclick="tog()">👁 اعرض الإجابة</button>'+
+      '<div class="abody" id="AB">'+
+      '<div class="abrow">'+
+      '<span class="ab abh">الحرف: '+q.h+'</span>'+
+      '<span class="ab abi">الاسم: '+q.i+'</span>'+
+      '<span class="ab abk">الخبر: '+q.k+'</span></div>'+
+      '<div class="abir">📝 '+q.r+'</div></div></div>';
+    // iraab auto-reveals next btn
+    setTimeout(function(){document.getElementById('nextBtn').style.display='inline-block';},400);
+  }
+  else if(q.t==='fill'){
+    html+='<div class="fillrow">';
+    for(var pi=0;pi<q.s.length;pi++){
+      html+='<span>'+q.s[pi]+'</span>';
+      if(pi<q.s.length-1)html+='<input class="fi" type="text" id="FI" placeholder="..." dir="rtl">';
+    }
+    html+='</div><button class="ckb" onclick="chkFill('+g+')">✅ تحقق</button>'+
+      '<div class="fb" id="FFB"></div>';
+  }
+  html+='</div>';
 
-  document.getElementById('qContent').innerHTML = html;
-  document.getElementById('qArea').style.display = 'block';
+  document.getElementById('qContent').innerHTML=html;
+  document.getElementById('qaDiv').style.display='block';
 }
 
-function chkMCQ(g, qi, chosen, correct) {
-  var opts = document.querySelectorAll('#O' + g + '_' + qi + ' .opt-btn');
-  for (var i = 0; i < opts.length; i++) opts[i].setAttribute('disabled','true');
-  opts[chosen].classList.add(chosen === correct ? 'correct' : 'wrong');
-  if (chosen !== correct) opts[correct].classList.add('correct');
-  var fb = document.getElementById('F' + g + '_' + qi);
-  var q = (QS[g] || QS[1])[qi];
-  fb.textContent = (chosen === correct ? '✅ إجابة صحيحة! ' : '❌ إجابة خاطئة. ') + q.ex;
-  fb.className = 'fb ' + (chosen === correct ? 'ok' : 'err');
-  if (chosen === correct) addScore(g);
+// ════════════════════════════════════
+// INTERACTIONS
+// ════════════════════════════════════
+function chkMCQ(chosen,correct,g){
+  var btns=document.querySelectorAll('#OO .ob');
+  for(var i=0;i<btns.length;i++) btns[i].setAttribute('disabled','true');
+  btns[chosen].classList.add(chosen===correct?'ok':'no');
+  if(chosen!==correct) btns[correct].classList.add('ok');
+  var q=(BANK[g]||BANK[1])[qIdx[g]||0];
+  var fb=document.getElementById('FB');
+  fb.textContent=(chosen===correct?'✅ إجابة صحيحة! ':'❌ إجابة خاطئة. ')+q.x;
+  fb.className='fb '+(chosen===correct?'ok':'no');
+  if(chosen===correct){addScore(g);}
+  qIdx[g]=(qIdx[g]||0)+1;
+  document.getElementById('nextBtn').style.display='inline-block';
 }
 
-function chkFill(g, qi) {
-  var q = (QS[g] || QS[1])[qi];
-  var inp = document.getElementById('I' + g + '_' + qi);
-  var ok = inp && inp.value.trim() === q.b[0];
-  if (inp) inp.className = 'fill-inp ' + (ok ? 'correct' : 'wrong');
-  var fb = document.getElementById('FF' + g + '_' + qi);
-  fb.textContent = ok ? '✅ ممتاز! الإجابة صحيحة.' : '❌ راجع إجابتك. تلميح: ' + q.hint;
-  fb.className = 'fb ' + (ok ? 'ok' : 'err');
-  if (ok) addScore(g);
+function chkFill(g){
+  var q=(BANK[g]||BANK[1])[qIdx[g]||0];
+  var inp=document.getElementById('FI');
+  var ok=inp&&inp.value.trim()===q.b;
+  if(inp) inp.className='fi '+(ok?'ok':'no');
+  var fb=document.getElementById('FFB');
+  fb.textContent=ok?'✅ ممتاز! الإجابة صحيحة.':'❌ راجع إجابتك. تلميح: '+q.h;
+  fb.className='fb '+(ok?'ok':'no');
+  if(ok){addScore(g);}
+  qIdx[g]=(qIdx[g]||0)+1;
+  document.getElementById('nextBtn').style.display='inline-block';
 }
 
-function toggleAns(id, btn) {
-  var el = document.getElementById(id);
-  if (el.classList.contains('show')) {
-    el.classList.remove('show');
-    btn.textContent = '👁 اعرض الإجابة';
+function tog(){
+  var el=document.getElementById('AB');
+  var btn=event.target;
+  if(el.classList.contains('on')){el.classList.remove('on');btn.textContent='👁 اعرض الإجابة';}
+  else{el.classList.add('on');btn.textContent='🙈 إخفاء الإجابة';}
+}
+
+function addScore(g){
+  scores[g]=(scores[g]||0)+1;
+  renderSB(curGroup);
+  flashScore(g);
+}
+
+function nextPick(){
+  document.getElementById('qaDiv').style.display='none';
+  document.getElementById('nextBtn').style.display='none';
+  document.getElementById('resBanner').style.display='none';
+  renderSB();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ════════════════════════════════════
+// TIE BREAKER
+// ════════════════════════════════════
+function checkTie(){
+  // find max score
+  var maxS=0;
+  for(var g=1;g<=numG;g++) if(scores[g]>maxS) maxS=scores[g];
+  tieGroups=[];
+  for(var g=1;g<=numG;g++) if(scores[g]===maxS) tieGroups.push(g);
+
+  if(tieGroups.length===1){
+    showWinner(tieGroups[0]);
   } else {
-    el.classList.add('show');
-    btn.textContent = '🙈 إخفاء الإجابة';
+    // tie!
+    tieIdx=0;
+    tieAnswered=false;
+    var names=tieGroups.map(function(g){return IC[g-1]+' '+leaders[g-1];}).join(' و ');
+    document.getElementById('tieSub').textContent='تعادلت المجموعات: '+names+' برصيد '+maxS+' نقطة — سؤال قدرات لكسر التعادل!';
+    showTieQ();
+    document.getElementById('tieOverlay').className='tie-overlay on';
   }
 }
 
-function addScore(g) {
-  scores[g] = (scores[g] || 0) + 1;
-  var sn = document.getElementById('sc' + g);
-  var pf = document.getElementById('pf' + g);
-  if (sn) sn.textContent = scores[g];
-  if (pf) pf.style.width = (scores[g] / 4 * 100) + '%';
+function showTieQ(){
+  var q=TIE_QS[tieIdx%TIE_QS.length];
+  var L=['أ','ب','ج','د'];
+  var html='';
+  if(q.t==='mcq'){
+    html+='<div class="qt" style="margin-bottom:12px;font-weight:700;font-size:.95rem;color:#1a3a5c">'+q.q+'</div>';
+    html+='<div class="opts" id="TIE_OPTS">';
+    for(var oi=0;oi<q.o.length;oi++){
+      html+='<button class="ob" onclick="chkTie('+oi+','+q.a+')">'+
+        '<span class="ol">'+L[oi]+'</span>'+q.o[oi]+'</button>';
+    }
+    html+='</div><div class="fb" id="TIE_FB"></div>';
+  } else if(q.t==='fill'){
+    html+='<div class="qt" style="margin-bottom:12px;font-weight:700;font-size:.95rem;color:#1a3a5c">'+q.q+'</div>';
+    html+='<div class="fillrow">';
+    for(var pi=0;pi<q.s.length;pi++){
+      html+='<span>'+q.s[pi]+'</span>';
+      if(pi<q.s.length-1) html+='<input class="fi" type="text" id="TIE_FI" placeholder="..." dir="rtl">';
+    }
+    html+='</div><button class="ckb" onclick="chkTieFill()">✅ تحقق</button>';
+    html+='<div class="fb" id="TIE_FB"></div>';
+  }
+  document.getElementById('tieContent').innerHTML=html;
 }
 
-function backToPicker() {
-  document.getElementById('qArea').style.display = 'none';
-  document.getElementById('resultBanner').style.display = 'none';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+function chkTie(chosen,correct){
+  var btns=document.querySelectorAll('#TIE_OPTS .ob');
+  if(tieAnswered)return;
+  tieAnswered=true;
+  for(var i=0;i<btns.length;i++) btns[i].setAttribute('disabled','true');
+  btns[chosen].classList.add(chosen===correct?'ok':'no');
+  if(chosen!==correct) btns[correct].classList.add('ok');
+  var q=TIE_QS[tieIdx%TIE_QS.length];
+  var fb=document.getElementById('TIE_FB');
+  fb.textContent=(chosen===correct?'✅ صحيح! ':'❌ خطأ! ')+q.x;
+  fb.className='fb '+(chosen===correct?'ok':'no');
+
+  setTimeout(function(){
+    if(chosen===correct){
+      // first group to answer correctly wins — in practice teacher picks winner
+      // Show tiebreak won message then winner
+      document.getElementById('tieOverlay').className='tie-overlay';
+      showWinner(tieGroups[0]); // teacher declares winner
+    } else {
+      tieIdx++;
+      tieAnswered=false;
+      showTieQ();
+    }
+  },2200);
+}
+
+function chkTieFill(){
+  if(tieAnswered)return;
+  var q=TIE_QS[tieIdx%TIE_QS.length];
+  var inp=document.getElementById('TIE_FI');
+  var ok=inp&&inp.value.trim()===q.b;
+  if(inp) inp.className='fi '+(ok?'ok':'no');
+  var fb=document.getElementById('TIE_FB');
+  fb.textContent=ok?'✅ صحيح!':'❌ خطأ! تلميح: '+q.h;
+  fb.className='fb '+(ok?'ok':'no');
+  if(ok){
+    tieAnswered=true;
+    setTimeout(function(){
+      document.getElementById('tieOverlay').className='tie-overlay';
+      showWinner(tieGroups[0]);
+    },2000);
+  } else {
+    tieIdx++;
+    setTimeout(function(){ showTieQ(); },1800);
+  }
+}
+
+// ════════════════════════════════════
+// WINNER
+// ════════════════════════════════════
+function showWinner(g){
+  document.getElementById('winIcon').textContent=IC[g-1];
+  document.getElementById('winName').textContent=GN[g-1]+' — '+leaders[g-1]+
+    ' 🏅 ('+scores[g]+' نقطة)';
+  document.getElementById('winOverlay').className='win-overlay on';
+}
+
+function resetAll(){
+  document.getElementById('winOverlay').className='win-overlay';
+  document.getElementById('tieOverlay').className='tie-overlay';
+  goPicker();
 }
 </script>
 </body>
