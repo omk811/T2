@@ -564,18 +564,18 @@ function startRound(){
   document.getElementById('finishDiv').style.display='none';
   document.getElementById('qaDiv').style.display='none';
   document.getElementById('nextBtn').style.display='none';
-  document.getElementById('spi').textContent='\u{1F3B2}';
+  document.getElementById('spi').textContent='🎲';
   document.getElementById('spinBtn').disabled=false;
   var rb=document.getElementById('roundBadge');
-  rb.textContent= curRound===1 ? '\u{1F3AE} الجولة الأولى' : '\u{1F525} الجولة الثانية';
+  rb.textContent= curRound===1 ? '🎮 الجولة الأولى' : '🔥 الجولة الثانية';
   rb.style.background= curRound===1 ?
     'linear-gradient(135deg,#e8a020,#f39c12)' :
     'linear-gradient(135deg,#c0392b,#e74c3c)';
   document.getElementById('sbTitle').textContent= curRound===1 ?
-    '\u{1F3C6} لوحة النقاط – الجولة الأولى' :
-    '\u{1F3C6} لوحة النقاط – الجولة الثانية';
+    '🏆 لوحة النقاط – الجولة الأولى' :
+    '🏆 لوحة النقاط – الجولة الثانية';
   document.getElementById('finishBtn').textContent= curRound===2 ?
-    '\u{1F3C1} إنهاء وعرض الفائز' : '\u{27A1}\uFE0F انتقل للجولة الثانية';
+    '🏁 إنهاء وعرض الفائز' : '➡️ انتقل للجولة الثانية';
   renderSB(); renderPills();
   go('s3');
 }
@@ -612,18 +612,18 @@ function renderPills(){
     var done=remaining.indexOf(g)===-1;
     s.className=done?'pill done':'pill';
     if(!done)s.style.background=C[g-1];
-    s.textContent=(done?'\u2705 ':IC[g-1]+' ')+leaders[g-1];
+    s.textContent=(done?'✅ ':IC[g-1]+' ')+leaders[g-1];
     p.appendChild(s);
   }
   if(remaining.length===0){
     var msg= curRound===1 ?
-      '\u{1F389} انتهت الجولة الأولى! اضغط للانتقال إلى الجولة الثانية' :
-      '\u{1F389} انتهت الجولتان! اضغط لعرض النتيجة النهائية';
+      '🎉 انتهت الجولة الأولى! اضغط للانتقال إلى الجولة الثانية' :
+      '🎉 انتهت الجولتان! اضغط لعرض النتيجة النهائية';
     document.getElementById('allDone').textContent=msg;
     document.getElementById('allDone').style.display='block';
     document.getElementById('finishDiv').style.display='block';
     document.getElementById('spinBtn').disabled=true;
-    document.getElementById('spi').textContent='\u{1F3C1}';
+    document.getElementById('spi').textContent='🏁';
   }
 }
 
@@ -662,7 +662,7 @@ function showPicked(g){
   document.getElementById('spi').textContent=IC[g-1];
   var rc=document.getElementById('resCard');
   rc.style.background='linear-gradient(135deg,'+C[g-1]+','+C[g-1]+'99)';
-  rc.textContent=IC[g-1]+' '+GN[g-1]+' \u2014 '+leaders[g-1];
+  rc.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1];
   document.getElementById('resBanner').style.display='block';
   renderPills(); renderSB(g); buildQ(g);
   setTimeout(function(){
@@ -678,12 +678,12 @@ function buildQ(g){
   if(qi>=qs.length){qIdx[g]=0;qi=0;}
   var q=qs[qi];
   var col=C[g-1];
-  var L=['\u0623','\u0628','\u062C','\u062F'];
+  var L=['أ','ب','ج','د'];
   var rndLabel= curRound===1 ? 'الجولة الأولى' : 'الجولة الثانية';
   var html='';
   html+='<div class="qhdr" style="background:linear-gradient(135deg,'+col+','+col+'99)">'+
     '<div class="qi">'+IC[g-1]+'</div>'+
-    '<div><h3>'+GN[g-1]+'</h3><p>\u{1F451} '+leaders[g-1]+'  \u2022  '+rndLabel+' \u2013 السؤال '+(qi+1)+' من '+qs.length+'</p></div></div>';
+    '<div><h3>'+GN[g-1]+'</h3><p>👑 '+leaders[g-1]+'  •  '+rndLabel+' – السؤال '+(qi+1)+' من '+qs.length+'</p></div></div>';
   html+='<div class="qcard" style="border-right-color:'+col+'">'+
     '<div class="qtop"><span class="qn" style="background:'+col+'">'+(qi+1)+'</span>'+
     '<div class="qt">'+q.q+'</div></div>';
@@ -693,12 +693,12 @@ function buildQ(g){
       html+='<button class="ob" onclick="chkMCQ('+oi+','+q.a+','+g+')"><span class="ol">'+L[oi]+'</span>'+q.o[oi]+'</button>';
     html+='</div><div class="fb" id="FB"></div>';
   } else if(q.t==='iraab'){
-    html+='<div class="ans-area"><button class="tgb" style="color:'+col+'" onclick="tog()">\u{1F441} اعرض الإجابة</button>'+
+    html+='<div class="ans-area"><button class="tgb" style="color:'+col+'" onclick="tog()">👁 اعرض الإجابة</button>'+
       '<div class="abody" id="AB"><div class="abrow">'+
       '<span class="ab abh">الحرف: '+q.h+'</span>'+
       '<span class="ab abi">الاسم: '+q.i+'</span>'+
       '<span class="ab abk">الخبر: '+q.k+'</span></div>'+
-      '<div class="abir">\u{1F4DD} '+q.r+'</div></div></div>';
+      '<div class="abir">📝 '+q.r+'</div></div></div>';
     setTimeout(function(){document.getElementById('nextBtn').style.display='inline-block';},400);
   } else if(q.t==='fill'){
     html+='<div class="fillrow">';
@@ -706,7 +706,7 @@ function buildQ(g){
       html+='<span>'+q.s[pi]+'</span>';
       if(pi<q.s.length-1) html+='<input class="fi" type="text" id="FI" placeholder="..." dir="rtl">';
     }
-    html+='</div><button class="ckb" onclick="chkFill('+g+')">\u2705 تحقق</button>'+
+    html+='</div><button class="ckb" onclick="chkFill('+g+')">✅ تحقق</button>'+
       '<div class="fb" id="FFB"></div>';
   }
   html+='</div>';
@@ -723,7 +723,7 @@ function chkMCQ(chosen,correct,g){
   var bank= curRound===1 ? BANK1 : BANK2;
   var q=(bank[g]||bank[1])[qIdx[g]||0];
   var fb=document.getElementById('FB');
-  fb.textContent=(chosen===correct?'\u2705 إجابة صحيحة! ':'\u274C إجابة خاطئة. ')+q.x;
+  fb.textContent=(chosen===correct?'✅ إجابة صحيحة! ':'❌ إجابة خاطئة. ')+q.x;
   fb.className='fb '+(chosen===correct?'ok':'no');
   if(chosen===correct) addScore(g);
   qIdx[g]=(qIdx[g]||0)+1;
@@ -737,7 +737,7 @@ function chkFill(g){
   var ok=inp&&inp.value.trim()===q.b;
   if(inp) inp.className='fi '+(ok?'ok':'no');
   var fb=document.getElementById('FFB');
-  fb.textContent=ok?'\u2705 ممتاز! الإجابة صحيحة.':'\u274C راجع إجابتك. تلميح: '+q.h;
+  fb.textContent=ok?'✅ ممتاز! الإجابة صحيحة.':'❌ راجع إجابتك. تلميح: '+q.h;
   fb.className='fb '+(ok?'ok':'no');
   if(ok) addScore(g);
   qIdx[g]=(qIdx[g]||0)+1;
@@ -746,8 +746,8 @@ function chkFill(g){
 
 function tog(){
   var el=document.getElementById('AB'); var btn=event.target;
-  el.classList.contains('on')?(el.classList.remove('on'),btn.textContent='\u{1F441} اعرض الإجابة')
-    :(el.classList.add('on'),btn.textContent='\u{1F648} إخفاء الإجابة');
+  el.classList.contains('on')?(el.classList.remove('on'),btn.textContent='👁 اعرض الإجابة')
+    :(el.classList.add('on'),btn.textContent='🙈 إخفاء الإجابة');
 }
 
 function addScore(g){
@@ -792,7 +792,7 @@ function checkTie(){
   document.getElementById('tieSpinArea').style.display='flex';
   document.getElementById('tieQArea').style.display='none';
   document.getElementById('tiePickResult').style.display='none';
-  document.getElementById('tieSpinBtn').textContent='\u{1F3B2}';
+  document.getElementById('tieSpinBtn').textContent='🎲';
   document.getElementById('tieSpinBtn').disabled=false;
   tieSpinning=false;
   document.getElementById('tieOverlay').className='tie-overlay on';
@@ -827,7 +827,7 @@ function showTieGroup(g){
   var res=document.getElementById('tiePickResult');
   res.style.display='block';
   res.style.background=C[g-1];
-  res.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1]+' \u{1F4DD} ستُعرب الجملة';
+  res.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1]+' 📝 ستُعرب الجملة';
   // show question
   setTimeout(function(){
     document.getElementById('tieSpinArea').style.display='none';
@@ -863,7 +863,7 @@ function tieJudge(correct){
       document.getElementById('tieSpinArea').style.display='flex';
       document.getElementById('tieQArea').style.display='none';
       document.getElementById('tiePickResult').style.display='none';
-      document.getElementById('tieSpinBtn').textContent='\u{1F3B2}';
+      document.getElementById('tieSpinBtn').textContent='🎲';
       document.getElementById('tieSpinBtn').disabled=false;
       tieSpinning=false;
     } else {
@@ -874,7 +874,7 @@ function tieJudge(correct){
       document.getElementById('tieSpinArea').style.display='flex';
       document.getElementById('tieQArea').style.display='none';
       document.getElementById('tiePickResult').style.display='none';
-      document.getElementById('tieSpinBtn').textContent='\u{1F3B2}';
+      document.getElementById('tieSpinBtn').textContent='🎲';
       document.getElementById('tieSpinBtn').disabled=false;
       tieSpinning=false;
     }
@@ -885,8 +885,8 @@ function tieJudge(correct){
 function showWinner(g){
   document.getElementById('winIcon').textContent=IC[g-1];
   document.getElementById('winName').innerHTML=
-    '<span style="color:'+C[g-1]+'">'+GN[g-1]+'</span> \u2014 '+leaders[g-1]+
-    '<br><small style="font-size:.9rem;opacity:.85">\u{1F3C5} '+scores[g]+' نقطة</small>';
+    '<span style="color:'+C[g-1]+'">'+GN[g-1]+'</span> — '+leaders[g-1]+
+    '<br><small style="font-size:.9rem;opacity:.85">🏅 '+scores[g]+' نقطة</small>';
   document.getElementById('winOverlay').className='win-overlay on';
 }
 
