@@ -97,6 +97,7 @@ body { font-family: 'Tajawal', sans-serif; background: #eef2f7; min-height: 100v
   position:absolute; inset:-8px; border-radius:50%;
   border:4px solid rgba(232,160,32,.0);
   transition:border-color .2s;
+  pointer-events:none;
 }
 .spinning .spin-ring { border-color:#e8a020; animation:spinRing .6s linear infinite; }
 @keyframes spinRing { to { transform:rotate(360deg); } }
@@ -504,6 +505,16 @@ function goGroups(){
 // GO PICKER
 // ════════════════════════════════════
 function goPicker(){
+  spinning=false;
+  // ensure leaders are loaded
+  numG=parseInt(document.getElementById('numGrp').value)||7;
+  if(leaders.length!==numG){
+    leaders=[];
+    for(var i=1;i<=numG;i++){
+      var el=document.getElementById('l'+i);
+      leaders.push(el&&el.value.trim()?el.value.trim():'مجموعة '+i);
+    }
+  }
   remaining=[]; scores={}; qIdx={};
   for(var g=1;g<=numG;g++){remaining.push(g);scores[g]=0;qIdx[g]=0;}
   document.getElementById('resBanner').style.display='none';
@@ -512,7 +523,8 @@ function goPicker(){
   document.getElementById('qaDiv').style.display='none';
   document.getElementById('nextBtn').style.display='none';
   document.getElementById('spi').textContent='🎲';
-  document.getElementById('spinBtn').disabled=false;
+  var btn=document.getElementById('spinBtn');
+  btn.disabled=false;
   renderSB(); renderPills();
   go('s3');
 }
@@ -568,21 +580,22 @@ function renderPills(){
 // PICK GROUP
 // ════════════════════════════════════
 function pickGroup(){
-  if(spinning||remaining.length===0)return;
+  if(spinning) return;
+  if(remaining.length===0) return;
   spinning=true;
   var btn=document.getElementById('spinBtn');
   var icon=document.getElementById('spi');
-  var wrap=document.getElementById('spinWrap');
   btn.disabled=true;
-  wrap.classList.add('spinning');
   document.getElementById('resBanner').style.display='none';
   document.getElementById('qaDiv').style.display='none';
   document.getElementById('nextBtn').style.display='none';
 
+  // copy remaining to avoid mutation during animation
+  var rem=remaining.slice();
   var ticks=0, total=18+Math.floor(Math.random()*10), ri=0;
   var timer=setInterval(function(){
     ticks++;
-    icon.textContent=IC[remaining[ri%remaining.length]-1];
+    icon.textContent=IC[rem[ri%rem.length]-1];
     ri++;
     if(ticks>=total){
       clearInterval(timer);
@@ -590,9 +603,8 @@ function pickGroup(){
       var picked=remaining[idx];
       remaining.splice(idx,1);
       setTimeout(function(){
-        wrap.classList.remove('spinning');
         spinning=false;
-        btn.disabled=false;
+        btn.disabled=(remaining.length===0);
         showPicked(picked);
       },300);
     }
