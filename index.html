@@ -6,199 +6,159 @@
 <title>نشاط إعراب إنّ وأخواتها – الصف الخامس</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Tajawal', sans-serif; background: #eef2f7; min-height: 100vh; direction: rtl; }
-
-/* ── HEADER ── */
-.hdr {
-  background: linear-gradient(135deg,#1a3a5c,#2471a3 55%,#1abc9c);
-  color: white; padding: 22px 20px 16px; text-align: center;
-}
-.hdr h1 { font-family:'Cairo',sans-serif; font-size:1.7rem; font-weight:900; margin-bottom:3px; }
-.hdr p  { font-size:.9rem; opacity:.88; }
-.badges { display:flex; justify-content:center; gap:7px; margin-top:9px; flex-wrap:wrap; }
-.bdg { background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); padding:3px 11px; border-radius:20px; font-size:.78rem; }
-
-/* ── SCREENS ── */
-.scr { display:none; padding:18px 14px; max-width:880px; margin:0 auto; }
-.scr.on { display:block; }
-
-/* ── RULE BOX ── */
-.rbox { background:#fffbf0; border:2px solid #e8a020; border-radius:14px; padding:16px; margin-bottom:18px; }
-.rbox h3 { color:#1a3a5c; font-size:1rem; font-weight:800; margin-bottom:10px; }
-.rgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:12px; }
-.ri { background:#1a3a5c; color:white; padding:9px; border-radius:9px; text-align:center; font-size:.86rem; }
-.ri span { display:block; font-size:1rem; font-weight:800; color:#e8a020; margin-bottom:2px; }
-.rnote { background:#e8f4fd; border-radius:9px; padding:11px 13px; font-size:.85rem; line-height:1.8; }
-.tbl { width:100%; border-collapse:collapse; margin-top:11px; font-size:.84rem; }
-.tbl th { background:#1a3a5c; color:#e8a020; padding:7px 9px; text-align:center; border:1px solid #1a3a5c; }
-.tbl td { padding:7px 9px; text-align:center; border:1px solid #dde3ec; background:#fff; }
-.tbl tr:nth-child(even) td { background:#f5f8ff; }
-
-/* ── SETUP ── */
-.sbox { background:white; border-radius:14px; padding:18px; box-shadow:0 3px 18px rgba(0,0,0,.08); margin-bottom:18px; }
-.sbox h3 { color:#1a3a5c; font-weight:800; margin-bottom:12px; font-size:1rem; }
-.rl { display:flex; align-items:center; gap:9px; margin-bottom:14px; flex-wrap:wrap; }
-.rl label { font-weight:700; color:#1a3a5c; }
-.ni { width:76px; border:2px solid #1a3a5c; border-radius:7px; padding:6px 9px; font-family:'Tajawal',sans-serif; font-size:.95rem; font-weight:700; text-align:center; }
-.lgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:9px; }
-.lcard { display:flex; flex-direction:column; align-items:center; gap:5px; }
-.llbl { font-size:.78rem; font-weight:700; padding:3px 11px; border-radius:20px; color:white; }
-.linp { border:2px solid #d0d7e3; border-radius:7px; padding:7px 9px; font-family:'Tajawal',sans-serif; font-size:.88rem; text-align:center; width:100%; direction:rtl; }
-.linp:focus { outline:none; border-color:#e8a020; }
-
-/* ── BUTTONS ── */
-.bp { display:inline-block; padding:12px 32px; border:none; border-radius:11px; font-family:'Cairo',sans-serif; font-size:.95rem; font-weight:700; cursor:pointer; background:linear-gradient(135deg,#1a3a5c,#2471a3); color:white; box-shadow:0 4px 14px rgba(26,58,92,.28); transition:transform .18s; }
-.bp:hover { transform:translateY(-2px); }
-.bs { display:inline-block; padding:9px 22px; border:none; border-radius:9px; font-family:'Cairo',sans-serif; font-size:.88rem; font-weight:700; cursor:pointer; background:#e8ecf0; color:#555; margin-top:7px; }
-.bg { background:linear-gradient(135deg,#27ae60,#1abc9c); color:white; display:inline-block; padding:11px 28px; border:none; border-radius:11px; font-family:'Cairo',sans-serif; font-size:.9rem; font-weight:700; cursor:pointer; }
-.ct { text-align:center; margin-top:16px; }
-
-/* ── GROUPS DISPLAY ── */
-.ggrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(165px,1fr)); gap:12px; margin-bottom:20px; }
-.gc { border-radius:12px; padding:14px; box-shadow:0 3px 14px rgba(0,0,0,.09); }
-.gc h4 { font-size:.95rem; font-weight:900; margin-bottom:6px; }
-.gc .ln { font-size:.88rem; font-weight:600; }
-
-/* ── SCOREBOARD (always visible on s3) ── */
-.scoreboard {
-  background:white; border-radius:14px; padding:14px 16px;
-  box-shadow:0 4px 20px rgba(0,0,0,.1); margin-bottom:18px;
-  position:sticky; top:0; z-index:100;
-}
-.scoreboard h3 { color:#1a3a5c; font-size:.95rem; font-weight:800; margin-bottom:10px; text-align:center; }
-.sb-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); gap:8px; }
-.sb-card {
-  border-radius:10px; padding:8px 6px; text-align:center;
-  border:2px solid transparent; transition:all .3s;
-}
-.sb-card.active-grp { border-color:#e8a020; box-shadow:0 0 0 3px rgba(232,160,32,.2); transform:scale(1.05); }
-.sb-icon { font-size:1.4rem; line-height:1; }
-.sb-name { font-size:.72rem; font-weight:700; margin:2px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.sb-score { font-size:1.5rem; font-weight:900; line-height:1; }
-.sb-pts { font-size:.68rem; color:#888; }
-
-/* ── PICKER ── */
-.picker { text-align:center; padding:8px 0 18px; }
-.spin-wrap { position:relative; display:inline-block; margin-bottom:16px; }
-.spin-btn {
-  display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
-  width:180px; height:180px; border-radius:50%;
-  background:linear-gradient(135deg,#1a3a5c,#2471a3);
-  box-shadow:0 8px 36px rgba(26,58,92,.38);
-  cursor:pointer; border:none; color:white;
-  transition:transform .2s;
-}
-.spin-btn:hover:not(:disabled) { transform:scale(1.05); }
-.spin-btn:disabled { opacity:.65; cursor:not-allowed; }
-.spi { font-size:2.8rem; display:block; line-height:1; }
-.spl { font-size:.84rem; font-weight:700; margin-top:5px; font-family:'Tajawal',sans-serif; opacity:.9; }
-.spin-ring {
-  position:absolute; inset:-8px; border-radius:50%;
-  border:4px solid rgba(232,160,32,.0);
-  transition:border-color .2s;
-  pointer-events:none;
-}
-.spinning .spin-ring { border-color:#e8a020; animation:spinRing .6s linear infinite; }
-@keyframes spinRing { to { transform:rotate(360deg); } }
-
-.res-banner { display:none; margin-bottom:14px; }
-.res-card { display:inline-block; padding:12px 32px; border-radius:16px; color:white; font-size:1.15rem; font-weight:900; box-shadow:0 5px 20px rgba(0,0,0,.16); }
-@keyframes popIn { from{transform:scale(.82);opacity:0;} to{transform:scale(1);opacity:1;} }
-
-.pills-lbl { font-size:.82rem; color:#666; font-weight:600; margin-bottom:7px; }
-.pills { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin-bottom:14px; }
-.pill { padding:4px 13px; border-radius:20px; font-size:.8rem; font-weight:700; color:white; }
-.pill.done { background:#e8ecf0 !important; color:#aaa !important; text-decoration:line-through; }
-.alldone { display:none; background:linear-gradient(135deg,#27ae60,#1abc9c); color:white; border-radius:13px; padding:16px; font-size:1rem; font-weight:800; margin-bottom:14px; text-align:center; }
-
-/* ── QUESTION CARD ── */
-.qa { display:none; }
-.qhdr { border-radius:12px; padding:14px 16px; margin-bottom:14px; display:flex; align-items:center; gap:12px; color:white; }
-.qhdr .qi { font-size:2rem; line-height:1; }
-.qhdr h3 { font-size:1.05rem; font-weight:900; }
-.qhdr p  { font-size:.83rem; opacity:.9; }
-
-.qcard { background:white; border-radius:12px; padding:17px; margin-bottom:13px; box-shadow:0 3px 13px rgba(0,0,0,.07); border-right:5px solid; animation:popIn .3s ease; }
-.qtop { display:flex; align-items:flex-start; gap:8px; margin-bottom:11px; }
-.qn { display:inline-flex; align-items:center; justify-content:center; min-width:24px; height:24px; border-radius:50%; color:white; font-size:.78rem; font-weight:700; flex-shrink:0; margin-top:3px; }
-.qt { font-size:.95rem; font-weight:600; color:#1a3a5c; line-height:1.7; }
-.hl { background:#fef9c3; padding:1px 5px; border-radius:4px; font-weight:700; color:#92400e; }
-
-.opts { display:flex; flex-direction:column; gap:6px; }
-.ob { background:#f5f7fa; border:2px solid #dde3ec; border-radius:8px; padding:8px 13px; text-align:right; font-family:'Tajawal',sans-serif; font-size:.9rem; cursor:pointer; display:flex; align-items:center; gap:7px; transition:all .16s; width:100%; }
-.ob:hover:not([disabled]) { border-color:#e8a020; background:#fffbf0; }
-.ob.ok  { background:#d5f5e3 !important; border-color:#27ae60 !important; color:#1e6b3a; }
-.ob.no  { background:#fde8e8 !important; border-color:#c0392b !important; color:#922b21; }
-.ol { min-width:24px; height:24px; border-radius:50%; background:#1a3a5c; color:white; font-size:.76rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.fb { margin-top:8px; padding:7px 11px; border-radius:7px; font-weight:700; font-size:.86rem; display:none; }
-.fb.ok  { display:block; background:#d5f5e3; color:#1e6b3a; }
-.fb.no  { display:block; background:#fde8e8; color:#922b21; }
-
-.ans-area { background:#f8faff; border:1.5px dashed #c5cfe8; border-radius:9px; padding:13px; }
-.tgb { background:none; border:1.5px solid currentColor; border-radius:6px; padding:4px 11px; font-family:'Tajawal',sans-serif; font-size:.81rem; font-weight:600; cursor:pointer; }
-.abody { display:none; margin-top:9px; }
-.abody.on { display:block; }
-.abrow { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:7px; }
-.ab { padding:3px 11px; border-radius:6px; font-size:.81rem; font-weight:700; }
-.abh { background:#1a3a5c; color:white; }
-.abi { background:#27ae60; color:white; }
-.abk { background:#c0392b; color:white; }
-.abir { background:#f0f4f8; border:1px solid #d0d7e3; padding:8px 11px; border-radius:8px; font-size:.82rem; line-height:1.7; }
-
-.fillrow { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-bottom:9px; font-size:.92rem; line-height:2; }
-.fi { border:2px solid #b0bcd0; border-radius:6px; padding:4px 9px; font-family:'Tajawal',sans-serif; font-size:.9rem; width:105px; text-align:center; direction:rtl; }
-.fi:focus { outline:none; border-color:#e8a020; }
-.fi.ok { border-color:#27ae60 !important; background:#d5f5e3; }
-.fi.no { border-color:#c0392b !important; background:#fde8e8; }
-.ckb { background:#1a3a5c; color:white; border:none; border-radius:6px; padding:6px 14px; font-family:'Tajawal',sans-serif; font-size:.86rem; cursor:pointer; }
-
-/* ── TIEBREAKER ── */
-.tie-overlay {
-  position:fixed; inset:0; background:rgba(26,58,92,.88); z-index:200;
-  display:none; align-items:center; justify-content:center; padding:20px;
-}
-.tie-overlay.on { display:flex; }
-.tie-box { background:white; border-radius:18px; padding:24px; max-width:520px; width:100%; box-shadow:0 12px 40px rgba(0,0,0,.3); animation:popIn .35s ease; }
-.tie-box h2 { color:#1a3a5c; font-size:1.2rem; font-weight:900; margin-bottom:6px; text-align:center; }
-.tie-box .sub { color:#666; font-size:.88rem; text-align:center; margin-bottom:16px; }
-
-/* ── WINNER OVERLAY ── */
-.win-overlay {
-  position:fixed; inset:0; background:rgba(26,58,92,.92); z-index:300;
-  display:none; align-items:center; justify-content:center; padding:20px;
-  flex-direction:column; text-align:center;
-}
-.win-overlay.on { display:flex; }
-.win-box { color:white; }
-.win-icon { font-size:5rem; animation:bounce 1s ease infinite; }
-@keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
-.win-title { font-size:1.6rem; font-weight:900; margin:12px 0 6px; font-family:'Cairo',sans-serif; }
-.win-name  { font-size:1.2rem; font-weight:700; opacity:.9; }
-.confetti  { font-size:2.5rem; letter-spacing:8px; margin-top:10px; }
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Tajawal',sans-serif;background:#eef2f7;min-height:100vh;direction:rtl}
+.hdr{background:linear-gradient(135deg,#1a3a5c,#2471a3 55%,#1abc9c);color:white;padding:22px 20px 16px;text-align:center}
+.hdr h1{font-family:'Cairo',sans-serif;font-size:1.7rem;font-weight:900;margin-bottom:3px}
+.hdr p{font-size:.9rem;opacity:.88}
+.badges{display:flex;justify-content:center;gap:7px;margin-top:9px;flex-wrap:wrap}
+.bdg{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:3px 11px;border-radius:20px;font-size:.78rem}
+.scr{display:none;padding:18px 14px;max-width:880px;margin:0 auto}
+.scr.on{display:block}
+/* Rule box */
+.rbox{background:#fffbf0;border:2px solid #e8a020;border-radius:14px;padding:16px;margin-bottom:18px}
+.rbox h3{color:#1a3a5c;font-size:1rem;font-weight:800;margin-bottom:10px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}
+.ri{background:#1a3a5c;color:white;padding:9px;border-radius:9px;text-align:center;font-size:.86rem}
+.ri span{display:block;font-size:1rem;font-weight:800;color:#e8a020;margin-bottom:2px}
+.rnote{background:#e8f4fd;border-radius:9px;padding:11px 13px;font-size:.85rem;line-height:1.8}
+.tbl{width:100%;border-collapse:collapse;margin-top:11px;font-size:.84rem}
+.tbl th{background:#1a3a5c;color:#e8a020;padding:7px 9px;text-align:center;border:1px solid #1a3a5c}
+.tbl td{padding:7px 9px;text-align:center;border:1px solid #dde3ec;background:#fff}
+.tbl tr:nth-child(even) td{background:#f5f8ff}
+/* Setup */
+.sbox{background:white;border-radius:14px;padding:18px;box-shadow:0 3px 18px rgba(0,0,0,.08);margin-bottom:18px}
+.sbox h3{color:#1a3a5c;font-weight:800;margin-bottom:12px;font-size:1rem}
+.rl{display:flex;align-items:center;gap:9px;margin-bottom:14px;flex-wrap:wrap}
+.rl label{font-weight:700;color:#1a3a5c}
+.ni{width:76px;border:2px solid #1a3a5c;border-radius:7px;padding:6px 9px;font-family:'Tajawal',sans-serif;font-size:.95rem;font-weight:700;text-align:center}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:9px}
+.lcard{display:flex;flex-direction:column;align-items:center;gap:5px}
+.llbl{font-size:.78rem;font-weight:700;padding:3px 11px;border-radius:20px;color:white}
+.linp{border:2px solid #d0d7e3;border-radius:7px;padding:7px 9px;font-family:'Tajawal',sans-serif;font-size:.88rem;text-align:center;width:100%;direction:rtl}
+.linp:focus{outline:none;border-color:#e8a020}
+/* Buttons */
+.bp{display:inline-block;padding:12px 32px;border:none;border-radius:11px;font-family:'Cairo',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;background:linear-gradient(135deg,#1a3a5c,#2471a3);color:white;box-shadow:0 4px 14px rgba(26,58,92,.28);transition:transform .18s}
+.bp:hover{transform:translateY(-2px)}
+.bs{display:inline-block;padding:9px 22px;border:none;border-radius:9px;font-family:'Cairo',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;background:#e8ecf0;color:#555;margin-top:7px}
+.bg{background:linear-gradient(135deg,#27ae60,#1abc9c);color:white;display:inline-block;padding:11px 28px;border:none;border-radius:11px;font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer}
+.ct{text-align:center;margin-top:16px}
+/* Groups */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px;margin-bottom:20px}
+.gc{border-radius:12px;padding:14px;box-shadow:0 3px 14px rgba(0,0,0,.09)}
+.gc h4{font-size:.95rem;font-weight:900;margin-bottom:6px}
+.gc .ln{font-size:.88rem;font-weight:600}
+/* Round badge */
+.round-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#e8a020,#f39c12);color:white;padding:6px 16px;border-radius:20px;font-weight:800;font-size:.9rem;margin-bottom:12px}
+/* Scoreboard */
+.scoreboard{background:white;border-radius:14px;padding:14px 16px;box-shadow:0 4px 20px rgba(0,0,0,.1);margin-bottom:18px;position:sticky;top:0;z-index:100}
+.scoreboard h3{color:#1a3a5c;font-size:.95rem;font-weight:800;margin-bottom:10px;text-align:center}
+.sb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.sb-card{border-radius:10px;padding:8px 6px;text-align:center;border:2px solid transparent;transition:all .3s}
+.sb-card.active-grp{border-color:#e8a020;box-shadow:0 0 0 3px rgba(232,160,32,.2);transform:scale(1.06)}
+.sb-icon{font-size:1.4rem;line-height:1}
+.sb-name{font-size:.72rem;font-weight:700;margin:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-score{font-size:1.5rem;font-weight:900;line-height:1}
+.sb-pts{font-size:.68rem;color:#888}
+/* Picker */
+.picker{text-align:center;padding:8px 0 18px}
+.spin-wrap{position:relative;display:inline-block;margin-bottom:16px}
+.spin-btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#1a3a5c,#2471a3);box-shadow:0 8px 36px rgba(26,58,92,.38);cursor:pointer;border:none;color:white;transition:transform .2s}
+.spin-btn:hover:not(:disabled){transform:scale(1.05)}
+.spin-btn:disabled{opacity:.65;cursor:not-allowed}
+.spi{font-size:2.8rem;display:block;line-height:1}
+.spl{font-size:.84rem;font-weight:700;margin-top:5px;font-family:'Tajawal',sans-serif;opacity:.9}
+.spin-ring{position:absolute;inset:-8px;border-radius:50%;border:4px solid rgba(232,160,32,0);transition:border-color .2s;pointer-events:none}
+.res-banner{display:none;margin-bottom:14px}
+.res-card{display:inline-block;padding:12px 32px;border-radius:16px;color:white;font-size:1.15rem;font-weight:900;box-shadow:0 5px 20px rgba(0,0,0,.16)}
+@keyframes popIn{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes slideIn{from{transform:translateX(14px);opacity:0}to{transform:translateX(0);opacity:1}}
+.pills-lbl{font-size:.82rem;color:#666;font-weight:600;margin-bottom:7px}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-bottom:14px}
+.pill{padding:4px 13px;border-radius:20px;font-size:.8rem;font-weight:700;color:white}
+.pill.done{background:#e8ecf0!important;color:#aaa!important;text-decoration:line-through}
+.alldone{display:none;background:linear-gradient(135deg,#27ae60,#1abc9c);color:white;border-radius:13px;padding:16px;font-size:1rem;font-weight:800;margin-bottom:14px;text-align:center}
+/* Question */
+.qa{display:none}
+.qhdr{border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;color:white}
+.qhdr .qi{font-size:2rem;line-height:1}
+.qhdr h3{font-size:1.05rem;font-weight:900}
+.qhdr p{font-size:.83rem;opacity:.9}
+.qcard{background:white;border-radius:12px;padding:17px;margin-bottom:13px;box-shadow:0 3px 13px rgba(0,0,0,.07);border-right:5px solid;animation:slideIn .3s ease}
+.qtop{display:flex;align-items:flex-start;gap:8px;margin-bottom:11px}
+.qn{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:50%;color:white;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:3px}
+.qt{font-size:.95rem;font-weight:600;color:#1a3a5c;line-height:1.7}
+.hl{background:#fef9c3;padding:1px 5px;border-radius:4px;font-weight:700;color:#92400e}
+.opts{display:flex;flex-direction:column;gap:6px}
+.ob{background:#f5f7fa;border:2px solid #dde3ec;border-radius:8px;padding:8px 13px;text-align:right;font-family:'Tajawal',sans-serif;font-size:.9rem;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .16s;width:100%}
+.ob:hover:not([disabled]){border-color:#e8a020;background:#fffbf0}
+.ob.ok{background:#d5f5e3!important;border-color:#27ae60!important;color:#1e6b3a}
+.ob.no{background:#fde8e8!important;border-color:#c0392b!important;color:#922b21}
+.ol{min-width:24px;height:24px;border-radius:50%;background:#1a3a5c;color:white;font-size:.76rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fb{margin-top:8px;padding:7px 11px;border-radius:7px;font-weight:700;font-size:.86rem;display:none}
+.fb.ok{display:block;background:#d5f5e3;color:#1e6b3a}
+.fb.no{display:block;background:#fde8e8;color:#922b21}
+.ans-area{background:#f8faff;border:1.5px dashed #c5cfe8;border-radius:9px;padding:13px}
+.tgb{background:none;border:1.5px solid currentColor;border-radius:6px;padding:4px 11px;font-family:'Tajawal',sans-serif;font-size:.81rem;font-weight:600;cursor:pointer}
+.abody{display:none;margin-top:9px}
+.abody.on{display:block}
+.abrow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.ab{padding:3px 11px;border-radius:6px;font-size:.81rem;font-weight:700}
+.abh{background:#1a3a5c;color:white}
+.abi{background:#27ae60;color:white}
+.abk{background:#c0392b;color:white}
+.abir{background:#f0f4f8;border:1px solid #d0d7e3;padding:8px 11px;border-radius:8px;font-size:.82rem;line-height:1.7}
+.fillrow{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:9px;font-size:.92rem;line-height:2}
+.fi{border:2px solid #b0bcd0;border-radius:6px;padding:4px 9px;font-family:'Tajawal',sans-serif;font-size:.9rem;width:105px;text-align:center;direction:rtl}
+.fi:focus{outline:none;border-color:#e8a020}
+.fi.ok{border-color:#27ae60!important;background:#d5f5e3}
+.fi.no{border-color:#c0392b!important;background:#fde8e8}
+.ckb{background:#1a3a5c;color:white;border:none;border-radius:6px;padding:6px 14px;font-family:'Tajawal',sans-serif;font-size:.86rem;cursor:pointer}
+/* Tiebreaker */
+.tie-overlay{position:fixed;inset:0;background:rgba(26,58,92,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.tie-overlay.on{display:flex}
+.tie-box{background:white;border-radius:18px;padding:24px;max-width:560px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.3);animation:popIn .35s ease;max-height:90vh;overflow-y:auto}
+.tie-box h2{color:#c0392b;font-size:1.2rem;font-weight:900;margin-bottom:4px;text-align:center}
+.tie-sub{color:#555;font-size:.88rem;text-align:center;margin-bottom:14px;line-height:1.6}
+/* Iraab full table */
+.ir-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.85rem}
+.ir-table th{background:#1a3a5c;color:#e8a020;padding:8px;text-align:center;border:1px solid #1a3a5c}
+.ir-table td{padding:8px;text-align:center;border:1px solid #dde3ec;background:#fff}
+.ir-table tr:nth-child(even) td{background:#f5f8ff}
+.sentence-box{background:#1a3a5c;color:white;font-size:1.3rem;font-weight:900;padding:14px 20px;border-radius:10px;text-align:center;margin-bottom:12px;letter-spacing:.5px}
+.tie-spin{display:flex;flex-direction:column;align-items:center;gap:10px;margin:14px 0}
+.tie-spin-btn{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#c0392b,#e74c3c);border:none;cursor:pointer;font-size:2.5rem;color:white;box-shadow:0 6px 24px rgba(192,57,43,.4);transition:transform .2s}
+.tie-spin-btn:hover{transform:scale(1.06)}
+.tie-result{display:none;padding:10px 20px;border-radius:10px;font-size:1rem;font-weight:800;text-align:center;color:white;margin-top:8px}
+.tie-ans-btn{background:none;border:2px solid #1a3a5c;border-radius:8px;padding:7px 16px;font-family:'Tajawal',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;color:#1a3a5c;margin-top:10px;display:none}
+/* Winner */
+.win-overlay{position:fixed;inset:0;background:rgba(26,58,92,.93);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;flex-direction:column;text-align:center}
+.win-overlay.on{display:flex}
+.win-icon{font-size:5rem;animation:bounce 1s ease infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.win-title{font-size:1.6rem;font-weight:900;color:white;margin:12px 0 6px;font-family:'Cairo',sans-serif}
+.win-name{font-size:1.15rem;font-weight:700;color:rgba(255,255,255,.9)}
+.confetti{font-size:2.5rem;letter-spacing:8px;margin-top:10px}
 @media(max-width:540px){
-  .rgrid { grid-template-columns:repeat(2,1fr); }
-  .ggrid { grid-template-columns:1fr 1fr; }
-  .sb-grid { grid-template-columns:repeat(auto-fill,minmax(80px,1fr)); }
-  .hdr h1 { font-size:1.3rem; }
+  .rgrid{grid-template-columns:repeat(2,1fr)}
+  .ggrid{grid-template-columns:1fr 1fr}
+  .sb-grid{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}
+  .hdr h1{font-size:1.3rem}
 }
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <div class="hdr">
   <h1>🎯 نشاط إعراب إنّ وأخواتها</h1>
   <p>الصف الخامس الأساسي – مادة لغتي الجميلة</p>
   <div class="badges">
     <span class="bdg">📚 المحور الخامس: رياضتي وصحتي</span>
-    <span class="bdg">👥 تعلّم تعاوني</span>
+    <span class="bdg">👥 جولتان تنافسيتان</span>
     <span class="bdg">🏆 لوحة النقاط الحية</span>
   </div>
 </div>
 
-<!-- ══ SCREEN 1: SETUP ══ -->
+<!-- SCREEN 1: SETUP -->
 <div id="s1" class="scr on">
   <div class="rbox">
     <h3>📖 تذكير سريع: إنّ وأخواتها</h3>
@@ -211,28 +171,11 @@ body { font-family: 'Tajawal', sans-serif; background: #eef2f7; min-height: 100v
       <div class="ri"><span>لعلَّ</span>للترجي</div>
     </div>
     <table class="tbl">
-      <thead>
-        <tr><th>الحرف الناسخ</th><th>الاسم (منصوب)</th><th>الخبر (مرفوع)</th><th>مثال</th></tr>
-      </thead>
+      <thead><tr><th>الحرف الناسخ</th><th>الاسم (منصوب)</th><th>الخبر (مرفوع)</th><th>مثال</th></tr></thead>
       <tbody>
-        <tr>
-          <td><b>إنَّ</b></td>
-          <td>إنَّ <b style="color:#c0392b">الرياضةَ</b></td>
-          <td><b style="color:#27ae60">مفيدةٌ</b></td>
-          <td>إنَّ الرياضةَ مفيدةٌ</td>
-        </tr>
-        <tr>
-          <td><b>ليتَ</b></td>
-          <td>ليتَ <b style="color:#c0392b">الجوَّ</b></td>
-          <td><b style="color:#27ae60">باردٌ</b></td>
-          <td>ليتَ الجوَّ باردٌ</td>
-        </tr>
-        <tr>
-          <td><b>لعلَّ</b></td>
-          <td>لعلَّ <b style="color:#c0392b">الوصولَ</b></td>
-          <td><b style="color:#27ae60">سهلٌ</b></td>
-          <td>لعلَّ الوصولَ سهلٌ</td>
-        </tr>
+        <tr><td><b>إنَّ</b></td><td>إنَّ <b style="color:#c0392b">الرياضةَ</b></td><td><b style="color:#27ae60">مفيدةٌ</b></td><td>إنَّ الرياضةَ مفيدةٌ</td></tr>
+        <tr><td><b>ليتَ</b></td><td>ليتَ <b style="color:#c0392b">الجوَّ</b></td><td><b style="color:#27ae60">باردٌ</b></td><td>ليتَ الجوَّ باردٌ</td></tr>
+        <tr><td><b>لعلَّ</b></td><td>لعلَّ <b style="color:#c0392b">الوصولَ</b></td><td><b style="color:#27ae60">سهلٌ</b></td><td>لعلَّ الوصولَ سهلٌ</td></tr>
       </tbody>
     </table>
     <div class="rnote" style="margin-top:11px">
@@ -241,7 +184,6 @@ body { font-family: 'Tajawal', sans-serif; background: #eef2f7; min-height: 100v
       • <b>خبر إنَّ:</b> مرفوع، وعلامة رفعه الضمة الظاهرة على آخره
     </div>
   </div>
-
   <div class="sbox">
     <h3>⚙️ إعداد النشاط</h3>
     <div class="rl">
@@ -251,103 +193,104 @@ body { font-family: 'Tajawal', sans-serif; background: #eef2f7; min-height: 100v
     <p style="color:#666;font-size:.83rem;margin-bottom:9px">👑 أدخل اسم رئيس كل مجموعة:</p>
     <div class="lgrid" id="lgrid"></div>
   </div>
-  <div class="ct">
-    <button class="bp" onclick="goGroups()">▶ ابدأ النشاط</button>
-  </div>
+  <div class="ct"><button class="bp" onclick="goGroups()">▶ ابدأ النشاط</button></div>
 </div>
 
-<!-- ══ SCREEN 2: GROUPS ══ -->
+<!-- SCREEN 2: GROUPS -->
 <div id="s2" class="scr">
   <h2 style="color:#1a3a5c;font-size:1.15rem;font-weight:900;margin-bottom:14px;text-align:center">🎊 المجموعات ورؤساؤها</h2>
   <div class="ggrid" id="ggrid"></div>
   <div class="ct">
-    <button class="bp" onclick="goPicker()">🎲 ابدأ السحب العشوائي</button><br>
+    <button class="bp" onclick="goPicker()">🎲 ابدأ الجولة الأولى</button><br>
     <button class="bs" onclick="go('s1')">↩️ تعديل الأسماء</button>
   </div>
 </div>
 
-<!-- ══ SCREEN 3: PICKER + QUESTION ══ -->
+<!-- SCREEN 3: PICKER + QUESTION -->
 <div id="s3" class="scr">
-
-  <!-- LIVE SCOREBOARD -->
   <div class="scoreboard">
-    <h3>🏆 لوحة النقاط</h3>
+    <h3 id="sbTitle">🏆 لوحة النقاط</h3>
     <div class="sb-grid" id="sbGrid"></div>
   </div>
-
-  <!-- PICKER -->
   <div class="picker" id="pickerDiv">
-    <div class="spin-wrap" id="spinWrap">
+    <div class="round-badge" id="roundBadge">🎮 الجولة الأولى</div><br>
+    <div class="spin-wrap">
       <button class="spin-btn" id="spinBtn" onclick="pickGroup()">
         <span class="spi" id="spi">🎲</span>
         <span class="spl">اضغط للسحب</span>
       </button>
-      <div class="spin-ring" id="spinRing"></div>
+      <div class="spin-ring"></div>
     </div>
-
     <div class="res-banner" id="resBanner">
       <div class="res-card" id="resCard" style="animation:popIn .35s ease"></div>
     </div>
-
-    <div class="pills-lbl">المجموعات المتبقية:</div>
+    <div class="pills-lbl">المجموعات المتبقية في هذه الجولة:</div>
     <div class="pills" id="pillsDiv"></div>
-    <div class="alldone" id="allDone">🎉 انتهت جميع المجموعات!</div>
-
-    <!-- Finish button (shows when all done) -->
+    <div class="alldone" id="allDone"></div>
     <div id="finishDiv" style="display:none;margin-top:10px">
-      <button class="bp" onclick="checkTie()">🏁 إنهاء وعرض الفائز</button>
+      <button class="bp" id="finishBtn" onclick="handleFinish()">🏁 إنهاء وعرض الفائز</button>
     </div>
   </div>
-
-  <!-- QUESTION AREA -->
   <div class="qa" id="qaDiv">
     <div id="qContent"></div>
     <div class="ct" style="margin-bottom:18px">
       <button class="bg" id="nextBtn" onclick="nextPick()" style="display:none">🎲 اختر المجموعة التالية</button>
     </div>
   </div>
-
 </div>
 
-<!-- ══ TIEBREAKER OVERLAY ══ -->
+<!-- TIEBREAKER OVERLAY -->
 <div class="tie-overlay" id="tieOverlay">
   <div class="tie-box">
-    <h2>⚡ سؤال كسر التعادل!</h2>
-    <div class="sub" id="tieSub"></div>
-    <div id="tieContent"></div>
-  </div>
-</div>
-
-<!-- ══ WINNER OVERLAY ══ -->
-<div class="win-overlay" id="winOverlay">
-  <div class="win-box">
-    <div class="win-icon" id="winIcon"></div>
-    <div class="win-title">🏆 الفائز</div>
-    <div class="win-name" id="winName"></div>
-    <div class="confetti">🎊🎉🥳🎊🎉</div>
-    <div style="margin-top:20px">
-      <button class="bp" onclick="resetAll()">🔄 جولة جديدة</button>
+    <h2>⚡ كسر التعادل!</h2>
+    <div class="tie-sub" id="tieSub"></div>
+    <div class="tie-spin" id="tieSpinArea">
+      <p style="font-size:.88rem;color:#666;font-weight:600">اضغط لسحب المجموعة التي ستجيب:</p>
+      <button class="tie-spin-btn" id="tieSpinBtn" onclick="tiePick()">🎲</button>
+      <div class="tie-result" id="tiePickResult"></div>
+    </div>
+    <div id="tieQArea" style="display:none">
+      <div class="sentence-box" id="tieSentence"></div>
+      <p style="font-size:.88rem;color:#555;margin-bottom:8px;font-weight:600">📝 أعرب الجملة كاملةً على السبورة:</p>
+      <table class="ir-table">
+        <thead><tr><th>الكلمة</th><th>الإعراب</th></tr></thead>
+        <tbody id="tieTBody"></tbody>
+      </table>
+      <div class="ct">
+        <button class="tie-ans-btn" id="tieAnsBtn" onclick="showTieAns()">👁 عرض الإجابة النموذجية</button>
+      </div>
+      <div id="tieAnsArea" style="display:none;margin-top:12px"></div>
+      <div class="ct" style="margin-top:14px" id="tieJudgeDiv" style="display:none">
+        <p style="font-size:.9rem;color:#1a3a5c;font-weight:700;margin-bottom:10px">🎓 هل أجابت المجموعة بشكل صحيح؟</p>
+        <button class="bp" style="margin-left:8px" onclick="tieJudge(true)">✅ نعم، أعربت صحيحاً</button>
+        <button class="bs" onclick="tieJudge(false)">❌ لا، سحب مجموعة أخرى</button>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- WINNER OVERLAY -->
+<div class="win-overlay" id="winOverlay">
+  <div>
+    <div class="win-icon" id="winIcon">🏆</div>
+    <div class="win-title">الفائز</div>
+    <div class="win-name" id="winName"></div>
+    <div class="confetti">🎊🎉🥳🎊🎉</div>
+    <div style="margin-top:20px"><button class="bp" onclick="resetAll()">🔄 جولة جديدة</button></div>
+  </div>
+</div>
 <script>
-// ════════════════════════════════════
-// CONSTANTS
-// ════════════════════════════════════
-var C   = ['#f39c12','#27ae60','#2980b9','#c0392b','#8e44ad','#16a085','#e67e22'];
-var IC  = ['🌟','🚀','💡','🏆','🎯','🌿','⚡'];
-var GN  = ['نجوم الفصاحة','فرسان البيان','أبطال اللغة','عقول النحو','رواد العربية','أسرار البلاغة','أمراء الكلمة'];
-var BG  = ['#fff3cd','#d5f5e3','#d6eaf8','#f9ebea','#e8daef','#d1f2eb','#fde8d8'];
+var C  =['#f39c12','#27ae60','#2980b9','#c0392b','#8e44ad','#16a085','#e67e22'];
+var IC =['🌟','🚀','💡','🏆','🎯','🌿','⚡'];
+var GN =['نجوم الفصاحة','فرسان البيان','أبطال اللغة','عقول النحو','رواد العربية','أسرار البلاغة','أمراء الكلمة'];
+var BG =['#fff3cd','#d5f5e3','#d6eaf8','#f9ebea','#e8daef','#d1f2eb','#fde8d8'];
 
-// ════════════════════════════════════
-// QUESTIONS BANK — 28 questions (4 per group)
-// ════════════════════════════════════
-var BANK = {
+// ══ BANK: جولة 1 (4 أسئلة لكل مجموعة) ══
+var BANK1 = {
   1:[
     {t:'mcq',q:'أيّ الجمل التالية تحتوي على إنَّ وأخواتها؟',
      o:['كانَ الطالبُ مجتهداً','إنَّ الرياضةَ مفيدةٌ','يكونُ الجوُّ حاراً','صارَ الولدُ كبيراً'],a:1,
-     x:'الجملة الثانية تبدأ بـ "إنَّ" وهي من الحروف الناسخة.'},
+     x:'الجملة الثانية تبدأ بـ إنَّ وهي من الحروف الناسخة.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الرياضةَ</span> مفيدةٌ',
      h:'إنَّ',i:'الرياضةَ',k:'مفيدةٌ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
     {t:'fill',q:'أكمل: ليتَ الوطنَ ___ دائماً.',
@@ -359,104 +302,207 @@ var BANK = {
   2:[
     {t:'mcq',q:'ما حرف الناسخ الذي يفيد التشبيه؟',
      o:['إنَّ','ليتَ','كأنَّ','لكنَّ'],a:2,
-     x:'"كأنَّ" تفيد التشبيه، مثل: كأنَّ القمرَ لؤلؤةٌ.'},
+     x:'كأنَّ تفيد التشبيه، مثل: كأنَّ القمرَ لؤلؤةٌ.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">الفوزَ</span> قريبٌ',
      h:'لعلَّ',i:'الفوزَ',k:'قريبٌ',r:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: أنَّ ___ نور.',
-     s:['أنَّ ',' نور.'],b:'العلمَ',h:'اسم أنَّ منصوب'},
+    {t:'fill',q:'أكمل: أنَّ ___ نور.',s:['أنَّ ',' نور.'],b:'العلمَ',h:'اسم أنَّ منصوب'},
     {t:'mcq',q:'حرف ناسخ يفيد الاستدراك؟',
-     o:['إنَّ','لكنَّ','ليتَ','لعلَّ'],a:1,
-     x:'"لكنَّ" تفيد الاستدراك.'}
+     o:['إنَّ','لكنَّ','ليتَ','لعلَّ'],a:1,x:'لكنَّ تفيد الاستدراك.'}
   ],
   3:[
     {t:'mcq',q:'ما إعراب خبر إنَّ في: إنَّ الجوَّ حارٌّ؟',
-     o:['منصوب','مجرور','مرفوع','مبني'],a:2,
-     x:'خبر إنَّ وأخواتها دائماً مرفوع.'},
+     o:['منصوب','مجرور','مرفوع','مبني'],a:2,x:'خبر إنَّ وأخواتها دائماً مرفوع.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: كأنَّ <span class="hl">السماءَ</span> بساطٌ',
      h:'كأنَّ',i:'السماءَ',k:'بساطٌ',r:'اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: إنَّ الأمانةَ ___.',
-     s:['إنَّ الأمانةَ ','.'],b:'خُلُقٌ',h:'خبر إنَّ مرفوع'},
+    {t:'fill',q:'أكمل: إنَّ الأمانةَ ___.',s:['إنَّ الأمانةَ ','.'],b:'خُلُقٌ',h:'خبر إنَّ مرفوع'},
     {t:'mcq',q:'في جملة: ليتَ الشبابَ يعودُ — ما اسم ليتَ؟',
-     o:['يعودُ','الشبابَ','ليتَ','يعود'],a:1,
-     x:'"الشبابَ" اسم ليتَ لأنه جاء بعدها مباشرةً وهو منصوب.'}
+     o:['يعودُ','الشبابَ','ليتَ','يعود'],a:1,x:'الشبابَ اسم ليتَ لأنه جاء بعدها مباشرةً وهو منصوب.'}
   ],
   4:[
     {t:'mcq',q:'أيّ الكلمات تُعرب خبر إنَّ في: إنَّ العلمَ نافعٌ؟',
-     o:['نافعٌ','العلمَ','إنَّ','نافعاً'],a:0,
-     x:'"نافعٌ" هو خبر إنَّ لأنه مرفوع.'},
+     o:['نافعٌ','العلمَ','إنَّ','نافعاً'],a:0,x:'نافعٌ هو خبر إنَّ لأنه مرفوع.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: لكنَّ <span class="hl">اللاعبَ</span> ماهرٌ',
      h:'لكنَّ',i:'اللاعبَ',k:'ماهرٌ',r:'اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: لعلَّ ___ يأتي غداً.',
-     s:['لعلَّ ',' يأتي غداً.'],b:'الطبيبَ',h:'اسم لعلَّ منصوب'},
-    {t:'mcq',q:'ما معنى حرف "ليتَ"؟',
-     o:['التوكيد','التشبيه','التمني','الترجي'],a:2,
-     x:'"ليتَ" حرف ناسخ يفيد التمني.'}
+    {t:'fill',q:'أكمل: لعلَّ ___ يأتي غداً.',s:['لعلَّ ',' يأتي غداً.'],b:'الطبيبَ',h:'اسم لعلَّ منصوب'},
+    {t:'mcq',q:'ما معنى حرف ليتَ؟',
+     o:['التوكيد','التشبيه','التمني','الترجي'],a:2,x:'ليتَ حرف ناسخ يفيد التمني.'}
   ],
   5:[
-    {t:'mcq',q:'صوّب الخطأ في: "ليتَ الجوُّ باردٌ"',
+    {t:'mcq',q:'صوّب الخطأ في: ليتَ الجوُّ باردٌ',
      o:['الجملة صحيحة','الصواب: ليتَ الجوَّ باردٌ','الصواب: ليتَ الجوَّ بارداً','لا خطأ'],a:1,
-     x:'اسم ليتَ منصوب، والصواب "الجوَّ" بالفتحة.'},
+     x:'اسم ليتَ منصوب، والصواب الجوَّ بالفتحة.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الصدقَ</span> منجاةٌ',
      h:'إنَّ',i:'الصدقَ',k:'منجاةٌ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: كأنَّ النجومَ ___.',
-     s:['كأنَّ النجومَ ','.'],b:'لؤلؤٌ',h:'خبر كأنَّ مرفوع'},
+    {t:'fill',q:'أكمل: كأنَّ النجومَ ___.',s:['كأنَّ النجومَ ','.'],b:'لؤلؤٌ',h:'خبر كأنَّ مرفوع'},
     {t:'mcq',q:'ما الفرق بين إنَّ وأخواتها وكان وأخواتها؟',
      o:['كلاهما أفعال','إنَّ أحرف وكان أفعال ناسخة','كلاهما أحرف','لا فرق'],a:1,
      x:'إنَّ وأخواتها حروف ناسخة، وكان وأخواتها أفعال ناسخة.'}
   ],
   6:[
-    {t:'mcq',q:'أدخل "أنَّ" على: (الفائزُ سعيدٌ) — ما الصواب؟',
+    {t:'mcq',q:'أدخل أنَّ على: (الفائزُ سعيدٌ) — ما الصواب؟',
      o:['أنَّ الفائزُ سعيدٌ','أنَّ الفائزَ سعيدٌ','أنَّ الفائزاً سعيداً','أنَّ الفائزِ سعيدٍ'],a:1,
-     x:'أنَّ تنصب المبتدأ فيصبح "الفائزَ" اسم أنَّ منصوباً.'},
+     x:'أنَّ تنصب المبتدأ فيصبح الفائزَ اسم أنَّ منصوباً.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">المطرَ</span> قادمٌ',
      h:'لعلَّ',i:'المطرَ',k:'قادمٌ',r:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: إنَّ العاملَ ___.',
-     s:['إنَّ العاملَ ','.'],b:'مُكرَّمٌ',h:'خبر إنَّ مرفوع'},
-    {t:'mcq',q:'ما معنى "لعلَّ"؟',
-     o:['التوكيد','التمني','التشبيه','الترجي والتوقع'],a:3,
-     x:'"لعلَّ" تفيد الترجي والتوقع.'}
+    {t:'fill',q:'أكمل: إنَّ العاملَ ___.',s:['إنَّ العاملَ ','.'],b:'مُكرَّمٌ',h:'خبر إنَّ مرفوع'},
+    {t:'mcq',q:'ما معنى لعلَّ؟',
+     o:['التوكيد','التمني','التشبيه','الترجي والتوقع'],a:3,x:'لعلَّ تفيد الترجي والتوقع.'}
   ],
   7:[
     {t:'mcq',q:'كم عدد أحرف إنَّ وأخواتها؟',
-     o:['4','5','6','7'],a:2,
-     x:'إنَّ وأخواتها ستة: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ.'},
+     o:['4','5','6','7'],a:2,x:'إنَّ وأخواتها ستة: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ.'},
     {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الوطنَ</span> غالٍ',
      h:'إنَّ',i:'الوطنَ',k:'غالٍ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
-    {t:'fill',q:'أكمل: لكنَّ الطالبَ ___.',
-     s:['لكنَّ الطالبَ ','.'],b:'مريضٌ',h:'خبر لكنَّ مرفوع'},
+    {t:'fill',q:'أكمل: لكنَّ الطالبَ ___.',s:['لكنَّ الطالبَ ','.'],b:'مريضٌ',h:'خبر لكنَّ مرفوع'},
     {t:'mcq',q:'أيّ الجمل فيها خطأ نحوي؟',
      o:['إنَّ الحقَّ منتصرٌ','كأنَّ البحرَ مرآةٌ','ليتَ الفرحُ دائمٌ','لعلَّ النجاحَ قريبٌ'],a:2,
-     x:'الخطأ في "ليتَ الفرحُ" — الصواب "الفرحَ" لأن اسم ليتَ منصوب.'}
+     x:'الخطأ في ليتَ الفرحُ — الصواب الفرحَ لأن اسم ليتَ منصوب.'}
   ]
 };
 
-// أسئلة القدرات لكسر التعادل
+// ══ BANK: جولة 2 (4 أسئلة مختلفة لكل مجموعة) ══
+var BANK2 = {
+  1:[
+    {t:'mcq',q:'اختر الجملة الصحيحة نحوياً:',
+     o:['إنَّ المجتهدُ ناجحٌ','إنَّ المجتهدَ ناجحٌ','إنَّ المجتهدِ ناجحٌ','إنَّ المجتهداً ناجحٌ'],a:1,
+     x:'اسم إنَّ منصوب، والصواب المجتهدَ بالفتحة.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: ليتَ <span class="hl">الشتاءَ</span> طويلٌ',
+     h:'ليتَ',i:'الشتاءَ',k:'طويلٌ',r:'اسم ليتَ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: إنَّ النجاحَ ___ للصابرين.',
+     s:['إنَّ النجاحَ ',' للصابرين.'],b:'حليفٌ',h:'خبر إنَّ مرفوع'},
+    {t:'mcq',q:'ما الحرف الناسخ في جملة: لعلَّ الغيابَ قصيرٌ؟',
+     o:['الغيابَ','قصيرٌ','لعلَّ','لا يوجد'],a:2,x:'لعلَّ هو الحرف الناسخ في الجملة.'}
+  ],
+  2:[
+    {t:'mcq',q:'ما إعراب اسم كأنَّ في: كأنَّ الغيمَ قطنٌ؟',
+     o:['مرفوع','منصوب','مجرور','مبني'],a:1,x:'اسم كأنَّ منصوب بالفتحة.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: لكنَّ <span class="hl">الصديقَ</span> وفيٌّ',
+     h:'لكنَّ',i:'الصديقَ',k:'وفيٌّ',r:'اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: لعلَّ الدرسَ ___ اليوم.',
+     s:['لعلَّ الدرسَ ',' اليوم.'],b:'سهلٌ',h:'خبر لعلَّ مرفوع'},
+    {t:'mcq',q:'أيّ الجمل تحتوي على خبر إنَّ؟',
+     o:['إنَّ يدرسُ المجتهدُ','إنَّ المجتهدَ مثابرٌ','إنَّ للمجتهدِ','إنَّ المجتهدِ'],a:1,
+     x:'في الجملة الثانية: مثابرٌ خبر إنَّ مرفوع.'}
+  ],
+  3:[
+    {t:'mcq',q:'صوّب: أنَّ الفلاحُ مجتهدٌ',
+     o:['الجملة صحيحة','الصواب: أنَّ الفلاحَ مجتهدٌ','الصواب: أنَّ الفلاحَ مجتهداً','لا خطأ'],a:1,
+     x:'اسم أنَّ منصوب، الصواب الفلاحَ بالفتحة.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">التعاونَ</span> قوةٌ',
+     h:'إنَّ',i:'التعاونَ',k:'قوةٌ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: كأنَّ الجبلَ ___ صامد.',
+     s:['كأنَّ الجبلَ ',' صامد.'],b:'شامخٌ',h:'خبر كأنَّ مرفوع'},
+    {t:'mcq',q:'ما الفرق بين اسم إنَّ وخبر إنَّ من حيث الإعراب؟',
+     o:['كلاهما مرفوع','كلاهما منصوب','الاسم منصوب والخبر مرفوع','الاسم مرفوع والخبر منصوب'],a:2,
+     x:'اسم إنَّ منصوب وخبرها مرفوع دائماً.'}
+  ],
+  4:[
+    {t:'mcq',q:'أيّ الكلمات التالية اسم إنَّ في: إنَّ المعلمَ قدوةٌ؟',
+     o:['إنَّ','المعلمَ','قدوةٌ','لا يوجد'],a:1,
+     x:'المعلمَ اسم إنَّ لأنه جاء بعدها مباشرةً وهو منصوب.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: أنَّ <span class="hl">العدلَ</span> أساسٌ',
+     h:'أنَّ',i:'العدلَ',k:'أساسٌ',r:'اسم أنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: ليتَ الغائبَ ___ سريعاً.',
+     s:['ليتَ الغائبَ ',' سريعاً.'],b:'يعودُ',h:'خبر ليتَ مرفوع'},
+    {t:'mcq',q:'ما معنى أنَّ؟',
+     o:['التشبيه','الترجي','التوكيد','الاستدراك'],a:2,x:'أنَّ حرف ناسخ يفيد التوكيد مثل إنَّ.'}
+  ],
+  5:[
+    {t:'mcq',q:'ما علامة نصب اسم إنَّ؟',
+     o:['الضمة','الكسرة','الفتحة','السكون'],a:2,
+     x:'اسم إنَّ منصوب وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">الحلَّ</span> قريبٌ',
+     h:'لعلَّ',i:'الحلَّ',k:'قريبٌ',r:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: إنَّ الكتابَ ___ للعقل.',
+     s:['إنَّ الكتابَ ',' للعقل.'],b:'غذاءٌ',h:'خبر إنَّ مرفوع'},
+    {t:'mcq',q:'أدخل لكنَّ على: (الجوُّ باردٌ) — ما الصواب؟',
+     o:['لكنَّ الجوُّ باردٌ','لكنَّ الجوَّ باردٌ','لكنَّ الجوِّ باردٍ','لكنَّ الجوَّ بارداً'],a:1,
+     x:'لكنَّ تنصب المبتدأ فيصبح الجوَّ اسم لكنَّ منصوباً.'}
+  ],
+  6:[
+    {t:'mcq',q:'أيّ الجمل فيها اسم إنَّ محذوف الضبط الصحيح؟',
+     o:['إنَّ الماءُ حياةٌ','إنَّ الماءَ حياةٌ','إنَّ الماءِ حياةٍ','إنَّ الماءاً حياةاً'],a:1,
+     x:'اسم إنَّ منصوب، والصواب الماءَ بالفتحة.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: كأنَّ <span class="hl">الوردةَ</span> لؤلؤةٌ',
+     h:'كأنَّ',i:'الوردةَ',k:'لؤلؤةٌ',r:'اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: ليتَ الأيامَ ___ جميلةً.',
+     s:['ليتَ الأيامَ ',' جميلةً.'],b:'تعودُ',h:'خبر ليتَ مرفوع'},
+    {t:'mcq',q:'ما علامة رفع خبر إنَّ؟',
+     o:['الفتحة','الكسرة','الضمة','السكون'],a:2,
+     x:'خبر إنَّ مرفوع وعلامة رفعه الضمة الظاهرة على آخره.'}
+  ],
+  7:[
+    {t:'mcq',q:'ما الحرف الناسخ الذي يفيد الترجي؟',
+     o:['إنَّ','كأنَّ','ليتَ','لعلَّ'],a:3,x:'لعلَّ تفيد الترجي والتوقع.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الرياضيَّ</span> بطلٌ',
+     h:'إنَّ',i:'الرياضيَّ',k:'بطلٌ',r:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: لكنَّ الهواءَ ___ نظيف.',
+     s:['لكنَّ الهواءَ ',' نظيف.'],b:'هنا',h:'خبر لكنَّ مرفوع'},
+    {t:'mcq',q:'في جملة: كأنَّ القمرَ مصباحٌ — ما خبر كأنَّ؟',
+     o:['كأنَّ','القمرَ','مصباحٌ','لا يوجد'],a:2,
+     x:'مصباحٌ خبر كأنَّ مرفوع وعلامة رفعه الضمة.'}
+  ]
+};
+
+// ══ أسئلة كسر التعادل: إعراب كامل للجملة ══
 var TIE_QS = [
-  {t:'mcq',q:'ما الحرف الناسخ الذي يفيد التوكيد فقط؟',
-   o:['كأنَّ','ليتَ','إنَّ','لعلَّ'],a:2,
-   x:'"إنَّ" و"أنَّ" يفيدان التوكيد، لكن إنَّ هو الأشهر في هذا المعنى.'},
-  {t:'fill',q:'أكمل: إنَّ ___ عادلٌ.',
-   s:['إنَّ ',' عادلٌ.'],b:'القاضيَ',h:'اسم إنَّ منصوب'},
-  {t:'mcq',q:'في جملة: كأنَّ الوردةَ لؤلؤةٌ — ما خبر كأنَّ؟',
-   o:['كأنَّ','الوردةَ','لؤلؤةٌ','لا خبر'],a:2,
-   x:'"لؤلؤةٌ" خبر كأنَّ مرفوع وعلامة رفعه الضمة.'},
-  {t:'mcq',q:'أيّ الكلمات التالية اسم إنَّ في الجملة: إنَّ التفوقَ ثمرةُ الجهدِ؟',
-   o:['ثمرةُ','التفوقَ','الجهدِ','إنَّ'],a:1,
-   x:'"التفوقَ" اسم إنَّ لأنه جاء بعدها مباشرةً وهو منصوب.'},
-  {t:'fill',q:'أكمل: لعلَّ الغائبَ ___.',
-   s:['لعلَّ الغائبَ ','.'],b:'حاضرٌ',h:'خبر لعلَّ مرفوع'}
+  {
+    sentence:'إنَّ الرياضةَ مفيدةٌ',
+    rows:[
+      ['إنَّ','حرف ناسخ مبني على الفتح، لا محل له من الإعراب'],
+      ['الرياضةَ','اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره'],
+      ['مفيدةٌ','خبر إنَّ، مرفوع، وعلامة رفعه الضمة الظاهرة على آخره']
+    ]
+  },
+  {
+    sentence:'ليتَ الجوَّ باردٌ',
+    rows:[
+      ['ليتَ','حرف ناسخ مبني على الفتح، لا محل له من الإعراب'],
+      ['الجوَّ','اسم ليتَ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره'],
+      ['باردٌ','خبر ليتَ، مرفوع، وعلامة رفعه الضمة الظاهرة على آخره']
+    ]
+  },
+  {
+    sentence:'لعلَّ النجاحَ قريبٌ',
+    rows:[
+      ['لعلَّ','حرف ناسخ مبني على الفتح، لا محل له من الإعراب'],
+      ['النجاحَ','اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره'],
+      ['قريبٌ','خبر لعلَّ، مرفوع، وعلامة رفعه الضمة الظاهرة على آخره']
+    ]
+  },
+  {
+    sentence:'كأنَّ البحرَ مرآةٌ',
+    rows:[
+      ['كأنَّ','حرف ناسخ مبني على الفتح، لا محل له من الإعراب'],
+      ['البحرَ','اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره'],
+      ['مرآةٌ','خبر كأنَّ، مرفوع، وعلامة رفعه الضمة الظاهرة على آخره']
+    ]
+  },
+  {
+    sentence:'لكنَّ الصديقَ وفيٌّ',
+    rows:[
+      ['لكنَّ','حرف ناسخ مبني على الفتح، لا محل له من الإعراب'],
+      ['الصديقَ','اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره'],
+      ['وفيٌّ','خبر لكنَّ، مرفوع، وعلامة رفعه الضمة الظاهرة على آخره']
+    ]
+  },
+  {
+    sentence:'إنَّ الوطنَ غالٍ',
+    rows:[
+      ['إنَّ','حرف ناسخ مبني على الفتح، لا محل له من الإعراب'],
+      ['الوطنَ','اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره'],
+      ['غالٍ','خبر إنَّ، مرفوع، وعلامة رفعه الضمة المقدرة على الياء المحذوفة']
+    ]
+  }
 ];
 
-// ════════════════════════════════════
-// STATE
-// ════════════════════════════════════
+// ══ STATE ══
 var numG=7, leaders=[], remaining=[], scores={};
-var qIdx={}, spinning=false, curGroup=null;
-var tieGroups=[], tieIdx=0, tieAnswered=false;
+var curRound=1, qIdx={}, spinning=false, curGroup=null;
+var tieGroups=[], tieRemaining=[], tieSpinning=false;
+var curTieQ=null, curTieG=null, tieQIdx=0;
 
-// ════════════════════════════════════
-// SETUP
-// ════════════════════════════════════
+// ══ SETUP ══
 function buildLeaders(){
   numG=parseInt(document.getElementById('numGrp').value)||7;
   if(numG>7){numG=7;document.getElementById('numGrp').value=7;}
@@ -471,25 +517,18 @@ function buildLeaders(){
 }
 buildLeaders();
 
-// ════════════════════════════════════
-// NAVIGATION
-// ════════════════════════════════════
 function go(id){
   ['s1','s2','s3'].forEach(function(s){
-    var el=document.getElementById(s);
-    el.className= s===id ? 'scr on' : 'scr';
+    document.getElementById(s).className= s===id?'scr on':'scr';
   });
 }
 
-// ════════════════════════════════════
-// GO GROUPS
-// ════════════════════════════════════
 function goGroups(){
   numG=parseInt(document.getElementById('numGrp').value)||7;
   leaders=[];
   for(var i=1;i<=numG;i++){
     var el=document.getElementById('l'+i);
-    leaders.push(el&&el.value.trim()?el.value.trim():'رئيس '+i);
+    leaders.push(el&&el.value.trim()?el.value.trim():'مجموعة '+i);
   }
   var gr=document.getElementById('ggrid'); gr.innerHTML='';
   for(var g=1;g<=numG;g++){
@@ -501,12 +540,8 @@ function goGroups(){
   go('s2');
 }
 
-// ════════════════════════════════════
-// GO PICKER
-// ════════════════════════════════════
 function goPicker(){
   spinning=false;
-  // ensure leaders are loaded
   numG=parseInt(document.getElementById('numGrp').value)||7;
   if(leaders.length!==numG){
     leaders=[];
@@ -515,29 +550,44 @@ function goPicker(){
       leaders.push(el&&el.value.trim()?el.value.trim():'مجموعة '+i);
     }
   }
-  remaining=[]; scores={}; qIdx={};
-  for(var g=1;g<=numG;g++){remaining.push(g);scores[g]=0;qIdx[g]=0;}
+  curRound=1; scores={}; qIdx={};
+  for(var g=1;g<=numG;g++){scores[g]=0;qIdx[g]=0;}
+  startRound();
+}
+
+function startRound(){
+  spinning=false;
+  remaining=[];
+  for(var g=1;g<=numG;g++) remaining.push(g);
   document.getElementById('resBanner').style.display='none';
   document.getElementById('allDone').style.display='none';
   document.getElementById('finishDiv').style.display='none';
   document.getElementById('qaDiv').style.display='none';
   document.getElementById('nextBtn').style.display='none';
-  document.getElementById('spi').textContent='🎲';
-  var btn=document.getElementById('spinBtn');
-  btn.disabled=false;
+  document.getElementById('spi').textContent='\u{1F3B2}';
+  document.getElementById('spinBtn').disabled=false;
+  var rb=document.getElementById('roundBadge');
+  rb.textContent= curRound===1 ? '\u{1F3AE} الجولة الأولى' : '\u{1F525} الجولة الثانية';
+  rb.style.background= curRound===1 ?
+    'linear-gradient(135deg,#e8a020,#f39c12)' :
+    'linear-gradient(135deg,#c0392b,#e74c3c)';
+  document.getElementById('sbTitle').textContent= curRound===1 ?
+    '\u{1F3C6} لوحة النقاط – الجولة الأولى' :
+    '\u{1F3C6} لوحة النقاط – الجولة الثانية';
+  document.getElementById('finishBtn').textContent= curRound===2 ?
+    '\u{1F3C1} إنهاء وعرض الفائز' : '\u{27A1}\uFE0F انتقل للجولة الثانية';
   renderSB(); renderPills();
   go('s3');
 }
 
-// ════════════════════════════════════
-// SCOREBOARD
-// ════════════════════════════════════
+// ══ SCOREBOARD ══
 function renderSB(active){
   var g=document.getElementById('sbGrid'); g.innerHTML='';
   for(var i=1;i<=numG;i++){
     var d=document.createElement('div');
     d.className='sb-card'+(active===i?' active-grp':'');
-    d.style.background=BG[i-1]; d.style.border='2px solid '+(active===i?'#e8a020':C[i-1]);
+    d.style.background=BG[i-1];
+    d.style.border='2px solid '+(active===i?'#e8a020':C[i-1]);
     d.id='sbc'+i;
     d.innerHTML='<div class="sb-icon">'+IC[i-1]+'</div>'+
       '<div class="sb-name">'+leaders[i-1]+'</div>'+
@@ -550,14 +600,11 @@ function renderSB(active){
 function flashScore(g){
   var el=document.getElementById('sbc'+g);
   if(!el)return;
-  el.style.transition='transform .1s';
-  el.style.transform='scale(1.15)';
-  setTimeout(function(){el.style.transform='scale(1.05)';},150);
+  el.style.transition='transform .12s';
+  el.style.transform='scale(1.18)';
+  setTimeout(function(){el.style.transform='scale(1.05)';},160);
 }
 
-// ════════════════════════════════════
-// PILLS
-// ════════════════════════════════════
 function renderPills(){
   var p=document.getElementById('pillsDiv'); p.innerHTML='';
   for(var g=1;g<=numG;g++){
@@ -565,23 +612,24 @@ function renderPills(){
     var done=remaining.indexOf(g)===-1;
     s.className=done?'pill done':'pill';
     if(!done)s.style.background=C[g-1];
-    s.textContent=(done?'✅ ':IC[g-1]+' ')+leaders[g-1];
+    s.textContent=(done?'\u2705 ':IC[g-1]+' ')+leaders[g-1];
     p.appendChild(s);
   }
   if(remaining.length===0){
+    var msg= curRound===1 ?
+      '\u{1F389} انتهت الجولة الأولى! اضغط للانتقال إلى الجولة الثانية' :
+      '\u{1F389} انتهت الجولتان! اضغط لعرض النتيجة النهائية';
+    document.getElementById('allDone').textContent=msg;
     document.getElementById('allDone').style.display='block';
     document.getElementById('finishDiv').style.display='block';
     document.getElementById('spinBtn').disabled=true;
-    document.getElementById('spi').textContent='🏁';
+    document.getElementById('spi').textContent='\u{1F3C1}';
   }
 }
 
-// ════════════════════════════════════
-// PICK GROUP
-// ════════════════════════════════════
+// ══ PICK GROUP ══
 function pickGroup(){
-  if(spinning) return;
-  if(remaining.length===0) return;
+  if(spinning||remaining.length===0)return;
   spinning=true;
   var btn=document.getElementById('spinBtn');
   var icon=document.getElementById('spi');
@@ -589,10 +637,8 @@ function pickGroup(){
   document.getElementById('resBanner').style.display='none';
   document.getElementById('qaDiv').style.display='none';
   document.getElementById('nextBtn').style.display='none';
-
-  // copy remaining to avoid mutation during animation
   var rem=remaining.slice();
-  var ticks=0, total=18+Math.floor(Math.random()*10), ri=0;
+  var ticks=0,total=18+Math.floor(Math.random()*10),ri=0;
   var timer=setInterval(function(){
     ticks++;
     icon.textContent=IC[rem[ri%rem.length]-1];
@@ -611,122 +657,102 @@ function pickGroup(){
   },100);
 }
 
-// ════════════════════════════════════
-// SHOW PICKED GROUP
-// ════════════════════════════════════
 function showPicked(g){
   curGroup=g;
   document.getElementById('spi').textContent=IC[g-1];
   var rc=document.getElementById('resCard');
   rc.style.background='linear-gradient(135deg,'+C[g-1]+','+C[g-1]+'99)';
-  rc.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1];
+  rc.textContent=IC[g-1]+' '+GN[g-1]+' \u2014 '+leaders[g-1];
   document.getElementById('resBanner').style.display='block';
-  renderPills();
-  renderSB(g);
-  buildQ(g);
+  renderPills(); renderSB(g); buildQ(g);
   setTimeout(function(){
     document.getElementById('qaDiv').scrollIntoView({behavior:'smooth',block:'start'});
   },250);
 }
 
-// ════════════════════════════════════
-// BUILD SINGLE QUESTION
-// ════════════════════════════════════
+// ══ BUILD QUESTION ══
 function buildQ(g){
-  var qs=BANK[g]||BANK[1];
+  var bank= curRound===1 ? BANK1 : BANK2;
+  var qs=bank[g]||bank[1];
   var qi=qIdx[g]||0;
-  // if all 4 done, reuse shuffled
   if(qi>=qs.length){qIdx[g]=0;qi=0;}
   var q=qs[qi];
   var col=C[g-1];
-  var L=['أ','ب','ج','د'];
+  var L=['\u0623','\u0628','\u062C','\u062F'];
+  var rndLabel= curRound===1 ? 'الجولة الأولى' : 'الجولة الثانية';
   var html='';
-
-  // header
   html+='<div class="qhdr" style="background:linear-gradient(135deg,'+col+','+col+'99)">'+
     '<div class="qi">'+IC[g-1]+'</div>'+
-    '<div><h3>'+GN[g-1]+'</h3><p>👑 '+leaders[g-1]+'  •  السؤال '+(qi+1)+' من '+qs.length+'</p></div></div>';
-
-  // question card
+    '<div><h3>'+GN[g-1]+'</h3><p>\u{1F451} '+leaders[g-1]+'  \u2022  '+rndLabel+' \u2013 السؤال '+(qi+1)+' من '+qs.length+'</p></div></div>';
   html+='<div class="qcard" style="border-right-color:'+col+'">'+
     '<div class="qtop"><span class="qn" style="background:'+col+'">'+(qi+1)+'</span>'+
     '<div class="qt">'+q.q+'</div></div>';
-
   if(q.t==='mcq'){
     html+='<div class="opts" id="OO">';
-    for(var oi=0;oi<q.o.length;oi++){
-      html+='<button class="ob" onclick="chkMCQ('+oi+','+q.a+','+g+')">'+
-        '<span class="ol">'+L[oi]+'</span>'+q.o[oi]+'</button>';
-    }
+    for(var oi=0;oi<q.o.length;oi++)
+      html+='<button class="ob" onclick="chkMCQ('+oi+','+q.a+','+g+')"><span class="ol">'+L[oi]+'</span>'+q.o[oi]+'</button>';
     html+='</div><div class="fb" id="FB"></div>';
-  }
-  else if(q.t==='iraab'){
-    html+='<div class="ans-area"><button class="tgb" style="color:'+col+'" onclick="tog()">👁 اعرض الإجابة</button>'+
-      '<div class="abody" id="AB">'+
-      '<div class="abrow">'+
+  } else if(q.t==='iraab'){
+    html+='<div class="ans-area"><button class="tgb" style="color:'+col+'" onclick="tog()">\u{1F441} اعرض الإجابة</button>'+
+      '<div class="abody" id="AB"><div class="abrow">'+
       '<span class="ab abh">الحرف: '+q.h+'</span>'+
       '<span class="ab abi">الاسم: '+q.i+'</span>'+
       '<span class="ab abk">الخبر: '+q.k+'</span></div>'+
-      '<div class="abir">📝 '+q.r+'</div></div></div>';
-    // iraab auto-reveals next btn
+      '<div class="abir">\u{1F4DD} '+q.r+'</div></div></div>';
     setTimeout(function(){document.getElementById('nextBtn').style.display='inline-block';},400);
-  }
-  else if(q.t==='fill'){
+  } else if(q.t==='fill'){
     html+='<div class="fillrow">';
     for(var pi=0;pi<q.s.length;pi++){
       html+='<span>'+q.s[pi]+'</span>';
-      if(pi<q.s.length-1)html+='<input class="fi" type="text" id="FI" placeholder="..." dir="rtl">';
+      if(pi<q.s.length-1) html+='<input class="fi" type="text" id="FI" placeholder="..." dir="rtl">';
     }
-    html+='</div><button class="ckb" onclick="chkFill('+g+')">✅ تحقق</button>'+
+    html+='</div><button class="ckb" onclick="chkFill('+g+')">\u2705 تحقق</button>'+
       '<div class="fb" id="FFB"></div>';
   }
   html+='</div>';
-
   document.getElementById('qContent').innerHTML=html;
   document.getElementById('qaDiv').style.display='block';
 }
 
-// ════════════════════════════════════
-// INTERACTIONS
-// ════════════════════════════════════
+// ══ INTERACTIONS ══
 function chkMCQ(chosen,correct,g){
   var btns=document.querySelectorAll('#OO .ob');
   for(var i=0;i<btns.length;i++) btns[i].setAttribute('disabled','true');
   btns[chosen].classList.add(chosen===correct?'ok':'no');
   if(chosen!==correct) btns[correct].classList.add('ok');
-  var q=(BANK[g]||BANK[1])[qIdx[g]||0];
+  var bank= curRound===1 ? BANK1 : BANK2;
+  var q=(bank[g]||bank[1])[qIdx[g]||0];
   var fb=document.getElementById('FB');
-  fb.textContent=(chosen===correct?'✅ إجابة صحيحة! ':'❌ إجابة خاطئة. ')+q.x;
+  fb.textContent=(chosen===correct?'\u2705 إجابة صحيحة! ':'\u274C إجابة خاطئة. ')+q.x;
   fb.className='fb '+(chosen===correct?'ok':'no');
-  if(chosen===correct){addScore(g);}
+  if(chosen===correct) addScore(g);
   qIdx[g]=(qIdx[g]||0)+1;
   document.getElementById('nextBtn').style.display='inline-block';
 }
 
 function chkFill(g){
-  var q=(BANK[g]||BANK[1])[qIdx[g]||0];
+  var bank= curRound===1 ? BANK1 : BANK2;
+  var q=(bank[g]||bank[1])[qIdx[g]||0];
   var inp=document.getElementById('FI');
   var ok=inp&&inp.value.trim()===q.b;
   if(inp) inp.className='fi '+(ok?'ok':'no');
   var fb=document.getElementById('FFB');
-  fb.textContent=ok?'✅ ممتاز! الإجابة صحيحة.':'❌ راجع إجابتك. تلميح: '+q.h;
+  fb.textContent=ok?'\u2705 ممتاز! الإجابة صحيحة.':'\u274C راجع إجابتك. تلميح: '+q.h;
   fb.className='fb '+(ok?'ok':'no');
-  if(ok){addScore(g);}
+  if(ok) addScore(g);
   qIdx[g]=(qIdx[g]||0)+1;
   document.getElementById('nextBtn').style.display='inline-block';
 }
 
 function tog(){
-  var el=document.getElementById('AB');
-  var btn=event.target;
-  if(el.classList.contains('on')){el.classList.remove('on');btn.textContent='👁 اعرض الإجابة';}
-  else{el.classList.add('on');btn.textContent='🙈 إخفاء الإجابة';}
+  var el=document.getElementById('AB'); var btn=event.target;
+  el.classList.contains('on')?(el.classList.remove('on'),btn.textContent='\u{1F441} اعرض الإجابة')
+    :(el.classList.add('on'),btn.textContent='\u{1F648} إخفاء الإجابة');
 }
 
 function addScore(g){
   scores[g]=(scores[g]||0)+1;
-  renderSB(curGroup);
-  flashScore(g);
+  renderSB(curGroup); flashScore(g);
 }
 
 function nextPick(){
@@ -737,108 +763,130 @@ function nextPick(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ════════════════════════════════════
-// TIE BREAKER
-// ════════════════════════════════════
+// ══ HANDLE FINISH BUTTON ══
+function handleFinish(){
+  if(curRound===1){
+    curRound=2;
+    for(var g=1;g<=numG;g++) qIdx[g]=0;
+    startRound();
+  } else {
+    checkTie();
+  }
+}
+
+// ══ TIE CHECK ══
 function checkTie(){
-  // find max score
   var maxS=0;
   for(var g=1;g<=numG;g++) if(scores[g]>maxS) maxS=scores[g];
   tieGroups=[];
   for(var g=1;g<=numG;g++) if(scores[g]===maxS) tieGroups.push(g);
-
-  if(tieGroups.length===1){
-    showWinner(tieGroups[0]);
-  } else {
-    // tie!
-    tieIdx=0;
-    tieAnswered=false;
-    var names=tieGroups.map(function(g){return IC[g-1]+' '+leaders[g-1];}).join(' و ');
-    document.getElementById('tieSub').textContent='تعادلت المجموعات: '+names+' برصيد '+maxS+' نقطة — سؤال قدرات لكسر التعادل!';
-    showTieQ();
-    document.getElementById('tieOverlay').className='tie-overlay on';
-  }
+  if(tieGroups.length===1){ showWinner(tieGroups[0]); return; }
+  // تعادل — سحب عشوائي لتحديد المجموعة
+  tieRemaining=tieGroups.slice();
+  tieQIdx=Math.floor(Math.random()*TIE_QS.length);
+  curTieQ=TIE_QS[tieQIdx];
+  curTieG=null;
+  var names=tieGroups.map(function(g){return IC[g-1]+' '+leaders[g-1];}).join(' و ');
+  document.getElementById('tieSub').innerHTML=
+    'تعادلت المجموعات: <b>'+names+'</b><br>برصيد <b>'+maxS+'</b> نقطة — سيُسحب عشوائياً لتحديد المجموعة التي تُعرب الجملة';
+  document.getElementById('tieSpinArea').style.display='flex';
+  document.getElementById('tieQArea').style.display='none';
+  document.getElementById('tiePickResult').style.display='none';
+  document.getElementById('tieSpinBtn').textContent='\u{1F3B2}';
+  document.getElementById('tieSpinBtn').disabled=false;
+  tieSpinning=false;
+  document.getElementById('tieOverlay').className='tie-overlay on';
 }
 
-function showTieQ(){
-  var q=TIE_QS[tieIdx%TIE_QS.length];
-  var L=['أ','ب','ج','د'];
-  var html='';
-  if(q.t==='mcq'){
-    html+='<div class="qt" style="margin-bottom:12px;font-weight:700;font-size:.95rem;color:#1a3a5c">'+q.q+'</div>';
-    html+='<div class="opts" id="TIE_OPTS">';
-    for(var oi=0;oi<q.o.length;oi++){
-      html+='<button class="ob" onclick="chkTie('+oi+','+q.a+')">'+
-        '<span class="ol">'+L[oi]+'</span>'+q.o[oi]+'</button>';
+// ══ TIE SPIN ══
+function tiePick(){
+  if(tieSpinning||tieRemaining.length===0)return;
+  tieSpinning=true;
+  var btn=document.getElementById('tieSpinBtn');
+  btn.disabled=true;
+  var rem=tieRemaining.slice();
+  var ticks=0,total=16+Math.floor(Math.random()*8),ri=0;
+  var timer=setInterval(function(){
+    ticks++;
+    btn.textContent=IC[rem[ri%rem.length]-1];
+    ri++;
+    if(ticks>=total){
+      clearInterval(timer);
+      var idx=Math.floor(Math.random()*tieRemaining.length);
+      curTieG=tieRemaining[idx];
+      tieRemaining.splice(idx,1);
+      setTimeout(function(){
+        tieSpinning=false;
+        showTieGroup(curTieG);
+      },300);
     }
-    html+='</div><div class="fb" id="TIE_FB"></div>';
-  } else if(q.t==='fill'){
-    html+='<div class="qt" style="margin-bottom:12px;font-weight:700;font-size:.95rem;color:#1a3a5c">'+q.q+'</div>';
-    html+='<div class="fillrow">';
-    for(var pi=0;pi<q.s.length;pi++){
-      html+='<span>'+q.s[pi]+'</span>';
-      if(pi<q.s.length-1) html+='<input class="fi" type="text" id="TIE_FI" placeholder="..." dir="rtl">';
-    }
-    html+='</div><button class="ckb" onclick="chkTieFill()">✅ تحقق</button>';
-    html+='<div class="fb" id="TIE_FB"></div>';
-  }
-  document.getElementById('tieContent').innerHTML=html;
+  },100);
 }
 
-function chkTie(chosen,correct){
-  var btns=document.querySelectorAll('#TIE_OPTS .ob');
-  if(tieAnswered)return;
-  tieAnswered=true;
-  for(var i=0;i<btns.length;i++) btns[i].setAttribute('disabled','true');
-  btns[chosen].classList.add(chosen===correct?'ok':'no');
-  if(chosen!==correct) btns[correct].classList.add('ok');
-  var q=TIE_QS[tieIdx%TIE_QS.length];
-  var fb=document.getElementById('TIE_FB');
-  fb.textContent=(chosen===correct?'✅ صحيح! ':'❌ خطأ! ')+q.x;
-  fb.className='fb '+(chosen===correct?'ok':'no');
-
+function showTieGroup(g){
+  var res=document.getElementById('tiePickResult');
+  res.style.display='block';
+  res.style.background=C[g-1];
+  res.textContent=IC[g-1]+' '+GN[g-1]+' — '+leaders[g-1]+' \u{1F4DD} ستُعرب الجملة';
+  // show question
   setTimeout(function(){
-    if(chosen===correct){
-      // first group to answer correctly wins — in practice teacher picks winner
-      // Show tiebreak won message then winner
-      document.getElementById('tieOverlay').className='tie-overlay';
-      showWinner(tieGroups[0]); // teacher declares winner
-    } else {
-      tieIdx++;
-      tieAnswered=false;
-      showTieQ();
+    document.getElementById('tieSpinArea').style.display='none';
+    document.getElementById('tieQArea').style.display='block';
+    document.getElementById('tieSentence').textContent=curTieQ.sentence;
+    var tbody=document.getElementById('tieTBody');
+    tbody.innerHTML='';
+    for(var ri=0;ri<curTieQ.rows.length;ri++){
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td style="font-weight:700;font-size:.95rem">'+curTieQ.rows[ri][0]+'</td>'+
+        '<td style="direction:rtl;text-align:right">'+curTieQ.rows[ri][1]+'</td>';
+      tbody.appendChild(tr);
     }
-  },2200);
+    document.getElementById('tieAnsBtn').style.display='inline-block';
+    document.getElementById('tieAnsArea').style.display='none';
+    document.getElementById('tieJudgeDiv').style.display='block';
+  },1200);
 }
 
-function chkTieFill(){
-  if(tieAnswered)return;
-  var q=TIE_QS[tieIdx%TIE_QS.length];
-  var inp=document.getElementById('TIE_FI');
-  var ok=inp&&inp.value.trim()===q.b;
-  if(inp) inp.className='fi '+(ok?'ok':'no');
-  var fb=document.getElementById('TIE_FB');
-  fb.textContent=ok?'✅ صحيح!':'❌ خطأ! تلميح: '+q.h;
-  fb.className='fb '+(ok?'ok':'no');
-  if(ok){
-    tieAnswered=true;
-    setTimeout(function(){
-      document.getElementById('tieOverlay').className='tie-overlay';
-      showWinner(tieGroups[0]);
-    },2000);
+function showTieAns(){
+  var area=document.getElementById('tieAnsArea');
+  area.style.display='block';
+  document.getElementById('tieAnsBtn').style.display='none';
+}
+
+function tieJudge(correct){
+  if(correct){
+    document.getElementById('tieOverlay').className='tie-overlay';
+    showWinner(curTieG);
   } else {
-    tieIdx++;
-    setTimeout(function(){ showTieQ(); },1800);
+    // إذا بقيت مجموعات في الاحتياط
+    if(tieRemaining.length>0){
+      document.getElementById('tieSpinArea').style.display='flex';
+      document.getElementById('tieQArea').style.display='none';
+      document.getElementById('tiePickResult').style.display='none';
+      document.getElementById('tieSpinBtn').textContent='\u{1F3B2}';
+      document.getElementById('tieSpinBtn').disabled=false;
+      tieSpinning=false;
+    } else {
+      // أعد الكل من جديد بسؤال مختلف
+      tieRemaining=tieGroups.slice();
+      tieQIdx=(tieQIdx+1)%TIE_QS.length;
+      curTieQ=TIE_QS[tieQIdx];
+      document.getElementById('tieSpinArea').style.display='flex';
+      document.getElementById('tieQArea').style.display='none';
+      document.getElementById('tiePickResult').style.display='none';
+      document.getElementById('tieSpinBtn').textContent='\u{1F3B2}';
+      document.getElementById('tieSpinBtn').disabled=false;
+      tieSpinning=false;
+    }
   }
 }
 
-// ════════════════════════════════════
-// WINNER
-// ════════════════════════════════════
+// ══ WINNER ══
 function showWinner(g){
   document.getElementById('winIcon').textContent=IC[g-1];
-  document.getElementById('winName').textContent=GN[g-1]+' — '+leaders[g-1]+
-    ' 🏅 ('+scores[g]+' نقطة)';
+  document.getElementById('winName').innerHTML=
+    '<span style="color:'+C[g-1]+'">'+GN[g-1]+'</span> \u2014 '+leaders[g-1]+
+    '<br><small style="font-size:.9rem;opacity:.85">\u{1F3C5} '+scores[g]+' نقطة</small>';
   document.getElementById('winOverlay').className='win-overlay on';
 }
 
