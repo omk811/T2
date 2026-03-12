@@ -118,22 +118,27 @@
     margin-bottom: 3px;
   }
   .irrab-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100% !important;
+    border-collapse: collapse !important;
     margin-top: 14px;
     font-size: 0.88rem;
+    display: table !important;
   }
   .irrab-table th {
-    background: var(--c1);
-    color: var(--c2);
-    padding: 8px 12px;
-    text-align: center;
+    background: var(--c1) !important;
+    color: var(--c2) !important;
+    padding: 8px 12px !important;
+    text-align: center !important;
+    border: 1px solid #1a3a5c !important;
   }
   .irrab-table td {
-    padding: 8px 12px;
-    text-align: center;
-    border: 1px solid #dde3ec;
+    padding: 8px 12px !important;
+    text-align: center !important;
+    border: 1px solid #dde3ec !important;
+    display: table-cell !important;
   }
+  .irrab-table tr { display: table-row !important; }
+  .irrab-table thead, .irrab-table tbody { display: table-row-group !important; }
   .irrab-table tr:nth-child(even) td { background: #f5f8ff; }
 
   /* ===== BUTTONS ===== */
@@ -339,49 +344,6 @@
   .g7 .student-num { background: #e67e22; color: white; }
 
   /* ===== QUESTIONS ===== */
-  .q-nav {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-  .q-tab {
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: white;
-  }
-  .q-tab.active { border-color: var(--c2); box-shadow: 0 0 0 3px rgba(232,160,32,0.25); transform: scale(1.05); }
-
-  .q-section { display: none; }
-  .q-section.active { display: block; }
-
-  .q-section-header {
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    color: white;
-  }
-  .q-section-header .group-icon {
-    font-size: 2.4rem;
-    line-height: 1;
-  }
-  .q-section-header .info { flex: 1; }
-  .q-section-header h3 {
-    font-size: 1.2rem;
-    font-weight: 900;
-    margin-bottom: 2px;
-  }
-  .q-section-header p { font-size: 0.88rem; opacity: 0.9; }
-
   .question-card {
     background: white;
     border-radius: 14px;
@@ -631,31 +593,35 @@
       <div class="rule-item"><span>ليتَ</span>للتمني</div>
       <div class="rule-item"><span>لعلَّ</span>للترجي</div>
     </div>
-    <table class="irrab-table" style="margin-top:16px">
-      <tr>
-        <th>الحرف الناسخ</th>
-        <th>الاسم (منصوب)</th>
-        <th>الخبر (مرفوع)</th>
-        <th>مثال</th>
-      </tr>
-      <tr>
-        <td><b>إنَّ</b></td>
-        <td>إنَّ <span style="color:#c0392b">الرياضةَ</span></td>
-        <td><span style="color:#27ae60">مفيدةٌ</span></td>
-        <td>إنَّ الرياضةَ مفيدةٌ</td>
-      </tr>
-      <tr>
-        <td><b>ليتَ</b></td>
-        <td>ليتَ <span style="color:#c0392b">الجوَّ</span></td>
-        <td><span style="color:#27ae60">باردٌ</span></td>
-        <td>ليتَ الجوَّ باردٌ</td>
-      </tr>
-      <tr>
-        <td><b>لعلَّ</b></td>
-        <td>لعلَّ <span style="color:#c0392b">الوصولَ</span></td>
-        <td><span style="color:#27ae60">سهلٌ</span></td>
-        <td>لعلَّ الوصولَ سهلٌ</td>
-      </tr>
+    <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:0.88rem;table-layout:fixed;display:table;">
+      <thead>
+        <tr>
+          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">الحرف الناسخ</th>
+          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">الاسم (منصوب)</th>
+          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">الخبر (مرفوع)</th>
+          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">مثال</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b>إنَّ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">إنَّ <b style="color:#c0392b">الرياضةَ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b style="color:#27ae60">مفيدةٌ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">إنَّ الرياضةَ مفيدةٌ</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;"><b>ليتَ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;">ليتَ <b style="color:#c0392b">الجوَّ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;"><b style="color:#27ae60">باردٌ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;">ليتَ الجوَّ باردٌ</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b>لعلَّ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">لعلَّ <b style="color:#c0392b">الوصولَ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b style="color:#27ae60">سهلٌ</b></td>
+          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">لعلَّ الوصولَ سهلٌ</td>
+        </tr>
+      </tbody>
     </table>
     <div style="background:#e8f4fd;border-radius:10px;padding:12px 16px;margin-top:14px;font-size:0.9rem;line-height:1.8">
       <b>📌 قاعدة الإعراب:</b><br>
@@ -693,8 +659,55 @@
 
 <!-- ===== SCREEN 3: QUESTIONS ===== -->
 <div id="screen-questions" class="screen">
-  <div class="q-nav" id="qNav"></div>
-  <div id="qSections"></div>
+
+  <!-- PICKER ZONE -->
+  <div id="pickerZone" style="text-align:center;margin-bottom:24px;">
+    <div id="pickerWheel" style="
+      display:inline-flex;align-items:center;justify-content:center;
+      width:200px;height:200px;border-radius:50%;
+      background:linear-gradient(135deg,#1a3a5c,#2471a3);
+      box-shadow:0 8px 40px rgba(26,58,92,0.35);
+      cursor:pointer;transition:transform 0.3s;position:relative;
+      margin-bottom:20px;
+    " onclick="pickRandomGroup()">
+      <div style="text-align:center;color:white;padding:20px;">
+        <div style="font-size:3rem;line-height:1;" id="wheelIcon">🎲</div>
+        <div style="font-size:0.9rem;font-weight:700;margin-top:8px;opacity:0.9;">اضغط للسحب</div>
+      </div>
+    </div>
+
+    <!-- Spinning result display -->
+    <div id="resultBanner" style="display:none;margin-bottom:16px;">
+      <div id="resultCard" style="
+        display:inline-block;padding:16px 40px;border-radius:20px;
+        color:white;font-size:1.3rem;font-weight:900;
+        box-shadow:0 6px 24px rgba(0,0,0,0.2);
+        animation:popIn 0.4s ease;
+      "></div>
+    </div>
+
+    <!-- Groups remaining pills -->
+    <div style="margin-bottom:16px;">
+      <div style="font-size:0.85rem;color:#666;margin-bottom:8px;font-weight:600;">المجموعات المتبقية:</div>
+      <div id="groupPills" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;"></div>
+    </div>
+
+    <div id="allDoneMsg" style="display:none;background:linear-gradient(135deg,#27ae60,#1abc9c);color:white;border-radius:16px;padding:20px;font-size:1.1rem;font-weight:800;margin-bottom:16px;">
+      🎉 انتهت جميع المجموعات! أحسنتم جميعاً!
+    </div>
+  </div>
+
+  <!-- ACTIVE QUESTION SECTION -->
+  <div id="activeQSection" style="display:none;">
+    <div id="activeQContent"></div>
+    <div style="text-align:center;margin-top:16px;">
+      <button class="btn btn-start" style="font-size:0.95rem;padding:12px 30px;" onclick="returnToPicker()">🎲 اختر المجموعة التالية</button>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:10px;">
+    <button class="btn btn-reset" onclick="showScreen('screen-groups')">↩️ العودة للمجموعات</button>
+  </div>
 </div>
 
 <!-- Spinning overlay -->
@@ -1000,109 +1013,157 @@ function buildGroupsUI() {
 }
 
 // ============================================================
-// BUILD QUESTIONS UI
+// BUILD QUESTIONS UI — pre-render all, show on pick
 // ============================================================
 function buildQuestionsUI() {
-  const nav = document.getElementById('qNav');
-  const sections = document.getElementById('qSections');
-  nav.innerHTML = '';
-  sections.innerHTML = '';
-
+  // pre-build question HTML for each group, store in memory
+  groupQHTML = {};
   for (let g = 1; g <= numGroups; g++) {
     const color = GROUP_BG_COLORS[(g-1) % GROUP_BG_COLORS.length];
-    // Tab
-    const tab = document.createElement('button');
-    tab.className = 'q-tab' + (g === 1 ? ' active' : '');
-    tab.style.background = color;
-    tab.textContent = `${GROUP_ICONS[(g-1)%GROUP_ICONS.length]} المجموعة ${g}`;
-    tab.onclick = () => switchGroup(g);
-    nav.appendChild(tab);
-
-    // Section
-    const sec = document.createElement('div');
-    sec.className = 'q-section' + (g === 1 ? ' active' : '');
-    sec.id = `q-section-${g}`;
-
-    const headerDiv = document.createElement('div');
-    headerDiv.className = 'q-section-header';
-    headerDiv.style.background = `linear-gradient(135deg, ${color}, ${color}cc)`;
-    headerDiv.innerHTML = `
-      <div class="group-icon">${GROUP_ICONS[(g-1)%GROUP_ICONS.length]}</div>
-      <div class="info">
-        <h3>${GROUP_NAMES_AR[(g-1)%GROUP_NAMES_AR.length]}</h3>
-        <p>👑 الرئيس: ${groups[g-1][0].name}</p>
-      </div>`;
-    sec.appendChild(headerDiv);
-
-    // Score display
-    const scoreDiv = document.createElement('div');
-    scoreDiv.className = 'score-section';
-    scoreDiv.id = `score-${g}`;
-    scoreDiv.innerHTML = `
-      <div class="score-num" id="score-num-${g}">0</div>
-      <div class="score-label">نقاط المجموعة من 4</div>
-      <div class="progress-bar"><div class="progress-fill" id="progress-${g}" style="width:0%"></div></div>`;
-    sec.appendChild(scoreDiv);
-
-    // Questions
     const qs = questions[g] || questions[1];
+    let html = `
+      <div class="q-section-header" style="background:linear-gradient(135deg,${color},${color}cc);border-radius:14px;padding:16px 20px;margin-bottom:18px;display:flex;align-items:center;gap:14px;color:white;">
+        <div style="font-size:2.4rem;line-height:1">${GROUP_ICONS[(g-1)%GROUP_ICONS.length]}</div>
+        <div>
+          <div style="font-size:1.2rem;font-weight:900;margin-bottom:2px">${GROUP_NAMES_AR[(g-1)%GROUP_NAMES_AR.length]}</div>
+          <div style="font-size:0.88rem;opacity:0.9">👑 الرئيس: ${groups[g-1][0].name}</div>
+        </div>
+      </div>
+      <div class="score-section" id="score-${g}">
+        <div class="score-num" id="score-num-${g}">0</div>
+        <div class="score-label">نقاط المجموعة من 4</div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-${g}" style="width:0%"></div></div>
+      </div>`;
     qs.forEach((q, qi) => {
-      const qCard = document.createElement('div');
-      qCard.className = 'question-card';
-      qCard.style.borderRightColor = color;
-      qCard.innerHTML = buildQuestion(q, g, qi, color);
-      sec.appendChild(qCard);
+      html += `<div class="question-card" style="border-right-color:${color}">`;
+      html += buildQuestion(q, g, qi, color);
+      html += `</div>`;
     });
+    groupQHTML[g] = html;
+  }
+  // init picker UI
+  remainingGroups = Array.from({length: numGroups}, (_, i) => i+1);
+  renderPills();
+}
 
-    sections.appendChild(sec);
+// ============================================================
+// RANDOM PICKER
+// ============================================================
+let remainingGroups = [];
+let currentGroup = null;
+let groupQHTML = {};
+let isSpinning = false;
+
+function renderPills() {
+  const container = document.getElementById('groupPills');
+  container.innerHTML = '';
+  for (let g = 1; g <= numGroups; g++) {
+    const color = GROUP_BG_COLORS[(g-1) % GROUP_BG_COLORS.length];
+    const done = !remainingGroups.includes(g);
+    const pill = document.createElement('span');
+    pill.style.cssText = `
+      display:inline-flex;align-items:center;gap:5px;
+      padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:700;
+      background:${done ? '#ecf0f1' : color};
+      color:${done ? '#aaa' : 'white'};
+      text-decoration:${done ? 'line-through' : 'none'};
+      transition:all 0.3s;
+    `;
+    pill.innerHTML = `${done ? '✅' : GROUP_ICONS[(g-1)%GROUP_ICONS.length]} ${groups[g-1][0].name}`;
+    container.appendChild(pill);
+  }
+  // update wheel state
+  const wheel = document.getElementById('pickerWheel');
+  const icon  = document.getElementById('wheelIcon');
+  if (remainingGroups.length === 0) {
+    document.getElementById('allDoneMsg').style.display = 'block';
+    wheel.style.opacity = '0.4';
+    wheel.style.cursor  = 'default';
+    icon.textContent = '🏁';
+  } else {
+    document.getElementById('allDoneMsg').style.display = 'none';
+    wheel.style.opacity = '1';
+    wheel.style.cursor  = 'pointer';
+    icon.textContent = '🎲';
   }
 }
 
-function buildQuestion(q, g, qi, color) {
-  const letters = ['أ','ب','ج','د'];
-  let html = `
-    <div style="display:flex;align-items:center;margin-bottom:10px">
-      <span class="q-num" style="background:${color}">${qi+1}</span>
-      <div class="q-text">${q.text}</div>
-    </div>`;
+function pickRandomGroup() {
+  if (isSpinning || remainingGroups.length === 0) return;
+  isSpinning = true;
 
-  if (q.type === 'mcq') {
-    html += `<div class="options" id="opts-${g}-${qi}">`;
-    q.options.forEach((opt, oi) => {
-      html += `<button class="option-btn" onclick="checkMCQ(${g},${qi},${oi},${q.answer})">
-        <span class="opt-letter">${letters[oi]}</span>${opt}
-      </button>`;
-    });
-    html += `</div>
-    <div class="feedback-text" id="fb-${g}-${qi}"></div>`;
-  }
-  else if (q.type === 'iraab') {
-    html += `
-      <div class="answer-area">
-        <button class="answer-toggle" style="color:${color}" onclick="toggleAnswer('ans-${g}-${qi}',this)">👁️ اعرض الإجابة النموذجية</button>
-        <div class="answer-content" id="ans-${g}-${qi}">
-          <div class="answer-row">
-            <span class="a-badge a-harr">الحرف: ${q.answer.harr}</span>
-            <span class="a-badge a-ism">الاسم: ${q.answer.ism}</span>
-            <span class="a-badge a-khabr">الخبر: ${q.answer.khabr}</span>
-          </div>
-          <div class="a-iraab">📝 الإعراب: ${q.answer.iraab}</div>
-        </div>
-      </div>`;
-  }
-  else if (q.type === 'fill') {
-    html += `<div class="fill-row">`;
-    q.sentence.forEach((part, pi) => {
-      html += `<span>${part}</span>`;
-      if (pi < q.sentence.length - 1) {
-        html += `<input class="fill-input" type="text" id="fill-${g}-${qi}-${pi}" placeholder="..." dir="rtl">`;
-      }
-    });
-    html += `</div>
-    <button class="check-btn" onclick="checkFill(${g},${qi},${JSON.stringify(q.blanks)},${JSON.stringify(q.hints)})">✅ تحقق من الإجابة</button>
-    <div class="feedback-text" id="fb-fill-${g}-${qi}"></div>`;
-  }
-  return html;
+  // Hide active section while spinning
+  document.getElementById('activeQSection').style.display = 'none';
+  document.getElementById('resultBanner').style.display = 'none';
+
+  const wheel = document.getElementById('pickerWheel');
+  const icon  = document.getElementById('wheelIcon');
+
+  // Spin animation — cycle through remaining groups rapidly
+  let ticks = 0;
+  const totalTicks = 18 + Math.floor(Math.random() * 10);
+  const spinIcons = remainingGroups.map(g => GROUP_ICONS[(g-1)%GROUP_ICONS.length]);
+  let si = 0;
+
+  wheel.style.transform = 'rotate(0deg)';
+  wheel.style.transition = 'transform 0.05s linear';
+
+  const interval = setInterval(() => {
+    ticks++;
+    si = (si + 1) % spinIcons.length;
+    icon.textContent = spinIcons[si];
+    wheel.style.transform = `rotate(${ticks * 20}deg)`;
+
+    if (ticks >= totalTicks) {
+      clearInterval(interval);
+      wheel.style.transition = 'transform 0.4s ease';
+      wheel.style.transform = `rotate(${ticks * 20 + 180}deg)`;
+
+      // Pick final group
+      const idx = Math.floor(Math.random() * remainingGroups.length);
+      currentGroup = remainingGroups[idx];
+      remainingGroups.splice(idx, 1);
+
+      setTimeout(() => {
+        showPickedGroup(currentGroup);
+        isSpinning = false;
+      }, 400);
+    }
+  }, 90);
+}
+
+function showPickedGroup(g) {
+  const color = GROUP_BG_COLORS[(g-1) % GROUP_BG_COLORS.length];
+  const icon  = document.getElementById('wheelIcon');
+  icon.textContent = GROUP_ICONS[(g-1)%GROUP_ICONS.length];
+
+  // Show result banner
+  const banner = document.getElementById('resultBanner');
+  const card   = document.getElementById('resultCard');
+  card.style.background = `linear-gradient(135deg,${color},${color}bb)`;
+  card.innerHTML = `${GROUP_ICONS[(g-1)%GROUP_ICONS.length]} ${GROUP_NAMES_AR[(g-1)%GROUP_NAMES_AR.length]} — ${groups[g-1][0].name}`;
+  banner.style.display = 'block';
+
+  // Update pills
+  renderPills();
+
+  // Show questions
+  const sec = document.getElementById('activeQSection');
+  document.getElementById('activeQContent').innerHTML = groupQHTML[g];
+  sec.style.display = 'block';
+
+  // Scroll to questions
+  setTimeout(() => sec.scrollIntoView({behavior:'smooth', block:'start'}), 200);
+}
+
+function returnToPicker() {
+  document.getElementById('activeQSection').style.display = 'none';
+  document.getElementById('resultBanner').style.display = 'none';
+  const wheel = document.getElementById('pickerWheel');
+  wheel.style.transform = 'rotate(0deg)';
+  const icon = document.getElementById('wheelIcon');
+  icon.textContent = remainingGroups.length > 0 ? '🎲' : '🏁';
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
 // ============================================================
@@ -1113,7 +1174,6 @@ function checkMCQ(g, qi, chosen, correct) {
   opts.forEach(btn => btn.style.pointerEvents = 'none');
   opts[chosen].classList.add(chosen === correct ? 'correct' : 'wrong');
   if (chosen !== correct) opts[correct].classList.add('correct');
-
   const fb = document.getElementById(`fb-${g}-${qi}`);
   const q = (questions[g] || questions[1])[qi];
   if (chosen === correct) {
@@ -1132,12 +1192,8 @@ function checkFill(g, qi, blanks, hints) {
     const inp = document.getElementById(`fill-${g}-${qi}-${bi}`);
     if (!inp) return;
     const val = inp.value.trim();
-    if (val === ans) {
-      inp.classList.add('correct'); inp.classList.remove('wrong');
-    } else {
-      inp.classList.add('wrong'); inp.classList.remove('correct');
-      allCorrect = false;
-    }
+    if (val === ans) { inp.classList.add('correct'); inp.classList.remove('wrong'); }
+    else { inp.classList.add('wrong'); inp.classList.remove('correct'); allCorrect = false; }
   });
   const fb = document.getElementById(`fb-fill-${g}-${qi}`);
   if (allCorrect) {
@@ -1158,14 +1214,10 @@ function toggleAnswer(id, btn) {
 
 function addScore(g, pts) {
   scores[g] = (scores[g] || 0) + pts;
-  document.getElementById(`score-num-${g}`).textContent = scores[g];
-  document.getElementById(`progress-${g}`).style.width = (scores[g] / 4 * 100) + '%';
-}
-
-function switchGroup(g) {
-  document.querySelectorAll('.q-tab').forEach((t,i) => t.classList.toggle('active', i === g-1));
-  document.querySelectorAll('.q-section').forEach(s => s.classList.remove('active'));
-  document.getElementById(`q-section-${g}`).classList.add('active');
+  const numEl = document.getElementById(`score-num-${g}`);
+  const barEl = document.getElementById(`progress-${g}`);
+  if (numEl) numEl.textContent = scores[g];
+  if (barEl) barEl.style.width = (scores[g] / 4 * 100) + '%';
 }
 
 function showScreen(id) {
