@@ -3,570 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نشاط إعراب إنّ وأخواتها </title>
+<title>نشاط إعراب إنّ وأخواتها – الصف الخامس</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --c1: #1a3a5c;
-    --c2: #e8a020;
-    --c3: #c0392b;
-    --c4: #16a085;
-    --c5: #8e44ad;
-    --c6: #2980b9;
-    --c7: #27ae60;
-    --bg: #f0f4f8;
-    --card: #ffffff;
-    --shadow: 0 8px 32px rgba(26,58,92,0.13);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Tajawal', sans-serif;
-    background: var(--bg);
-    min-height: 100vh;
-    direction: rtl;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Tajawal', sans-serif; background: #f0f4f8; min-height: 100vh; direction: rtl; }
 
-  /* ===== HEADER ===== */
-  .header {
-    background: linear-gradient(135deg, #1a3a5c 0%, #2471a3 60%, #1abc9c 100%);
-    color: white;
-    padding: 28px 20px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -40px; left: -40px;
-    width: 200px; height: 200px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 50%;
-  }
-  .header::after {
-    content: '';
-    position: absolute;
-    bottom: -50px; right: -30px;
-    width: 170px; height: 170px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  .header h1 {
-    font-family: 'Cairo', sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    margin-bottom: 4px;
-  }
-  .header p { font-size: 1rem; opacity: 0.88; }
-  .badge-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-  }
-  .badge {
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 0.82rem;
-    backdrop-filter: blur(4px);
-  }
+.header {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2471a3 60%, #1abc9c 100%);
+  color: white; padding: 28px 20px 20px; text-align: center;
+}
+.header h1 { font-family: 'Cairo', sans-serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 4px; }
+.header p  { font-size: 0.95rem; opacity: 0.88; }
+.badge-row { display: flex; justify-content: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.badge { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
 
-  /* ===== SCREEN SECTIONS ===== */
-  .screen { display: none; padding: 24px 16px; max-width: 900px; margin: 0 auto; }
-  .screen.active { display: block; }
+.screen { display: none; padding: 20px 16px; max-width: 860px; margin: 0 auto; }
+.screen.active { display: block; }
 
-  /* ===== RULE BOX ===== */
-  .rule-box {
-    background: linear-gradient(135deg, #fff9ec, #fff);
-    border: 2px solid var(--c2);
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 22px;
-    box-shadow: var(--shadow);
-  }
-  .rule-box h3 {
-    color: var(--c1);
-    font-size: 1.15rem;
-    font-weight: 800;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .rule-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  .rule-item {
-    background: var(--c1);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-  .rule-item span {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: var(--c2);
-    margin-bottom: 3px;
-  }
-  .irrab-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin-top: 14px;
-    font-size: 0.88rem;
-    display: table !important;
-  }
-  .irrab-table th {
-    background: var(--c1) !important;
-    color: var(--c2) !important;
-    padding: 8px 12px !important;
-    text-align: center !important;
-    border: 1px solid #1a3a5c !important;
-  }
-  .irrab-table td {
-    padding: 8px 12px !important;
-    text-align: center !important;
-    border: 1px solid #dde3ec !important;
-    display: table-cell !important;
-  }
-  .irrab-table tr { display: table-row !important; }
-  .irrab-table thead, .irrab-table tbody { display: table-row-group !important; }
-  .irrab-table tr:nth-child(even) td { background: #f5f8ff; }
+.rule-box { background: #fffbf0; border: 2px solid #e8a020; border-radius: 16px; padding: 18px; margin-bottom: 20px; }
+.rule-box h3 { color: #1a3a5c; font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; }
+.rule-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
+.rule-item { background: #1a3a5c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.88rem; }
+.rule-item span { display: block; font-size: 1.05rem; font-weight: 800; color: #e8a020; margin-bottom: 2px; }
+.rule-note { background: #e8f4fd; border-radius: 10px; padding: 12px 14px; font-size: 0.88rem; line-height: 1.8; }
 
-  /* ===== BUTTONS ===== */
-  .btn {
-    display: inline-block;
-    padding: 12px 32px;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.22s;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--c2), #f39c12);
-    color: var(--c1);
-    box-shadow: 0 4px 16px rgba(232,160,32,0.35);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,160,32,0.45); }
-  .btn-start {
-    background: linear-gradient(135deg, #1a3a5c, #2471a3);
-    color: white;
-    font-size: 1.1rem;
-    padding: 14px 40px;
-    box-shadow: 0 4px 20px rgba(26,58,92,0.3);
-  }
-  .btn-start:hover { transform: translateY(-2px); }
-  .btn-next {
-    background: linear-gradient(135deg, var(--c4), #1abc9c);
-    color: white;
-    margin-top: 16px;
-  }
-  .btn-reset {
-    background: #ecf0f1;
-    color: #555;
-    margin-top: 10px;
-  }
-  .center { text-align: center; margin-top: 20px; }
+.tbl { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.86rem; }
+.tbl th { background: #1a3a5c; color: #e8a020; padding: 8px 10px; text-align: center; border: 1px solid #1a3a5c; }
+.tbl td { padding: 8px 10px; text-align: center; border: 1px solid #dde3ec; background: #fff; }
+.tbl tr:nth-child(even) td { background: #f5f8ff; }
 
-  /* ===== STUDENT INPUT ===== */
-  .students-section {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    margin-bottom: 20px;
-  }
-  .students-section h3 {
-    color: var(--c1);
-    font-weight: 800;
-    margin-bottom: 14px;
-    font-size: 1.1rem;
-  }
-  .leaders-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 10px;
-    margin-top: 12px;
-  }
-  .leader-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-  .leader-label {
-    font-size: 0.82rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    color: white;
-    white-space: nowrap;
-  }
-  .leader-input {
-    border: 2px solid #d0d7e3;
-    border-radius: 10px;
-    padding: 8px 12px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.95rem;
-    text-align: center;
-    width: 100%;
-    direction: rtl;
-    transition: border-color 0.2s;
-  }
-  .leader-input:focus { outline: none; border-color: var(--c2); box-shadow: 0 0 0 3px rgba(232,160,32,0.15); }
-  .num-input-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .num-input-row label { font-weight: 600; color: var(--c1); white-space: nowrap; }
-  .num-input {
-    width: 90px;
-    border: 2px solid var(--c1);
-    border-radius: 10px;
-    padding: 8px 12px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    text-align: center;
-  }
+.setup-box { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+.setup-box h3 { color: #1a3a5c; font-weight: 800; margin-bottom: 14px; font-size: 1.05rem; }
+.row-lbl { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.row-lbl label { font-weight: 700; color: #1a3a5c; }
+.num-inp { width: 80px; border: 2px solid #1a3a5c; border-radius: 8px; padding: 7px 10px; font-family: 'Tajawal',sans-serif; font-size: 1rem; font-weight: 700; text-align: center; }
+.leaders-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 10px; }
+.leader-card { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.leader-lbl { font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; color: white; }
+.leader-inp { border: 2px solid #d0d7e3; border-radius: 8px; padding: 8px 10px; font-family: 'Tajawal',sans-serif; font-size: 0.9rem; text-align: center; width: 100%; direction: rtl; }
+.leader-inp:focus { outline: none; border-color: #e8a020; }
 
-  /* ===== RANDOM ASSIGNMENT ===== */
-  .spinning-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(26,58,92,0.82);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    flex-direction: column;
-  }
-  .spinning-overlay.show { display: flex; }
-  .spin-wheel {
-    width: 140px;
-    height: 140px;
-    border: 6px solid rgba(255,255,255,0.3);
-    border-top-color: var(--c2);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-bottom: 20px;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .spin-text { color: white; font-size: 1.4rem; font-weight: 800; }
+.btn-primary { display: inline-block; padding: 13px 36px; border: none; border-radius: 12px; font-family: 'Cairo',sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; background: linear-gradient(135deg,#1a3a5c,#2471a3); color: white; box-shadow: 0 4px 16px rgba(26,58,92,0.3); transition: transform 0.2s; }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-secondary { display: inline-block; padding: 10px 24px; border: none; border-radius: 10px; font-family: 'Cairo',sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; background: #ecf0f1; color: #555; margin-top: 8px; }
+.btn-green { background: linear-gradient(135deg,#27ae60,#1abc9c); color: white; display: inline-block; padding: 12px 30px; border: none; border-radius: 12px; font-family: 'Cairo',sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
+.center { text-align: center; margin-top: 18px; }
 
-  /* ===== GROUPS DISPLAY ===== */
-  .groups-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-  .group-card {
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: var(--shadow);
-    animation: popIn 0.4s ease forwards;
-    opacity: 0;
-  }
-  @keyframes popIn {
-    from { transform: scale(0.85); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  .group-card h4 {
-    font-size: 1.05rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .group-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  .group-card ul li {
-    padding: 5px 8px;
-    margin-bottom: 4px;
-    border-radius: 7px;
-    font-size: 0.85rem;
-    background: rgba(255,255,255,0.55);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .student-num {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.72rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
+.groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 14px; margin-bottom: 22px; }
+.gcard { border-radius: 14px; padding: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.gcard h4 { font-size: 1rem; font-weight: 900; margin-bottom: 8px; }
+.gcard .lname { font-size: 0.9rem; font-weight: 600; }
 
-  /* group color themes */
-  .g1 { background: linear-gradient(135deg, #fff3cd, #fef9e7); border: 2px solid #f39c12; }
-  .g1 h4 { color: #c87008; }
-  .g1 .student-num { background: #f39c12; color: white; }
-  .g2 { background: linear-gradient(135deg, #d5f5e3, #eafaf1); border: 2px solid #27ae60; }
-  .g2 h4 { color: #1e8449; }
-  .g2 .student-num { background: #27ae60; color: white; }
-  .g3 { background: linear-gradient(135deg, #d6eaf8, #ebf5fb); border: 2px solid #2980b9; }
-  .g3 h4 { color: #1a6ba0; }
-  .g3 .student-num { background: #2980b9; color: white; }
-  .g4 { background: linear-gradient(135deg, #f9ebea, #fdfefe); border: 2px solid #c0392b; }
-  .g4 h4 { color: #922b21; }
-  .g4 .student-num { background: #c0392b; color: white; }
-  .g5 { background: linear-gradient(135deg, #e8daef, #f5eef8); border: 2px solid #8e44ad; }
-  .g5 h4 { color: #7d3c98; }
-  .g5 .student-num { background: #8e44ad; color: white; }
-  .g6 { background: linear-gradient(135deg, #d1f2eb, #e8f8f5); border: 2px solid #16a085; }
-  .g6 h4 { color: #0e7765; }
-  .g6 .student-num { background: #16a085; color: white; }
-  .g7 { background: linear-gradient(135deg, #fde8d8, #fef5ee); border: 2px solid #e67e22; }
-  .g7 h4 { color: #ca6f1e; }
-  .g7 .student-num { background: #e67e22; color: white; }
+@keyframes popIn { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes slideIn { from{transform:translateX(16px);opacity:0;} to{transform:translateX(0);opacity:1;} }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ===== QUESTIONS ===== */
-  .question-card {
-    background: white;
-    border-radius: 14px;
-    padding: 20px;
-    margin-bottom: 16px;
-    box-shadow: 0 3px 16px rgba(0,0,0,0.08);
-    border-right: 5px solid;
-    animation: slideIn 0.3s ease;
-  }
-  @keyframes slideIn {
-    from { transform: translateX(20px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  .q-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    margin-left: 8px;
-    flex-shrink: 0;
-  }
-  .q-text {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--c1);
-    line-height: 1.7;
-    margin-bottom: 14px;
-  }
-  .highlight {
-    background: #fef9c3;
-    padding: 2px 6px;
-    border-radius: 5px;
-    font-weight: 700;
-    color: #92400e;
-  }
-  .answer-area {
-    background: #f8faff;
-    border: 1.5px dashed #c5cfe8;
-    border-radius: 10px;
-    padding: 14px 16px;
-    min-height: 44px;
-  }
-  .answer-toggle {
-    background: none;
-    border: 1.5px solid currentColor;
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.2s;
-  }
-  .answer-toggle:hover { opacity: 0.8; }
-  .answer-content {
-    display: none;
-    margin-top: 12px;
-  }
-  .answer-content.show { display: block; }
-  .answer-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 6px;
-  }
-  .a-badge {
-    padding: 5px 14px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 700;
-  }
-  .a-harr { background: #1a3a5c; color: white; }
-  .a-ism  { background: #27ae60; color: white; }
-  .a-khabr{ background: #c0392b; color: white; }
-  .a-iraab {
-    background: #f0f4f8;
-    border: 1px solid #d0d7e3;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    margin-top: 8px;
-  }
+.picker-area { text-align: center; padding: 10px 0 20px; }
+.spin-btn {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 190px; height: 190px; border-radius: 50%;
+  background: linear-gradient(135deg, #1a3a5c, #2471a3);
+  box-shadow: 0 8px 40px rgba(26,58,92,0.4);
+  cursor: pointer; border: none; color: white; margin-bottom: 18px;
+  transition: transform 0.2s;
+}
+.spin-btn:hover:not(:disabled) { transform: scale(1.04); }
+.spin-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.spin-icon { font-size: 3rem; line-height: 1; display: block; }
+.spin-label { font-size: 0.88rem; font-weight: 700; margin-top: 6px; opacity: 0.9; font-family: 'Tajawal',sans-serif; }
 
-  /* Options (MCQ) */
-  .options { display: flex; flex-direction: column; gap: 8px; }
-  .option-btn {
-    background: #f5f7fa;
-    border: 2px solid #dde3ec;
-    border-radius: 10px;
-    padding: 10px 16px;
-    text-align: right;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .option-btn:hover { border-color: var(--c2); background: #fffbf0; }
-  .option-btn.correct { background: #d5f5e3; border-color: #27ae60; color: #1e6b3a; }
-  .option-btn.wrong   { background: #fde8e8; border-color: #c0392b; color: #922b21; }
-  .opt-letter {
-    min-width: 28px; height: 28px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--c1);
-    color: white;
-    font-size: 0.8rem;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .feedback-text {
-    margin-top: 8px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 8px 14px;
-    border-radius: 8px;
-    display: none;
-  }
-  .feedback-text.show { display: block; }
-  .feedback-text.ok  { background: #d5f5e3; color: #1e6b3a; }
-  .feedback-text.err { background: #fde8e8; color: #922b21; }
+.result-banner { display: none; margin-bottom: 16px; }
+.result-card { display: inline-block; padding: 14px 36px; border-radius: 18px; color: white; font-size: 1.2rem; font-weight: 900; box-shadow: 0 6px 24px rgba(0,0,0,0.18); animation: popIn 0.35s ease; }
 
-  /* Fill blank */
-  .fill-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    line-height: 2;
-  }
-  .fill-input {
-    border: 2px solid #b0bcd0;
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.95rem;
-    width: 100px;
-    text-align: center;
-    direction: rtl;
-    transition: border-color 0.2s;
-  }
-  .fill-input:focus { outline: none; border-color: var(--c2); }
-  .fill-input.correct { border-color: #27ae60; background: #d5f5e3; }
-  .fill-input.wrong   { border-color: #c0392b; background: #fde8e8; }
+.pills-label { font-size: 0.85rem; color: #666; font-weight: 600; margin-bottom: 8px; }
+.pills-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 16px; }
+.pill { padding: 5px 14px; border-radius: 20px; font-size: 0.83rem; font-weight: 700; color: white; }
+.pill.done { background: #ecf0f1 !important; color: #aaa !important; text-decoration: line-through; }
 
-  .check-btn {
-    background: var(--c1);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 7px 18px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .check-btn:hover { background: #2471a3; }
+.all-done { display: none; background: linear-gradient(135deg,#27ae60,#1abc9c); color: white; border-radius: 14px; padding: 18px; font-size: 1.05rem; font-weight: 800; margin-bottom: 16px; text-align: center; }
 
-  /* SCORE */
-  .score-section {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .score-num {
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--c1);
-    line-height: 1;
-  }
-  .score-label { color: #666; font-size: 0.9rem; margin-top: 4px; }
-  .progress-bar {
-    background: #ecf0f1;
-    border-radius: 20px;
-    height: 14px;
-    overflow: hidden;
-    margin: 12px 0;
-  }
-  .progress-fill {
-    height: 100%;
-    border-radius: 20px;
-    background: linear-gradient(90deg, var(--c4), var(--c2));
-    transition: width 0.6s ease;
-  }
+.q-area { display: none; }
+.q-header { border-radius: 14px; padding: 16px 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 14px; color: white; }
+.q-header .qh-icon { font-size: 2.2rem; line-height: 1; }
+.q-header h3 { font-size: 1.1rem; font-weight: 900; }
+.q-header p  { font-size: 0.85rem; opacity: 0.9; }
 
-  /* PRINT */
-  .print-btn {
-    background: #2c3e50;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 24px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    margin: 4px;
-  }
-  .print-btn:hover { background: #1a252f; }
+.score-card { background: white; border-radius: 12px; padding: 14px; box-shadow: 0 3px 12px rgba(0,0,0,0.07); text-align: center; margin-bottom: 14px; }
+.score-num { font-size: 2.6rem; font-weight: 900; color: #1a3a5c; line-height: 1; }
+.score-lbl { color: #888; font-size: 0.85rem; margin-top: 2px; }
+.prog-bar { background: #ecf0f1; border-radius: 20px; height: 12px; overflow: hidden; margin: 10px 0 0; }
+.prog-fill { height: 100%; border-radius: 20px; background: linear-gradient(90deg,#16a085,#e8a020); transition: width 0.5s ease; }
 
-  @media(max-width:600px) {
-    .header h1 { font-size: 1.4rem; }
-    .rule-grid { grid-template-columns: repeat(2,1fr); }
-    .groups-container { grid-template-columns: 1fr 1fr; }
-  }
-  @media print {
-    .btn, .check-btn, .answer-toggle, .print-btn, .q-nav { display: none !important; }
-    .answer-content { display: block !important; }
-    .screen { display: block !important; }
-  }
+.qcard { background: white; border-radius: 12px; padding: 18px; margin-bottom: 14px; box-shadow: 0 3px 14px rgba(0,0,0,0.07); border-right: 5px solid; animation: slideIn 0.3s ease; }
+.qcard-top { display: flex; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
+.qcard-num { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 50%; color: white; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.qcard-text { font-size: 0.97rem; font-weight: 600; color: #1a3a5c; line-height: 1.7; }
+.hl { background: #fef9c3; padding: 1px 5px; border-radius: 4px; font-weight: 700; color: #92400e; }
+
+.options { display: flex; flex-direction: column; gap: 7px; }
+.opt-btn { background: #f5f7fa; border: 2px solid #dde3ec; border-radius: 9px; padding: 9px 14px; text-align: right; font-family: 'Tajawal',sans-serif; font-size: 0.92rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.18s; width: 100%; }
+.opt-btn:hover:not([disabled]) { border-color: #e8a020; background: #fffbf0; }
+.opt-btn.correct { background: #d5f5e3 !important; border-color: #27ae60 !important; color: #1e6b3a; }
+.opt-btn.wrong   { background: #fde8e8 !important; border-color: #c0392b !important; color: #922b21; }
+.opt-letter { min-width: 26px; height: 26px; border-radius: 50%; background: #1a3a5c; color: white; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.fb { margin-top: 8px; padding: 8px 12px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; display: none; }
+.fb.ok  { display: block; background: #d5f5e3; color: #1e6b3a; }
+.fb.err { display: block; background: #fde8e8; color: #922b21; }
+
+.ans-area { background: #f8faff; border: 1.5px dashed #c5cfe8; border-radius: 10px; padding: 14px; }
+.toggle-btn { background: none; border: 1.5px solid currentColor; border-radius: 7px; padding: 5px 12px; font-family: 'Tajawal',sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; margin-bottom: 0; }
+.ans-body { display: none; margin-top: 10px; }
+.ans-body.show { display: block; }
+.badges-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 8px; }
+.a-badge { padding: 4px 12px; border-radius: 7px; font-size: 0.83rem; font-weight: 700; }
+.ab-h { background: #1a3a5c; color: white; }
+.ab-i { background: #27ae60; color: white; }
+.ab-k { background: #c0392b; color: white; }
+.ab-ir { background: #f0f4f8; border: 1px solid #d0d7e3; padding: 9px 12px; border-radius: 9px; font-size: 0.84rem; line-height: 1.7; }
+
+.fill-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; font-size: 0.95rem; line-height: 2; }
+.fill-inp { border: 2px solid #b0bcd0; border-radius: 7px; padding: 5px 10px; font-family: 'Tajawal',sans-serif; font-size: 0.92rem; width: 110px; text-align: center; direction: rtl; }
+.fill-inp:focus { outline: none; border-color: #e8a020; }
+.fill-inp.correct { border-color: #27ae60 !important; background: #d5f5e3; }
+.fill-inp.wrong   { border-color: #c0392b !important; background: #fde8e8; }
+.check-btn { background: #1a3a5c; color: white; border: none; border-radius: 7px; padding: 7px 16px; font-family: 'Tajawal',sans-serif; font-size: 0.88rem; cursor: pointer; }
+
+@media(max-width:560px) {
+  .rule-grid { grid-template-columns: repeat(2,1fr); }
+  .groups-grid { grid-template-columns: 1fr 1fr; }
+  .header h1 { font-size: 1.3rem; }
+}
 </style>
 </head>
 <body>
@@ -577,12 +144,12 @@
   <div class="badge-row">
     <span class="badge">📚 المحور الخامس: رياضتي وصحتي</span>
     <span class="badge">👥 تعلّم تعاوني</span>
-    <span class="badge">⭐ 35 طالباً</span>
+    <span class="badge">👑 رؤساء المجموعات</span>
   </div>
 </div>
 
-<!-- ===== SCREEN 1: INTRO ===== -->
-<div id="screen-intro" class="screen active">
+<!-- ══ SCREEN 1: SETUP ══ -->
+<div id="s1" class="screen active">
   <div class="rule-box">
     <h3>📖 تذكير سريع: إنّ وأخواتها</h3>
     <div class="rule-grid">
@@ -593,639 +160,420 @@
       <div class="rule-item"><span>ليتَ</span>للتمني</div>
       <div class="rule-item"><span>لعلَّ</span>للترجي</div>
     </div>
-    <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:0.88rem;table-layout:fixed;display:table;">
+    <table class="tbl">
       <thead>
         <tr>
-          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">الحرف الناسخ</th>
-          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">الاسم (منصوب)</th>
-          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">الخبر (مرفوع)</th>
-          <th style="background:#1a3a5c;color:#e8a020;padding:8px 12px;text-align:center;border:1px solid #1a3a5c;">مثال</th>
+          <th>الحرف الناسخ</th><th>الاسم (منصوب)</th><th>الخبر (مرفوع)</th><th>مثال</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b>إنَّ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">إنَّ <b style="color:#c0392b">الرياضةَ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b style="color:#27ae60">مفيدةٌ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">إنَّ الرياضةَ مفيدةٌ</td>
+          <td><b>إنَّ</b></td>
+          <td>إنَّ <b style="color:#c0392b">الرياضةَ</b></td>
+          <td><b style="color:#27ae60">مفيدةٌ</b></td>
+          <td>إنَّ الرياضةَ مفيدةٌ</td>
         </tr>
         <tr>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;"><b>ليتَ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;">ليتَ <b style="color:#c0392b">الجوَّ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;"><b style="color:#27ae60">باردٌ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#f5f8ff;">ليتَ الجوَّ باردٌ</td>
+          <td><b>ليتَ</b></td>
+          <td>ليتَ <b style="color:#c0392b">الجوَّ</b></td>
+          <td><b style="color:#27ae60">باردٌ</b></td>
+          <td>ليتَ الجوَّ باردٌ</td>
         </tr>
         <tr>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b>لعلَّ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">لعلَّ <b style="color:#c0392b">الوصولَ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;"><b style="color:#27ae60">سهلٌ</b></td>
-          <td style="padding:8px 12px;text-align:center;border:1px solid #dde3ec;background:#ffffff;">لعلَّ الوصولَ سهلٌ</td>
+          <td><b>لعلَّ</b></td>
+          <td>لعلَّ <b style="color:#c0392b">الوصولَ</b></td>
+          <td><b style="color:#27ae60">سهلٌ</b></td>
+          <td>لعلَّ الوصولَ سهلٌ</td>
         </tr>
       </tbody>
     </table>
-    <div style="background:#e8f4fd;border-radius:10px;padding:12px 16px;margin-top:14px;font-size:0.9rem;line-height:1.8">
+    <div class="rule-note" style="margin-top:12px">
       <b>📌 قاعدة الإعراب:</b><br>
-      • <b>اسم إنَّ:</b> منصوب، وعلامة نصبه الفتحة الظاهرة أو التنوين<br>
-      • <b>خبر إنَّ:</b> مرفوع، وعلامة رفعه الضمة الظاهرة أو التنوين
+      • <b>اسم إنَّ:</b> منصوب، وعلامة نصبه الفتحة الظاهرة على آخره<br>
+      • <b>خبر إنَّ:</b> مرفوع، وعلامة رفعه الضمة الظاهرة على آخره
     </div>
   </div>
 
-  <div class="students-section">
+  <div class="setup-box">
     <h3>⚙️ إعداد النشاط</h3>
-    <div class="num-input-row">
+    <div class="row-lbl">
       <label>عدد المجموعات:</label>
-      <input type="number" class="num-input" id="numGroups" value="7" min="3" max="7" onchange="buildLeaderInputs()">
+      <input type="number" class="num-inp" id="numGrp" value="7" min="3" max="7" onchange="buildLeaders()">
     </div>
-    <p style="color:#666;font-size:0.85rem;margin-bottom:12px">👑 أدخل اسم رئيس كل مجموعة:</p>
+    <p style="color:#666;font-size:0.85rem;margin-bottom:10px">👑 أدخل اسم رئيس كل مجموعة:</p>
     <div class="leaders-grid" id="leadersGrid"></div>
   </div>
 
   <div class="center">
-    <button class="btn btn-start" onclick="startActivity()">🎲 ابدأ النشاط</button>
+    <button class="btn-primary" onclick="goToGroups()">▶ ابدأ النشاط</button>
   </div>
 </div>
 
-<!-- ===== SCREEN 2: GROUPS ===== -->
-<div id="screen-groups" class="screen">
-  <h2 style="color:var(--c1);font-size:1.3rem;font-weight:900;margin-bottom:16px;text-align:center">
-    🎊 المجموعات ورؤساؤها
-  </h2>
-  <div class="groups-container" id="groupsContainer"></div>
+<!-- ══ SCREEN 2: GROUPS ══ -->
+<div id="s2" class="screen">
+  <h2 style="color:#1a3a5c;font-size:1.2rem;font-weight:900;margin-bottom:16px;text-align:center">🎊 المجموعات ورؤساؤها</h2>
+  <div class="groups-grid" id="groupsGrid"></div>
   <div class="center">
-    <button class="btn btn-start" onclick="showScreen('screen-questions')">📝 انتقل إلى أسئلة المجموعات</button>
-    <button class="btn btn-reset" onclick="showScreen('screen-intro')">↩️ تعديل الرؤساء</button>
+    <button class="btn-primary" onclick="goToPicker()">🎲 ابدأ السحب العشوائي</button><br>
+    <button class="btn-secondary" onclick="showScreen('s1')">↩️ تعديل الأسماء</button>
   </div>
 </div>
 
-<!-- ===== SCREEN 3: QUESTIONS ===== -->
-<div id="screen-questions" class="screen">
+<!-- ══ SCREEN 3: PICKER + QUESTIONS ══ -->
+<div id="s3" class="screen">
+  <div class="picker-area">
+    <button class="spin-btn" id="spinBtn" onclick="pickGroup()">
+      <span class="spin-icon" id="spinIcon">🎲</span>
+      <span class="spin-label">اضغط للسحب</span>
+    </button>
 
-  <!-- PICKER ZONE -->
-  <div id="pickerZone" style="text-align:center;margin-bottom:24px;">
-    <div id="pickerWheel" style="
-      display:inline-flex;align-items:center;justify-content:center;
-      width:200px;height:200px;border-radius:50%;
-      background:linear-gradient(135deg,#1a3a5c,#2471a3);
-      box-shadow:0 8px 40px rgba(26,58,92,0.35);
-      cursor:pointer;transition:transform 0.3s;position:relative;
-      margin-bottom:20px;
-    " onclick="pickRandomGroup()">
-      <div style="text-align:center;color:white;padding:20px;">
-        <div style="font-size:3rem;line-height:1;" id="wheelIcon">🎲</div>
-        <div style="font-size:0.9rem;font-weight:700;margin-top:8px;opacity:0.9;">اضغط للسحب</div>
-      </div>
+    <div class="result-banner" id="resultBanner">
+      <div class="result-card" id="resultCard"></div>
     </div>
 
-    <!-- Spinning result display -->
-    <div id="resultBanner" style="display:none;margin-bottom:16px;">
-      <div id="resultCard" style="
-        display:inline-block;padding:16px 40px;border-radius:20px;
-        color:white;font-size:1.3rem;font-weight:900;
-        box-shadow:0 6px 24px rgba(0,0,0,0.2);
-        animation:popIn 0.4s ease;
-      "></div>
-    </div>
-
-    <!-- Groups remaining pills -->
-    <div style="margin-bottom:16px;">
-      <div style="font-size:0.85rem;color:#666;margin-bottom:8px;font-weight:600;">المجموعات المتبقية:</div>
-      <div id="groupPills" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;"></div>
-    </div>
-
-    <div id="allDoneMsg" style="display:none;background:linear-gradient(135deg,#27ae60,#1abc9c);color:white;border-radius:16px;padding:20px;font-size:1.1rem;font-weight:800;margin-bottom:16px;">
-      🎉 انتهت جميع المجموعات! أحسنتم جميعاً!
-    </div>
+    <div class="pills-label">المجموعات المتبقية:</div>
+    <div class="pills-row" id="pillsRow"></div>
+    <div class="all-done" id="allDone">🎉 انتهت جميع المجموعات! أحسنتم جميعاً!</div>
   </div>
 
-  <!-- ACTIVE QUESTION SECTION -->
-  <div id="activeQSection" style="display:none;">
-    <div id="activeQContent"></div>
-    <div style="text-align:center;margin-top:16px;">
-      <button class="btn btn-start" style="font-size:0.95rem;padding:12px 30px;" onclick="returnToPicker()">🎲 اختر المجموعة التالية</button>
+  <div class="q-area" id="qArea">
+    <div id="qContent"></div>
+    <div class="center" style="margin-bottom:20px">
+      <button class="btn-green" onclick="backToPicker()">🎲 اختر المجموعة التالية</button><br>
+      <button class="btn-secondary" onclick="showScreen('s2')">↩️ العودة للمجموعات</button>
     </div>
   </div>
-
-  <div style="text-align:center;margin-top:10px;">
-    <button class="btn btn-reset" onclick="showScreen('screen-groups')">↩️ العودة للمجموعات</button>
-  </div>
-</div>
-
-<!-- Spinning overlay -->
-<div class="spinning-overlay" id="spinningOverlay">
-  <div class="spin-wheel"></div>
-  <div class="spin-text">✨ جارٍ تجهيز النشاط...</div>
 </div>
 
 <script>
-// ============================================================
-// DATA
-// ============================================================
-const DEFAULT_NAMES = [];
+var COLORS = ['#f39c12','#27ae60','#2980b9','#c0392b','#8e44ad','#16a085','#e67e22'];
+var ICONS  = ['🌟','🚀','💡','🏆','🎯','🌿','⚡'];
+var GNAMES = ['نجوم الفصاحة','فرسان البيان','أبطال اللغة','عقول النحو','رواد العربية','أسرار البلاغة','أمراء الكلمة'];
+var GCARDS = ['#fff3cd','#d5f5e3','#d6eaf8','#f9ebea','#e8daef','#d1f2eb','#fde8d8'];
 
-const GROUP_COLORS = ['g1','g2','g3','g4','g5','g6','g7'];
-const GROUP_ICONS = ['🌟','🚀','💡','🏆','🎯','🌿','⚡'];
-const GROUP_NAMES_AR = ['نجوم الفصاحة','فرسان البيان','أبطال اللغة','عقول النحو','رواد العربية','أسرار البلاغة','أمراء الكلمة'];
-const GROUP_BG_COLORS = ['#f39c12','#27ae60','#2980b9','#c0392b','#8e44ad','#16a085','#e67e22'];
-
-// ============================================================
-// Questions data — 7 groups × 4 questions each
-// ============================================================
-const questions = {
-  1: [
-    {
-      type: 'mcq',
-      text: 'أيّ الجمل التالية تحتوي على إنَّ وأخواتها؟',
-      options: ['كانَ الطالبُ مجتهداً','إنَّ الرياضةَ مفيدةٌ','يكونُ الجوُّ حاراً','صارَ الولدُ كبيراً'],
-      answer: 1,
-      explain: 'الجملة الثانية تبدأ بـ "إنَّ" وهي من الحروف الناسخة.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب الكلمة المُلوَّنة في الجملة: إنَّ <span class="highlight">الرياضةَ</span> مفيدةٌ',
-      answer: { harr: 'إنَّ', ism: 'الرياضةَ', khabr: 'مفيدةٌ', iraab: 'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل الفراغ: ليتَ الوطنَ ________ دائماً. (سالمٌ / سالماً)',
-      blanks: ['سالمٌ'],
-      hints: ['خبر ليتَ مرفوع'],
-      sentence: ['ليتَ الوطنَ ', ' دائماً.']
-    },
-    {
-      type: 'mcq',
-      text: 'ما وظيفة الكلمة الملوّنة في: إنَّ <span class="highlight">الصبرَ</span> جميلٌ؟',
-      options: ['مبتدأ مرفوع','خبر إنَّ مرفوع','اسم إنَّ منصوب','مفعول به منصوب'],
-      answer: 2,
-      explain: 'الكلمة بعد إنَّ مباشرة هي "اسم إنَّ" وتكون منصوبة.'
-    }
+var QS = {
+  1:[
+    {t:'mcq',q:'أيّ الجمل التالية تحتوي على إنَّ وأخواتها؟',
+     opts:['كانَ الطالبُ مجتهداً','إنَّ الرياضةَ مفيدةٌ','يكونُ الجوُّ حاراً','صارَ الولدُ كبيراً'],ans:1,
+     ex:'الجملة الثانية تبدأ بـ "إنَّ" وهي من الحروف الناسخة.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الرياضةَ</span> مفيدةٌ',
+     h:'إنَّ',i:'الرياضةَ',k:'مفيدةٌ',ir:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: ليتَ الوطنَ ___ دائماً. (سالمٌ / سالماً)',
+     s:['ليتَ الوطنَ ',' دائماً.'],b:['سالمٌ'],hint:'خبر ليتَ مرفوع'},
+    {t:'mcq',q:'ما وظيفة الكلمة الملوّنة في: إنَّ <span class="hl">الصبرَ</span> جميلٌ؟',
+     opts:['مبتدأ مرفوع','خبر إنَّ مرفوع','اسم إنَّ منصوب','مفعول به'],ans:2,
+     ex:'الكلمة التي تلي إنَّ مباشرةً هي اسمها وتكون منصوبة.'}
   ],
-  2: [
-    {
-      type: 'mcq',
-      text: 'ما حرف الناسخ الذي يفيد التشبيه؟',
-      options: ['إنَّ','ليتَ','كأنَّ','لكنَّ'],
-      answer: 2,
-      explain: '"كأنَّ" تفيد التشبيه، مثل: كأنَّ القمرَ لؤلؤةٌ.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب الكلمة في: لعلَّ <span class="highlight">الفوزَ</span> قريبٌ',
-      answer: { harr: 'لعلَّ', ism: 'الفوزَ', khabr: 'قريبٌ', iraab: 'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل: أنَّ ________ (العلمُ / العلمَ) نور. (الجواب الصحيح)',
-      blanks: ['العلمَ'],
-      hints: ['اسم أنَّ منصوب'],
-      sentence: ['أنَّ ', ' نور.']
-    },
-    {
-      type: 'mcq',
-      text: 'حرف ناسخ يفيد الاستدراك؟',
-      options: ['إنَّ','لكنَّ','ليتَ','لعلَّ'],
-      answer: 1,
-      explain: '"لكنَّ" تفيد الاستدراك، مثل: الطالبُ مجتهدٌ، لكنَّه مريضٌ.'
-    }
+  2:[
+    {t:'mcq',q:'ما حرف الناسخ الذي يفيد التشبيه؟',
+     opts:['إنَّ','ليتَ','كأنَّ','لكنَّ'],ans:2,
+     ex:'"كأنَّ" تفيد التشبيه، مثل: كأنَّ القمرَ لؤلؤةٌ.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">الفوزَ</span> قريبٌ',
+     h:'لعلَّ',i:'الفوزَ',k:'قريبٌ',ir:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: أنَّ ___ نور. (العلمُ / العلمَ)',
+     s:['أنَّ ',' نور.'],b:['العلمَ'],hint:'اسم أنَّ منصوب'},
+    {t:'mcq',q:'حرف ناسخ يفيد الاستدراك؟',
+     opts:['إنَّ','لكنَّ','ليتَ','لعلَّ'],ans:1,
+     ex:'"لكنَّ" تفيد الاستدراك.'}
   ],
-  3: [
-    {
-      type: 'mcq',
-      text: 'ما إعراب خبر إنَّ في الجملة: إنَّ الجوَّ حارٌّ؟',
-      options: ['منصوب','مجرور','مرفوع','مبني'],
-      answer: 2,
-      explain: 'خبر إنَّ وأخواتها دائماً مرفوع.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب: كأنَّ <span class="highlight">السماءَ</span> بساطٌ',
-      answer: { harr: 'كأنَّ', ism: 'السماءَ', khabr: 'بساطٌ', iraab: 'اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل الفراغ: إنَّ الأمانةَ ________ (خُلُقٌ / خُلُقاً)',
-      blanks: ['خُلُقٌ'],
-      hints: ['خبر إنَّ مرفوع'],
-      sentence: ['إنَّ الأمانةَ ', '.']
-    },
-    {
-      type: 'mcq',
-      text: 'في جملة: ليتَ الشبابَ يعودُ — ما اسم ليتَ؟',
-      options: ['يعودُ','الشبابَ','ليتَ','يعود'],
-      answer: 1,
-      explain: '"الشبابَ" اسم ليتَ لأنه جاء بعدها مباشرة وهو منصوب.'
-    }
+  3:[
+    {t:'mcq',q:'ما إعراب خبر إنَّ في: إنَّ الجوَّ حارٌّ؟',
+     opts:['منصوب','مجرور','مرفوع','مبني'],ans:2,
+     ex:'خبر إنَّ وأخواتها دائماً مرفوع.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: كأنَّ <span class="hl">السماءَ</span> بساطٌ',
+     h:'كأنَّ',i:'السماءَ',k:'بساطٌ',ir:'اسم كأنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: إنَّ الأمانةَ ___ (خُلُقٌ / خُلُقاً)',
+     s:['إنَّ الأمانةَ ','.'],b:['خُلُقٌ'],hint:'خبر إنَّ مرفوع'},
+    {t:'mcq',q:'في جملة: ليتَ الشبابَ يعودُ — ما اسم ليتَ؟',
+     opts:['يعودُ','الشبابَ','ليتَ','يعود'],ans:1,
+     ex:'"الشبابَ" اسم ليتَ لأنه جاء بعدها مباشرةً وهو منصوب.'}
   ],
-  4: [
-    {
-      type: 'mcq',
-      text: 'أيّ الكلمات تُعرب خبر إنَّ؟',
-      options: ['إنَّ العلمَ نافعٌ — نافعٌ','إنَّ العلمَ نافعٌ — العلمَ','إنَّ العلمَ نافعٌ — إنَّ','إنَّ العلمَ نافعٌ — نافعاً'],
-      answer: 0,
-      explain: '"نافعٌ" هو خبر إنَّ لأنه مرفوع وجاء في آخر الجملة.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب: لكنَّ <span class="highlight">اللاعبَ</span> ماهرٌ',
-      answer: { harr: 'لكنَّ', ism: 'اللاعبَ', khabr: 'ماهرٌ', iraab: 'اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل: لعلَّ ________ (الطبيبُ / الطبيبَ) يأتي غداً.',
-      blanks: ['الطبيبَ'],
-      hints: ['اسم لعلَّ منصوب'],
-      sentence: ['لعلَّ ', ' يأتي غداً.']
-    },
-    {
-      type: 'mcq',
-      text: 'ما معنى حرف "ليتَ"؟',
-      options: ['التوكيد','التشبيه','التمني','الترجي'],
-      answer: 2,
-      explain: '"ليتَ" حرف ناسخ يفيد التمني لأمر مستحيل أو بعيد.'
-    }
+  4:[
+    {t:'mcq',q:'أيّ الكلمات تُعرب خبر إنَّ في: إنَّ العلمَ نافعٌ؟',
+     opts:['نافعٌ','العلمَ','إنَّ','نافعاً'],ans:0,
+     ex:'"نافعٌ" هو خبر إنَّ لأنه مرفوع.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: لكنَّ <span class="hl">اللاعبَ</span> ماهرٌ',
+     h:'لكنَّ',i:'اللاعبَ',k:'ماهرٌ',ir:'اسم لكنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: لعلَّ ___ يأتي غداً. (الطبيبُ / الطبيبَ)',
+     s:['لعلَّ ',' يأتي غداً.'],b:['الطبيبَ'],hint:'اسم لعلَّ منصوب'},
+    {t:'mcq',q:'ما معنى حرف "ليتَ"؟',
+     opts:['التوكيد','التشبيه','التمني','الترجي'],ans:2,
+     ex:'"ليتَ" حرف ناسخ يفيد التمني.'}
   ],
-  5: [
-    {
-      type: 'mcq',
-      text: 'صوّب الخطأ: "ليتَ الجوُّ باردٌ"',
-      options: ['الجملة صحيحة','الصواب: ليتَ الجوَّ باردٌ','الصواب: ليتَ الجوَّ بارداً','الصواب: ليتَ الجوّاً باردٌ'],
-      answer: 1,
-      explain: 'اسم ليتَ منصوب، والصواب "الجوَّ" بالفتحة.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب: إنَّ <span class="highlight">الصدقَ</span> منجاةٌ',
-      answer: { harr: 'إنَّ', ism: 'الصدقَ', khabr: 'منجاةٌ', iraab: 'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل: كأنَّ النجومَ ________ (لؤلؤٌ / لؤلؤاً)',
-      blanks: ['لؤلؤٌ'],
-      hints: ['خبر كأنَّ مرفوع'],
-      sentence: ['كأنَّ النجومَ ', '.']
-    },
-    {
-      type: 'mcq',
-      text: 'ما الفرق بين إنَّ وأخواتها وكان وأخواتها؟',
-      options: ['إنَّ وأخواتها أفعال، وكان أحرف','إنَّ وأخواتها أحرف ناسخة، وكان وأخواتها أفعال ناسخة','لا فرق بينهما','كلاهما أحرف ناسخة'],
-      answer: 1,
-      explain: 'إنَّ وأخواتها حروف ناسخة، بينما كان وأخواتها أفعال ناسخة.'
-    }
+  5:[
+    {t:'mcq',q:'صوّب الخطأ في: "ليتَ الجوُّ باردٌ"',
+     opts:['الجملة صحيحة','الصواب: ليتَ الجوَّ باردٌ','الصواب: ليتَ الجوَّ بارداً','لا خطأ'],ans:1,
+     ex:'اسم ليتَ منصوب، والصواب "الجوَّ" بالفتحة.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الصدقَ</span> منجاةٌ',
+     h:'إنَّ',i:'الصدقَ',k:'منجاةٌ',ir:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: كأنَّ النجومَ ___ (لؤلؤٌ / لؤلؤاً)',
+     s:['كأنَّ النجومَ ','.'],b:['لؤلؤٌ'],hint:'خبر كأنَّ مرفوع'},
+    {t:'mcq',q:'ما الفرق بين إنَّ وأخواتها وكان وأخواتها؟',
+     opts:['كلاهما أفعال','إنَّ أحرف وكان أفعال ناسخة','كلاهما أحرف','لا فرق'],ans:1,
+     ex:'إنَّ وأخواتها حروف ناسخة، وكان وأخواتها أفعال ناسخة.'}
   ],
-  6: [
-    {
-      type: 'mcq',
-      text: 'أدخل "أنَّ" على الجملة: (الفائزُ سعيدٌ) — ما الشكل الصحيح؟',
-      options: ['أنَّ الفائزُ سعيدٌ','أنَّ الفائزَ سعيدٌ','أنَّ الفائزاً سعيداً','أنَّ الفائزِ سعيدٍ'],
-      answer: 1,
-      explain: 'أنَّ تنصب المبتدأ فيصبح "الفائزَ" اسم أنَّ منصوباً.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب: لعلَّ <span class="highlight">المطرَ</span> قادمٌ',
-      answer: { harr: 'لعلَّ', ism: 'المطرَ', khabr: 'قادمٌ', iraab: 'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل: إنَّ العاملَ ________ (مُكرَّمٌ / مُكرَّماً)',
-      blanks: ['مُكرَّمٌ'],
-      hints: ['خبر إنَّ مرفوع'],
-      sentence: ['إنَّ العاملَ ', '.']
-    },
-    {
-      type: 'mcq',
-      text: 'ما معنى "لعلَّ"؟',
-      options: ['التوكيد','التمني','التشبيه','الترجي والتوقع'],
-      answer: 3,
-      explain: '"لعلَّ" تفيد الترجي والتوقع لأمر محتمل الحدوث.'
-    }
+  6:[
+    {t:'mcq',q:'أدخل "أنَّ" على: (الفائزُ سعيدٌ) — ما الشكل الصحيح؟',
+     opts:['أنَّ الفائزُ سعيدٌ','أنَّ الفائزَ سعيدٌ','أنَّ الفائزاً سعيداً','أنَّ الفائزِ سعيدٍ'],ans:1,
+     ex:'أنَّ تنصب المبتدأ فيصبح "الفائزَ" اسم أنَّ منصوباً.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: لعلَّ <span class="hl">المطرَ</span> قادمٌ',
+     h:'لعلَّ',i:'المطرَ',k:'قادمٌ',ir:'اسم لعلَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: إنَّ العاملَ ___ (مُكرَّمٌ / مُكرَّماً)',
+     s:['إنَّ العاملَ ','.'],b:['مُكرَّمٌ'],hint:'خبر إنَّ مرفوع'},
+    {t:'mcq',q:'ما معنى "لعلَّ"؟',
+     opts:['التوكيد','التمني','التشبيه','الترجي والتوقع'],ans:3,
+     ex:'"لعلَّ" تفيد الترجي والتوقع.'}
   ],
-  7: [
-    {
-      type: 'mcq',
-      text: 'كم عدد أخوات إنَّ؟',
-      options: ['4','5','6','7'],
-      answer: 1,
-      explain: 'إنَّ وأخواتها ستة أحرف: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ.'
-    },
-    {
-      type: 'iraab',
-      text: 'أعرب: إنَّ <span class="highlight">الوطنَ</span> غالٍ',
-      answer: { harr: 'إنَّ', ism: 'الوطنَ', khabr: 'غالٍ', iraab: 'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.' }
-    },
-    {
-      type: 'fill',
-      text: 'أكمل: لكنَّ الطالبَ ________ (مريضٌ / مريضاً)',
-      blanks: ['مريضٌ'],
-      hints: ['خبر لكنَّ مرفوع'],
-      sentence: ['لكنَّ الطالبَ ', '.']
-    },
-    {
-      type: 'mcq',
-      text: 'أيّ الجمل فيها خطأ؟',
-      options: ['إنَّ الحقَّ منتصرٌ','كأنَّ البحرَ مرآةٌ','ليتَ الفرحُ دائمٌ','لعلَّ النجاحَ قريبٌ'],
-      answer: 2,
-      explain: 'الخطأ في "ليتَ الفرحُ" — الصواب "ليتَ الفرحَ" لأن اسم ليتَ منصوب.'
-    }
+  7:[
+    {t:'mcq',q:'كم عدد أحرف إنَّ وأخواتها؟',
+     opts:['4','5','6','7'],ans:2,
+     ex:'إنَّ وأخواتها ستة: إنَّ، أنَّ، كأنَّ، لكنَّ، ليتَ، لعلَّ.'},
+    {t:'iraab',q:'أعرب الكلمة الملوّنة: إنَّ <span class="hl">الوطنَ</span> غالٍ',
+     h:'إنَّ',i:'الوطنَ',k:'غالٍ',ir:'اسم إنَّ، منصوب، وعلامة نصبه الفتحة الظاهرة على آخره.'},
+    {t:'fill',q:'أكمل: لكنَّ الطالبَ ___ (مريضٌ / مريضاً)',
+     s:['لكنَّ الطالبَ ','.'],b:['مريضٌ'],hint:'خبر لكنَّ مرفوع'},
+    {t:'mcq',q:'أيّ الجمل فيها خطأ نحوي؟',
+     opts:['إنَّ الحقَّ منتصرٌ','كأنَّ البحرَ مرآةٌ','ليتَ الفرحُ دائمٌ','لعلَّ النجاحَ قريبٌ'],ans:2,
+     ex:'الخطأ في "ليتَ الفرحُ" — الصواب "ليتَ الفرحَ" لأن اسم ليتَ منصوب.'}
   ]
 };
 
-// ============================================================
-// STATE
-// ============================================================
-let leaderNames = [];
-let groups = [];
-let numGroups = 7;
-let scores = {};
+var numG = 7;
+var leaders = [];
+var remaining = [];
+var scores = {};
+var spinning = false;
 
-// ============================================================
-// INIT
-// ============================================================
-function buildLeaderInputs() {
-  const n = parseInt(document.getElementById('numGroups').value) || 7;
-  const grid = document.getElementById('leadersGrid');
+function buildLeaders() {
+  numG = parseInt(document.getElementById('numGrp').value) || 7;
+  if (numG > 7) { numG = 7; document.getElementById('numGrp').value = 7; }
+  if (numG < 3) { numG = 3; document.getElementById('numGrp').value = 3; }
+  var grid = document.getElementById('leadersGrid');
   grid.innerHTML = '';
-  for (let i = 1; i <= n; i++) {
-    const color = GROUP_BG_COLORS[(i-1) % GROUP_BG_COLORS.length];
-    const card = document.createElement('div');
-    card.className = 'leader-card';
-    card.innerHTML = `
-      <span class="leader-label" style="background:${color}">${GROUP_ICONS[(i-1)%GROUP_ICONS.length]} مجموعة ${i}</span>
-      <input type="text" class="leader-input" id="leader-${i}" placeholder="اسم الرئيس" dir="rtl">`;
-    grid.appendChild(card);
+  for (var i = 1; i <= numG; i++) {
+    var div = document.createElement('div');
+    div.className = 'leader-card';
+    div.innerHTML =
+      '<span class="leader-lbl" style="background:' + COLORS[i-1] + '">' + ICONS[i-1] + ' مجموعة ' + i + '</span>' +
+      '<input type="text" class="leader-inp" id="ldr' + i + '" placeholder="اسم الرئيس" dir="rtl">';
+    grid.appendChild(div);
   }
 }
-buildLeaderInputs();
-
-// ============================================================
-// START ACTIVITY
-// ============================================================
-function startActivity() {
-  numGroups = parseInt(document.getElementById('numGroups').value) || 7;
-  if (numGroups > 7) numGroups = 7;
-
-  // gather leader names
-  leaderNames = [];
-  for (let i = 1; i <= numGroups; i++) {
-    const inp = document.getElementById(`leader-${i}`);
-    leaderNames.push(inp ? inp.value.trim() || `رئيس المجموعة ${i}` : `رئيس المجموعة ${i}`);
-  }
-
-  const overlay = document.getElementById('spinningOverlay');
-  overlay.classList.add('show');
-
-  setTimeout(() => {
-    setupGroups();
-    overlay.classList.remove('show');
-    buildGroupsUI();
-    buildQuestionsUI();
-    showScreen('screen-groups');
-  }, 1800);
-}
-
-function setupGroups() {
-  groups = leaderNames.map(name => [{ name }]);
-  scores = {};
-  for (let g = 1; g <= numGroups; g++) scores[g] = 0;
-}
-
-// ============================================================
-// BUILD GROUPS UI
-// ============================================================
-function buildGroupsUI() {
-  const container = document.getElementById('groupsContainer');
-  container.innerHTML = '';
-  groups.forEach((members, gi) => {
-    const g = gi + 1;
-    const card = document.createElement('div');
-    card.className = `group-card ${GROUP_COLORS[gi % GROUP_COLORS.length]}`;
-    card.style.animationDelay = (gi * 0.1) + 's';
-    const color = GROUP_BG_COLORS[gi % GROUP_BG_COLORS.length];
-    card.innerHTML = `
-      <h4 style="color:${color}">${GROUP_ICONS[gi % GROUP_ICONS.length]} ${GROUP_NAMES_AR[gi % GROUP_NAMES_AR.length]}</h4>
-      <ul>
-        <li>
-          <span class="student-num" style="background:${color}">👑</span>
-          <b>${members[0].name}</b>
-        </li>
-      </ul>`;
-    container.appendChild(card);
-  });
-}
-
-// ============================================================
-// BUILD QUESTIONS UI — pre-render all, show on pick
-// ============================================================
-function buildQuestionsUI() {
-  // pre-build question HTML for each group, store in memory
-  groupQHTML = {};
-  for (let g = 1; g <= numGroups; g++) {
-    const color = GROUP_BG_COLORS[(g-1) % GROUP_BG_COLORS.length];
-    const qs = questions[g] || questions[1];
-    let html = `
-      <div class="q-section-header" style="background:linear-gradient(135deg,${color},${color}cc);border-radius:14px;padding:16px 20px;margin-bottom:18px;display:flex;align-items:center;gap:14px;color:white;">
-        <div style="font-size:2.4rem;line-height:1">${GROUP_ICONS[(g-1)%GROUP_ICONS.length]}</div>
-        <div>
-          <div style="font-size:1.2rem;font-weight:900;margin-bottom:2px">${GROUP_NAMES_AR[(g-1)%GROUP_NAMES_AR.length]}</div>
-          <div style="font-size:0.88rem;opacity:0.9">👑 الرئيس: ${groups[g-1][0].name}</div>
-        </div>
-      </div>
-      <div class="score-section" id="score-${g}">
-        <div class="score-num" id="score-num-${g}">0</div>
-        <div class="score-label">نقاط المجموعة من 4</div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-${g}" style="width:0%"></div></div>
-      </div>`;
-    qs.forEach((q, qi) => {
-      html += `<div class="question-card" style="border-right-color:${color}">`;
-      html += buildQuestion(q, g, qi, color);
-      html += `</div>`;
-    });
-    groupQHTML[g] = html;
-  }
-  // init picker UI
-  remainingGroups = Array.from({length: numGroups}, (_, i) => i+1);
-  renderPills();
-}
-
-// ============================================================
-// RANDOM PICKER
-// ============================================================
-let remainingGroups = [];
-let currentGroup = null;
-let groupQHTML = {};
-let isSpinning = false;
-
-function renderPills() {
-  const container = document.getElementById('groupPills');
-  container.innerHTML = '';
-  for (let g = 1; g <= numGroups; g++) {
-    const color = GROUP_BG_COLORS[(g-1) % GROUP_BG_COLORS.length];
-    const done = !remainingGroups.includes(g);
-    const pill = document.createElement('span');
-    pill.style.cssText = `
-      display:inline-flex;align-items:center;gap:5px;
-      padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:700;
-      background:${done ? '#ecf0f1' : color};
-      color:${done ? '#aaa' : 'white'};
-      text-decoration:${done ? 'line-through' : 'none'};
-      transition:all 0.3s;
-    `;
-    pill.innerHTML = `${done ? '✅' : GROUP_ICONS[(g-1)%GROUP_ICONS.length]} ${groups[g-1][0].name}`;
-    container.appendChild(pill);
-  }
-  // update wheel state
-  const wheel = document.getElementById('pickerWheel');
-  const icon  = document.getElementById('wheelIcon');
-  if (remainingGroups.length === 0) {
-    document.getElementById('allDoneMsg').style.display = 'block';
-    wheel.style.opacity = '0.4';
-    wheel.style.cursor  = 'default';
-    icon.textContent = '🏁';
-  } else {
-    document.getElementById('allDoneMsg').style.display = 'none';
-    wheel.style.opacity = '1';
-    wheel.style.cursor  = 'pointer';
-    icon.textContent = '🎲';
-  }
-}
-
-function pickRandomGroup() {
-  if (isSpinning || remainingGroups.length === 0) return;
-  isSpinning = true;
-
-  // Hide active section while spinning
-  document.getElementById('activeQSection').style.display = 'none';
-  document.getElementById('resultBanner').style.display = 'none';
-
-  const wheel = document.getElementById('pickerWheel');
-  const icon  = document.getElementById('wheelIcon');
-
-  // Spin animation — cycle through remaining groups rapidly
-  let ticks = 0;
-  const totalTicks = 18 + Math.floor(Math.random() * 10);
-  const spinIcons = remainingGroups.map(g => GROUP_ICONS[(g-1)%GROUP_ICONS.length]);
-  let si = 0;
-
-  wheel.style.transform = 'rotate(0deg)';
-  wheel.style.transition = 'transform 0.05s linear';
-
-  const interval = setInterval(() => {
-    ticks++;
-    si = (si + 1) % spinIcons.length;
-    icon.textContent = spinIcons[si];
-    wheel.style.transform = `rotate(${ticks * 20}deg)`;
-
-    if (ticks >= totalTicks) {
-      clearInterval(interval);
-      wheel.style.transition = 'transform 0.4s ease';
-      wheel.style.transform = `rotate(${ticks * 20 + 180}deg)`;
-
-      // Pick final group
-      const idx = Math.floor(Math.random() * remainingGroups.length);
-      currentGroup = remainingGroups[idx];
-      remainingGroups.splice(idx, 1);
-
-      setTimeout(() => {
-        showPickedGroup(currentGroup);
-        isSpinning = false;
-      }, 400);
-    }
-  }, 90);
-}
-
-function showPickedGroup(g) {
-  const color = GROUP_BG_COLORS[(g-1) % GROUP_BG_COLORS.length];
-  const icon  = document.getElementById('wheelIcon');
-  icon.textContent = GROUP_ICONS[(g-1)%GROUP_ICONS.length];
-
-  // Show result banner
-  const banner = document.getElementById('resultBanner');
-  const card   = document.getElementById('resultCard');
-  card.style.background = `linear-gradient(135deg,${color},${color}bb)`;
-  card.innerHTML = `${GROUP_ICONS[(g-1)%GROUP_ICONS.length]} ${GROUP_NAMES_AR[(g-1)%GROUP_NAMES_AR.length]} — ${groups[g-1][0].name}`;
-  banner.style.display = 'block';
-
-  // Update pills
-  renderPills();
-
-  // Show questions
-  const sec = document.getElementById('activeQSection');
-  document.getElementById('activeQContent').innerHTML = groupQHTML[g];
-  sec.style.display = 'block';
-
-  // Scroll to questions
-  setTimeout(() => sec.scrollIntoView({behavior:'smooth', block:'start'}), 200);
-}
-
-function returnToPicker() {
-  document.getElementById('activeQSection').style.display = 'none';
-  document.getElementById('resultBanner').style.display = 'none';
-  const wheel = document.getElementById('pickerWheel');
-  wheel.style.transform = 'rotate(0deg)';
-  const icon = document.getElementById('wheelIcon');
-  icon.textContent = remainingGroups.length > 0 ? '🎲' : '🏁';
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-// ============================================================
-// INTERACTIONS
-// ============================================================
-function checkMCQ(g, qi, chosen, correct) {
-  const opts = document.querySelectorAll(`#opts-${g}-${qi} .option-btn`);
-  opts.forEach(btn => btn.style.pointerEvents = 'none');
-  opts[chosen].classList.add(chosen === correct ? 'correct' : 'wrong');
-  if (chosen !== correct) opts[correct].classList.add('correct');
-  const fb = document.getElementById(`fb-${g}-${qi}`);
-  const q = (questions[g] || questions[1])[qi];
-  if (chosen === correct) {
-    fb.textContent = '✅ إجابة صحيحة! ' + q.explain;
-    fb.className = 'feedback-text show ok';
-    addScore(g, 1);
-  } else {
-    fb.textContent = '❌ إجابة خاطئة. ' + q.explain;
-    fb.className = 'feedback-text show err';
-  }
-}
-
-function checkFill(g, qi, blanks, hints) {
-  let allCorrect = true;
-  blanks.forEach((ans, bi) => {
-    const inp = document.getElementById(`fill-${g}-${qi}-${bi}`);
-    if (!inp) return;
-    const val = inp.value.trim();
-    if (val === ans) { inp.classList.add('correct'); inp.classList.remove('wrong'); }
-    else { inp.classList.add('wrong'); inp.classList.remove('correct'); allCorrect = false; }
-  });
-  const fb = document.getElementById(`fb-fill-${g}-${qi}`);
-  if (allCorrect) {
-    fb.textContent = '✅ ممتاز! الإجابة صحيحة.';
-    fb.className = 'feedback-text show ok';
-    addScore(g, 1);
-  } else {
-    fb.textContent = `❌ راجع الإجابة. تلميح: ${hints[0]}`;
-    fb.className = 'feedback-text show err';
-  }
-}
-
-function toggleAnswer(id, btn) {
-  const el = document.getElementById(id);
-  el.classList.toggle('show');
-  btn.textContent = el.classList.contains('show') ? '🙈 إخفاء الإجابة' : '👁️ اعرض الإجابة النموذجية';
-}
-
-function addScore(g, pts) {
-  scores[g] = (scores[g] || 0) + pts;
-  const numEl = document.getElementById(`score-num-${g}`);
-  const barEl = document.getElementById(`progress-${g}`);
-  if (numEl) numEl.textContent = scores[g];
-  if (barEl) barEl.style.width = (scores[g] / 4 * 100) + '%';
-}
+buildLeaders();
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  var ids = ['s1','s2','s3'];
+  for (var k = 0; k < ids.length; k++) {
+    var el = document.getElementById(ids[k]);
+    if (ids[k] === id) {
+      el.style.display = 'block';
+      el.className = 'screen active';
+    } else {
+      el.style.display = 'none';
+      el.className = 'screen';
+    }
+  }
 }
 
-// init
+function goToGroups() {
+  numG = parseInt(document.getElementById('numGrp').value) || 7;
+  leaders = [];
+  for (var i = 1; i <= numG; i++) {
+    var inp = document.getElementById('ldr' + i);
+    leaders.push(inp && inp.value.trim() ? inp.value.trim() : 'رئيس ' + i);
+  }
+  var grid = document.getElementById('groupsGrid');
+  grid.innerHTML = '';
+  for (var g = 1; g <= numG; g++) {
+    var div = document.createElement('div');
+    div.className = 'gcard';
+    div.style.background = GCARDS[g-1];
+    div.style.border = '2px solid ' + COLORS[g-1];
+    div.innerHTML =
+      '<h4 style="color:' + COLORS[g-1] + '">' + ICONS[g-1] + ' ' + GNAMES[g-1] + '</h4>' +
+      '<div class="lname">👑 ' + leaders[g-1] + '</div>';
+    grid.appendChild(div);
+  }
+  showScreen('s2');
+}
+
+function goToPicker() {
+  remaining = [];
+  scores = {};
+  for (var g = 1; g <= numG; g++) { remaining.push(g); scores[g] = 0; }
+  document.getElementById('resultBanner').style.display = 'none';
+  document.getElementById('allDone').style.display = 'none';
+  document.getElementById('qArea').style.display = 'none';
+  document.getElementById('spinIcon').textContent = '🎲';
+  document.getElementById('spinBtn').disabled = false;
+  renderPills();
+  showScreen('s3');
+}
+
+function renderPills() {
+  var row = document.getElementById('pillsRow');
+  row.innerHTML = '';
+  for (var g = 1; g <= numG; g++) {
+    var span = document.createElement('span');
+    var done = remaining.indexOf(g) === -1;
+    span.className = done ? 'pill done' : 'pill';
+    if (!done) span.style.background = COLORS[g-1];
+    span.textContent = (done ? '✅ ' : ICONS[g-1] + ' ') + leaders[g-1];
+    row.appendChild(span);
+  }
+  if (remaining.length === 0) {
+    document.getElementById('allDone').style.display = 'block';
+    document.getElementById('spinBtn').disabled = true;
+    document.getElementById('spinIcon').textContent = '🏁';
+  }
+}
+
+function pickGroup() {
+  if (spinning || remaining.length === 0) return;
+  spinning = true;
+  var btn = document.getElementById('spinBtn');
+  var icon = document.getElementById('spinIcon');
+  btn.disabled = true;
+  document.getElementById('resultBanner').style.display = 'none';
+  document.getElementById('qArea').style.display = 'none';
+
+  var ticks = 0;
+  var total = 16 + Math.floor(Math.random() * 10);
+  var ri = 0;
+
+  var timer = setInterval(function() {
+    ticks++;
+    icon.textContent = ICONS[remaining[ri % remaining.length] - 1];
+    ri++;
+    if (ticks >= total) {
+      clearInterval(timer);
+      var idx = Math.floor(Math.random() * remaining.length);
+      var picked = remaining[idx];
+      remaining.splice(idx, 1);
+      setTimeout(function() {
+        spinning = false;
+        btn.disabled = false;
+        showPicked(picked);
+      }, 300);
+    }
+  }, 100);
+}
+
+function showPicked(g) {
+  document.getElementById('spinIcon').textContent = ICONS[g-1];
+  var rc = document.getElementById('resultCard');
+  rc.style.background = 'linear-gradient(135deg,' + COLORS[g-1] + ',' + COLORS[g-1] + 'aa)';
+  rc.textContent = ICONS[g-1] + ' ' + GNAMES[g-1] + ' — ' + leaders[g-1];
+  document.getElementById('resultBanner').style.display = 'block';
+  renderPills();
+  buildQSection(g);
+  setTimeout(function() {
+    document.getElementById('qArea').scrollIntoView({behavior:'smooth', block:'start'});
+  }, 250);
+}
+
+function buildQSection(g) {
+  var color = COLORS[g-1];
+  var qs = QS[g] || QS[1];
+  var L = ['أ','ب','ج','د'];
+  var html = '';
+
+  html += '<div class="q-header" style="background:linear-gradient(135deg,' + color + ',' + color + 'aa)">' +
+    '<div class="qh-icon">' + ICONS[g-1] + '</div>' +
+    '<div><h3>' + GNAMES[g-1] + '</h3><p>👑 الرئيس: ' + leaders[g-1] + '</p></div></div>';
+
+  html += '<div class="score-card"><div class="score-num" id="sc' + g + '">0</div>' +
+    '<div class="score-lbl">نقاط المجموعة من 4</div>' +
+    '<div class="prog-bar"><div class="prog-fill" id="pf' + g + '" style="width:0%"></div></div></div>';
+
+  for (var qi = 0; qi < qs.length; qi++) {
+    var q = qs[qi];
+    html += '<div class="qcard" style="border-right-color:' + color + '">';
+    html += '<div class="qcard-top"><span class="qcard-num" style="background:' + color + '">' + (qi+1) +
+            '</span><div class="qcard-text">' + q.q + '</div></div>';
+
+    if (q.t === 'mcq') {
+      html += '<div class="options" id="O' + g + '_' + qi + '">';
+      for (var oi = 0; oi < q.opts.length; oi++) {
+        html += '<button class="opt-btn" onclick="chkMCQ(' + g + ',' + qi + ',' + oi + ',' + q.ans + ')">' +
+                '<span class="opt-letter">' + L[oi] + '</span>' + q.opts[oi] + '</button>';
+      }
+      html += '</div><div class="fb" id="F' + g + '_' + qi + '"></div>';
+    }
+    else if (q.t === 'iraab') {
+      html += '<div class="ans-area"><button class="toggle-btn" style="color:' + color +
+              '" onclick="toggleAns(\'A' + g + '_' + qi + '\',this)">👁 اعرض الإجابة</button>' +
+              '<div class="ans-body" id="A' + g + '_' + qi + '">' +
+              '<div class="badges-row">' +
+              '<span class="a-badge ab-h">الحرف: ' + q.h + '</span>' +
+              '<span class="a-badge ab-i">الاسم: ' + q.i + '</span>' +
+              '<span class="a-badge ab-k">الخبر: ' + q.k + '</span></div>' +
+              '<div class="ab-ir">📝 ' + q.ir + '</div></div></div>';
+    }
+    else if (q.t === 'fill') {
+      html += '<div class="fill-row">';
+      for (var pi = 0; pi < q.s.length; pi++) {
+        html += '<span>' + q.s[pi] + '</span>';
+        if (pi < q.s.length - 1)
+          html += '<input class="fill-inp" type="text" id="I' + g + '_' + qi + '" placeholder="..." dir="rtl">';
+      }
+      html += '</div><button class="check-btn" onclick="chkFill(' + g + ',' + qi + ')">✅ تحقق</button>' +
+              '<div class="fb" id="FF' + g + '_' + qi + '"></div>';
+    }
+    html += '</div>';
+  }
+
+  document.getElementById('qContent').innerHTML = html;
+  document.getElementById('qArea').style.display = 'block';
+}
+
+function chkMCQ(g, qi, chosen, correct) {
+  var opts = document.querySelectorAll('#O' + g + '_' + qi + ' .opt-btn');
+  for (var i = 0; i < opts.length; i++) opts[i].setAttribute('disabled','true');
+  opts[chosen].classList.add(chosen === correct ? 'correct' : 'wrong');
+  if (chosen !== correct) opts[correct].classList.add('correct');
+  var fb = document.getElementById('F' + g + '_' + qi);
+  var q = (QS[g] || QS[1])[qi];
+  fb.textContent = (chosen === correct ? '✅ إجابة صحيحة! ' : '❌ إجابة خاطئة. ') + q.ex;
+  fb.className = 'fb ' + (chosen === correct ? 'ok' : 'err');
+  if (chosen === correct) addScore(g);
+}
+
+function chkFill(g, qi) {
+  var q = (QS[g] || QS[1])[qi];
+  var inp = document.getElementById('I' + g + '_' + qi);
+  var ok = inp && inp.value.trim() === q.b[0];
+  if (inp) inp.className = 'fill-inp ' + (ok ? 'correct' : 'wrong');
+  var fb = document.getElementById('FF' + g + '_' + qi);
+  fb.textContent = ok ? '✅ ممتاز! الإجابة صحيحة.' : '❌ راجع إجابتك. تلميح: ' + q.hint;
+  fb.className = 'fb ' + (ok ? 'ok' : 'err');
+  if (ok) addScore(g);
+}
+
+function toggleAns(id, btn) {
+  var el = document.getElementById(id);
+  if (el.classList.contains('show')) {
+    el.classList.remove('show');
+    btn.textContent = '👁 اعرض الإجابة';
+  } else {
+    el.classList.add('show');
+    btn.textContent = '🙈 إخفاء الإجابة';
+  }
+}
+
+function addScore(g) {
+  scores[g] = (scores[g] || 0) + 1;
+  var sn = document.getElementById('sc' + g);
+  var pf = document.getElementById('pf' + g);
+  if (sn) sn.textContent = scores[g];
+  if (pf) pf.style.width = (scores[g] / 4 * 100) + '%';
+}
+
+function backToPicker() {
+  document.getElementById('qArea').style.display = 'none';
+  document.getElementById('resultBanner').style.display = 'none';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
 </script>
 </body>
 </html>
